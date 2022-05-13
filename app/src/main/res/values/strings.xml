@@ -9,7 +9,9 @@
     <string name="title_ParkingApp">ParkingApp</string>
     <string name="busyPlaces">busy</string>
     <string name="freePlaces">free</string>
-
+    <string name="day">Martes 20</string>
+    <string name="month_and_year">Diciembre 1998</string>
+    <string name="hour_of_day">12:00 PM</string>
     <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="hello_second_fragment">Hello second fragment</string>
 </resources>

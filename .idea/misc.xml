@@ -3,11 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Tomas/Desktop/Globant/Proyecto_Globant/My_First_App/app/src/main/res/drawable/elipse_1.xml" value="0.2375" />
         <entry key="..\:/Users/Tomas/Desktop/Globant/Proyecto_Globant/My_First_App/app/src/main/res/drawable/progress_bar_content_main.xml" value="0.2375" />
         <entry key="..\:/Users/Tomas/Desktop/Globant/Proyecto_Globant/My_First_App/app/src/main/res/layout/activity_main.xml" value="0.4" />
-        <entry key="..\:/Users/Tomas/Desktop/Globant/Proyecto_Globant/My_First_App/app/src/main/res/layout/content_main.xml" value="0.264" />
+        <entry key="..\:/Users/Tomas/Desktop/Globant/Proyecto_Globant/My_First_App/app/src/main/res/layout/content_main.xml" value="0.4" />
         <entry key="..\:/Users/Tomas/Desktop/Globant/Proyecto_Globant/My_First_App/app/src/main/res/layout/fragment_first.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Tomas/Desktop/Globant/Proyecto_Globant/My_First_App/app/src/main/res/layout/fragment_second.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Tomas/Desktop/Globant/Proyecto_Globant/My_First_App/app/src/main/res/layout/main_recycle_view_item.xml" value="0.536" />
+        <entry key="..\:/Users/Tomas/Desktop/Globant/Proyecto_Globant/My_First_App/app/src/main/res/layout/main_recycle_view_item_free.xml" value="0.4" />
+        <entry key="..\:/Users/Tomas/Desktop/Globant/Proyecto_Globant/My_First_App/app/src/main/res/layout/main_recycle_view_item_with_content.xml" value="0.4" />
       </map>
     </option>
   </component>
