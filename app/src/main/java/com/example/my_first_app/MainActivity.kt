@@ -9,23 +9,37 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.viewbinding.ViewBinding
 import com.example.my_first_app.adapters.parking_lot_adapter
 import com.example.my_first_app.databinding.ActivityMainBinding
+import com.example.my_first_app.databinding.ContentMainBinding
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ContentMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ContentMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         initRecyclerView()
     }
 
     fun initRecyclerView(){
-        val recyclerView = findViewById<RecyclerView>(R.id.main_recycler_view)
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = parking_lot_adapter(parking_provider.spots)
+        binding.mainRecyclerView.layoutManager = LinearLayoutManager(this)
+        binding.mainRecyclerView.adapter = parking_lot_adapter(parking_provider.spots) { parkingSpot ->
+            onParkingSpotSelected(
+                parkingSpot
+            )
+        }
+    }
+
+    fun onParkingSpotSelected(parkingLots: parking_lots){
+        Toast.makeText(this,parkingLots.spot, Toast.LENGTH_SHORT).show()
     }
 }

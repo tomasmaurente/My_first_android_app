@@ -8,6 +8,10 @@
         "source": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-main-28:\\layout\\fragment_second.xml"
     },
     {
+        "merged": "com.example.my_first_app-mergeDebugResources-25:/layout/main_recycle_view_item_with_content.xml",
+        "source": "com.example.my_first_app-main-28:/layout/main_recycle_view_item_with_content.xml"
+    },
+    {
         "merged": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-mergeDebugResources-25:\\layout\\content_main.xml",
         "source": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-main-28:\\layout\\content_main.xml"
     },
