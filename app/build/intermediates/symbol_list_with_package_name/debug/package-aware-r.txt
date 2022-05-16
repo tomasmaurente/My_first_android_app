@@ -65,6 +65,10 @@ animator nav_default_enter_anim
 animator nav_default_exit_anim
 animator nav_default_pop_enter_anim
 animator nav_default_pop_exit_anim
+array com_google_android_gms_fonts_certs
+array com_google_android_gms_fonts_certs_dev
+array com_google_android_gms_fonts_certs_prod
+array preloaded_fonts
 attr action
 attr actionBarDivider
 attr actionBarItemBackground
@@ -1779,6 +1783,9 @@ drawable progress_bar_drawable
 drawable test_custom_background
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
+font alegreya_sans_sc_extrabold_italic
+font alegreya_sans_sc_thin
+font bevan
 id ALT
 id BOTTOM_END
 id BOTTOM_START
@@ -1873,11 +1880,13 @@ id blocking
 id bottom
 id bounce
 id busyPlaces
+id button
 id buttonPanel
 id button_first
 id button_second
 id cache_measures
 id cancel_button
+id card_lot_item
 id center
 id center_horizontal
 id center_vertical
@@ -1945,6 +1954,9 @@ id elipse_number
 id ellipse_1
 id end
 id endToStart
+id end_day
+id end_hour_of_day
+id end_month_and_year
 id enterAlways
 id enterAlwaysCollapsed
 id exitUntilCollapsed
@@ -2005,6 +2017,7 @@ id line3
 id linear
 id listMode
 id list_item
+id lot_item
 id main_recycler_view
 id masked
 id material_clock_display
@@ -2161,6 +2174,9 @@ id start
 id startHorizontal
 id startToEnd
 id startVertical
+id start_day
+id start_hour_of_day
+id start_month_and_year
 id staticLayout
 id staticPostLayout
 id stop
@@ -2324,6 +2340,7 @@ layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout fragment_first
 layout fragment_second
+layout lot_item_recycler_view
 layout main_recycle_view_item_free
 layout main_recycle_view_item_with_content
 layout material_chip_input_combo

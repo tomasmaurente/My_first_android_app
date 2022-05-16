@@ -1,21 +1,13 @@
 package com.example.my_first_app
 
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import android.view.Menu
-import android.view.MenuItem
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import androidx.viewbinding.ViewBinding
 import com.example.my_first_app.adapters.parking_lot_adapter
-import com.example.my_first_app.databinding.ActivityMainBinding
+import com.example.my_first_app.data_clases.parking_provider
 import com.example.my_first_app.databinding.ContentMainBinding
+import com.example.my_first_app.objects.parking_lot
 
 class MainActivity : AppCompatActivity() {
 
@@ -39,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun onParkingSpotSelected(parkingLots: parking_lots){
+    fun onParkingSpotSelected(parkingLots: parking_lot){
         Toast.makeText(this,parkingLots.spot, Toast.LENGTH_SHORT).show()
     }
 }

@@ -64,6 +64,10 @@ int animator nav_default_enter_anim 0x7f02001a
 int animator nav_default_exit_anim 0x7f02001b
 int animator nav_default_pop_enter_anim 0x7f02001c
 int animator nav_default_pop_exit_anim 0x7f02001d
+int array com_google_android_gms_fonts_certs 0x7f140000
+int array com_google_android_gms_fonts_certs_dev 0x7f140001
+int array com_google_android_gms_fonts_certs_prod 0x7f140002
+int array preloaded_fonts 0x7f140003
 int attr action 0x7f030000
 int attr actionBarDivider 0x7f030001
 int attr actionBarItemBackground 0x7f030002
@@ -1778,6 +1782,9 @@ int drawable progress_bar_drawable 0x7f070090
 int drawable test_custom_background 0x7f070091
 int drawable tooltip_frame_dark 0x7f070092
 int drawable tooltip_frame_light 0x7f070093
+int font alegreya_sans_sc_extrabold_italic 0x7f150000
+int font alegreya_sans_sc_thin 0x7f150001
+int font bevan 0x7f150002
 int id ALT 0x7f080000
 int id BOTTOM_END 0x7f080001
 int id BOTTOM_START 0x7f080002
@@ -1872,11 +1879,13 @@ int id blocking 0x7f08005a
 int id bottom 0x7f08005b
 int id bounce 0x7f08005c
 int id busyPlaces 0x7f08005d
+int id button 0x7f0801c9
 int id buttonPanel 0x7f08005e
 int id button_first 0x7f08005f
 int id button_second 0x7f080060
 int id cache_measures 0x7f080061
 int id cancel_button 0x7f080062
+int id card_lot_item 0x7f0801ca
 int id center 0x7f080063
 int id center_horizontal 0x7f080064
 int id center_vertical 0x7f080065
@@ -1944,6 +1953,9 @@ int id elipse_number 0x7f0800a2
 int id ellipse_1 0x7f0800a3
 int id end 0x7f0800a4
 int id endToStart 0x7f0800a5
+int id end_day 0x7f0801cb
+int id end_hour_of_day 0x7f0801cc
+int id end_month_and_year 0x7f0801cd
 int id enterAlways 0x7f0800a6
 int id enterAlwaysCollapsed 0x7f0800a7
 int id exitUntilCollapsed 0x7f0800a8
@@ -2004,6 +2016,7 @@ int id line3 0x7f0800de
 int id linear 0x7f0800df
 int id listMode 0x7f0800e0
 int id list_item 0x7f0800e1
+int id lot_item 0x7f0801ce
 int id main_recycler_view 0x7f0800e2
 int id masked 0x7f0800e3
 int id material_clock_display 0x7f0800e4
@@ -2160,6 +2173,9 @@ int id start 0x7f08017a
 int id startHorizontal 0x7f08017b
 int id startToEnd 0x7f08017c
 int id startVertical 0x7f08017d
+int id start_day 0x7f0801cf
+int id start_hour_of_day 0x7f0801d0
+int id start_month_and_year 0x7f0801d1
 int id staticLayout 0x7f08017e
 int id staticPostLayout 0x7f08017f
 int id stop 0x7f080180
@@ -2323,6 +2339,7 @@ int layout design_text_input_end_icon 0x7f0b002c
 int layout design_text_input_start_icon 0x7f0b002d
 int layout fragment_first 0x7f0b002e
 int layout fragment_second 0x7f0b002f
+int layout lot_item_recycler_view 0x7f0b0076
 int layout main_recycle_view_item_free 0x7f0b0030
 int layout main_recycle_view_item_with_content 0x7f0b0031
 int layout material_chip_input_combo 0x7f0b0032
