@@ -18,7 +18,7 @@
             android:layout_height="match_parent"
             android:fontFamily="@font/alegreya_sans_sc_extrabold_italic"
             android:gravity="center_vertical"
-            android:paddingLeft="10dp"
+            android:paddingStart="15dp"
             android:text="@string/title_ParkingApp"
             android:textColor="@color/white"
             android:textSize="40dp"

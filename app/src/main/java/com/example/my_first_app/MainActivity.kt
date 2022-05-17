@@ -1,8 +1,10 @@
 package com.example.my_first_app
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.my_first_app.adapters.parking_lot_adapter
 import com.example.my_first_app.data_clases.parking_provider
@@ -32,6 +34,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun onParkingSpotSelected(parkingLots: parking_lot){
-        Toast.makeText(this,parkingLots.spot, Toast.LENGTH_SHORT).show()
+        //Toast.makeText(this,parkingLots.spot, Toast.LENGTH_SHORT).show()
     }
 }

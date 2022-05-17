@@ -15,6 +15,7 @@ MERGED from [androidx.core:core-ktx:1.7.0] C:\Users\Tomas\.gradle\caches\transfo
 MERGED from [androidx.navigation:navigation-ui:2.3.5] C:\Users\Tomas\.gradle\caches\transforms-3\654ececda6a9720781b97640692abb01\transformed\navigation-ui-2.3.5\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.material:material:1.4.0] C:\Users\Tomas\.gradle\caches\transforms-3\1f9bea958a3aa2445fa1ee6f7e4ceb37\transformed\material-1.4.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\Tomas\.gradle\caches\transforms-3\a5cb9fd02f639e53432fb9755fcb7426\transformed\constraintlayout-2.0.4\AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.mediarouter:mediarouter:1.3.0] C:\Users\Tomas\.gradle\caches\transforms-3\e74a74ffa84ceed1af1069d2446cfd2f\transformed\mediarouter-1.3.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.appcompat:appcompat:1.3.0] C:\Users\Tomas\.gradle\caches\transforms-3\3ff25fbb0fe0ac403e36e6b3903119a9\transformed\appcompat-1.3.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\Tomas\.gradle\caches\transforms-3\1b0f8ee09bcf5c1dcb464e1604dcaa87\transformed\viewpager2-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.navigation:navigation-fragment:2.3.5] C:\Users\Tomas\.gradle\caches\transforms-3\c01812561f2544296ae7b8f260790b61\transformed\navigation-fragment-2.3.5\AndroidManifest.xml:17:1-24:12
@@ -26,10 +27,12 @@ MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\Tomas\
 MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\Tomas\.gradle\caches\transforms-3\c8666a6480665724f5d5539c8dc4d89f\transformed\dynamicanimation-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\Tomas\.gradle\caches\transforms-3\65c86e9a1ba708a69605497f759fe8de\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\Tomas\.gradle\caches\transforms-3\69b0920f672f9cb2e9fb13748769be70\transformed\vectordrawable-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\Tomas\.gradle\caches\transforms-3\69600a85a59369b9c6209ff1503f8e8d\transformed\recyclerview-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.palette:palette:1.0.0] C:\Users\Tomas\.gradle\caches\transforms-3\0871c5ba4df578a2cac1859933451289\transformed\palette-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media:media:1.4.1] C:\Users\Tomas\.gradle\caches\transforms-3\7a4aafed4b4fff2a33578e19f3ae0d18\transformed\media-1.4.1\AndroidManifest.xml:17:1-30:12
 MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\Tomas\.gradle\caches\transforms-3\ed60e4bcec9d548ca49c0e8cf701a592\transformed\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\Tomas\.gradle\caches\transforms-3\7f267100de64bd29b43f89620ca05ad4\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.loader:loader:1.0.0] C:\Users\Tomas\.gradle\caches\transforms-3\b34f70a94db6f855fc00e3aacf430508\transformed\loader-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\Tomas\.gradle\caches\transforms-3\69600a85a59369b9c6209ff1503f8e8d\transformed\recyclerview-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] C:\Users\Tomas\.gradle\caches\transforms-3\04544c4f8b1978785696ce054af7643c\transformed\drawerlayout-1.1.1\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.customview:customview:1.1.0] C:\Users\Tomas\.gradle\caches\transforms-3\72363bebac6842aa57152507025f38c5\transformed\customview-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.transition:transition:1.3.0] C:\Users\Tomas\.gradle\caches\transforms-3\b577c1a5e04b10b5b0be31d0762b2959\transformed\transition-1.3.0\AndroidManifest.xml:17:1-24:12
@@ -155,6 +158,8 @@ MERGED from [com.google.android.material:material:1.4.0] C:\Users\Tomas\.gradle\
 MERGED from [com.google.android.material:material:1.4.0] C:\Users\Tomas\.gradle\caches\transforms-3\1f9bea958a3aa2445fa1ee6f7e4ceb37\transformed\material-1.4.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\Tomas\.gradle\caches\transforms-3\a5cb9fd02f639e53432fb9755fcb7426\transformed\constraintlayout-2.0.4\AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\Tomas\.gradle\caches\transforms-3\a5cb9fd02f639e53432fb9755fcb7426\transformed\constraintlayout-2.0.4\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.mediarouter:mediarouter:1.3.0] C:\Users\Tomas\.gradle\caches\transforms-3\e74a74ffa84ceed1af1069d2446cfd2f\transformed\mediarouter-1.3.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.mediarouter:mediarouter:1.3.0] C:\Users\Tomas\.gradle\caches\transforms-3\e74a74ffa84ceed1af1069d2446cfd2f\transformed\mediarouter-1.3.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.appcompat:appcompat:1.3.0] C:\Users\Tomas\.gradle\caches\transforms-3\3ff25fbb0fe0ac403e36e6b3903119a9\transformed\appcompat-1.3.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.appcompat:appcompat:1.3.0] C:\Users\Tomas\.gradle\caches\transforms-3\3ff25fbb0fe0ac403e36e6b3903119a9\transformed\appcompat-1.3.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\Tomas\.gradle\caches\transforms-3\1b0f8ee09bcf5c1dcb464e1604dcaa87\transformed\viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
@@ -177,14 +182,18 @@ MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\Tom
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\Tomas\.gradle\caches\transforms-3\65c86e9a1ba708a69605497f759fe8de\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\Tomas\.gradle\caches\transforms-3\69b0920f672f9cb2e9fb13748769be70\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\Tomas\.gradle\caches\transforms-3\69b0920f672f9cb2e9fb13748769be70\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\Tomas\.gradle\caches\transforms-3\69600a85a59369b9c6209ff1503f8e8d\transformed\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\Tomas\.gradle\caches\transforms-3\69600a85a59369b9c6209ff1503f8e8d\transformed\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.palette:palette:1.0.0] C:\Users\Tomas\.gradle\caches\transforms-3\0871c5ba4df578a2cac1859933451289\transformed\palette-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.palette:palette:1.0.0] C:\Users\Tomas\.gradle\caches\transforms-3\0871c5ba4df578a2cac1859933451289\transformed\palette-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.media:media:1.4.1] C:\Users\Tomas\.gradle\caches\transforms-3\7a4aafed4b4fff2a33578e19f3ae0d18\transformed\media-1.4.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.media:media:1.4.1] C:\Users\Tomas\.gradle\caches\transforms-3\7a4aafed4b4fff2a33578e19f3ae0d18\transformed\media-1.4.1\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\Tomas\.gradle\caches\transforms-3\ed60e4bcec9d548ca49c0e8cf701a592\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\Tomas\.gradle\caches\transforms-3\ed60e4bcec9d548ca49c0e8cf701a592\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\Tomas\.gradle\caches\transforms-3\7f267100de64bd29b43f89620ca05ad4\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\Tomas\.gradle\caches\transforms-3\7f267100de64bd29b43f89620ca05ad4\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.loader:loader:1.0.0] C:\Users\Tomas\.gradle\caches\transforms-3\b34f70a94db6f855fc00e3aacf430508\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.loader:loader:1.0.0] C:\Users\Tomas\.gradle\caches\transforms-3\b34f70a94db6f855fc00e3aacf430508\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\Tomas\.gradle\caches\transforms-3\69600a85a59369b9c6209ff1503f8e8d\transformed\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\Tomas\.gradle\caches\transforms-3\69600a85a59369b9c6209ff1503f8e8d\transformed\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] C:\Users\Tomas\.gradle\caches\transforms-3\04544c4f8b1978785696ce054af7643c\transformed\drawerlayout-1.1.1\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] C:\Users\Tomas\.gradle\caches\transforms-3\04544c4f8b1978785696ce054af7643c\transformed\drawerlayout-1.1.1\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.customview:customview:1.1.0] C:\Users\Tomas\.gradle\caches\transforms-3\72363bebac6842aa57152507025f38c5\transformed\customview-1.1.0\AndroidManifest.xml:20:5-22:41
@@ -243,3 +252,11 @@ INJECTED from C:\Users\Tomas\Desktop\Globant\Proyecto_Globant\My_First_App\app\s
 		INJECTED from C:\Users\Tomas\Desktop\Globant\Proyecto_Globant\My_First_App\app\src\main\AndroidManifest.xml
 		ADDED from C:\Users\Tomas\Desktop\Globant\Proyecto_Globant\My_First_App\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\Tomas\Desktop\Globant\Proyecto_Globant\My_First_App\app\src\main\AndroidManifest.xml
+queries
+ADDED from [androidx.media:media:1.4.1] C:\Users\Tomas\.gradle\caches\transforms-3\7a4aafed4b4fff2a33578e19f3ae0d18\transformed\media-1.4.1\AndroidManifest.xml:24:5-28:15
+intent#action:name:android.media.browse.MediaBrowserService
+ADDED from [androidx.media:media:1.4.1] C:\Users\Tomas\.gradle\caches\transforms-3\7a4aafed4b4fff2a33578e19f3ae0d18\transformed\media-1.4.1\AndroidManifest.xml:25:9-27:18
+action#android.media.browse.MediaBrowserService
+ADDED from [androidx.media:media:1.4.1] C:\Users\Tomas\.gradle\caches\transforms-3\7a4aafed4b4fff2a33578e19f3ae0d18\transformed\media-1.4.1\AndroidManifest.xml:26:13-79
+	android:name
+		ADDED from [androidx.media:media:1.4.1] C:\Users\Tomas\.gradle\caches\transforms-3\7a4aafed4b4fff2a33578e19f3ae0d18\transformed\media-1.4.1\AndroidManifest.xml:26:21-76
