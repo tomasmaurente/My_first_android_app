@@ -1,34 +1,30 @@
 [
     {
-        "merged": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-mergeDebugResources-27:\\layout\\main_recycle_view_item_with_content.xml",
-        "source": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-main-30:\\layout\\main_recycle_view_item_with_content.xml"
+        "merged": "com.example.my_first_app-mergeDebugResources-27:/layout/lot_item_recycler_view.xml",
+        "source": "com.example.my_first_app-main-30:/layout/lot_item_recycler_view.xml"
     },
     {
-        "merged": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-mergeDebugResources-27:\\layout\\lot_item_recycler_view.xml",
-        "source": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-main-30:\\layout\\lot_item_recycler_view.xml"
+        "merged": "com.example.my_first_app-mergeDebugResources-27:/layout/content_main.xml",
+        "source": "com.example.my_first_app-main-30:/layout/content_main.xml"
     },
     {
-        "merged": "com.example.my_first_app-mergeDebugResources-27:/layout/fragment_lot.xml",
-        "source": "com.example.my_first_app-main-30:/layout/fragment_lot.xml"
+        "merged": "com.example.my_first_app-mergeDebugResources-27:/layout/fragment_parking_lots.xml",
+        "source": "com.example.my_first_app-main-30:/layout/fragment_parking_lots.xml"
     },
     {
-        "merged": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-mergeDebugResources-27:\\layout\\fragment_second.xml",
-        "source": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-main-30:\\layout\\fragment_second.xml"
+        "merged": "com.example.my_first_app-mergeDebugResources-27:/layout/main_recycle_view_item_free.xml",
+        "source": "com.example.my_first_app-main-30:/layout/main_recycle_view_item_free.xml"
     },
     {
-        "merged": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-mergeDebugResources-27:\\layout\\content_main.xml",
-        "source": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-main-30:\\layout\\content_main.xml"
+        "merged": "com.example.my_first_app-mergeDebugResources-27:/layout/activity_main.xml",
+        "source": "com.example.my_first_app-main-30:/layout/activity_main.xml"
     },
     {
-        "merged": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-mergeDebugResources-27:\\layout\\activity_main.xml",
-        "source": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-main-30:\\layout\\activity_main.xml"
+        "merged": "com.example.my_first_app-mergeDebugResources-27:/layout/main_recycle_view_item_with_content.xml",
+        "source": "com.example.my_first_app-main-30:/layout/main_recycle_view_item_with_content.xml"
     },
     {
-        "merged": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-mergeDebugResources-27:\\layout\\fragment_lot.xml",
-        "source": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-main-30:\\layout\\fragment_lot.xml"
-    },
-    {
-        "merged": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-mergeDebugResources-27:\\layout\\main_recycle_view_item_free.xml",
-        "source": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-main-30:\\layout\\main_recycle_view_item_free.xml"
+        "merged": "com.example.my_first_app-mergeDebugResources-27:/layout/fragment_reservations.xml",
+        "source": "com.example.my_first_app-main-30:/layout/fragment_reservations.xml"
     }
 ]

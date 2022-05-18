@@ -4,68 +4,25 @@ package com.example.my_first_app.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ProgressBar;
-import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
-import androidx.viewbinding.ViewBindings;
 import com.example.my_first_app.R;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.lang.NullPointerException;
 import java.lang.Override;
-import java.lang.String;
 
 public final class ContentMainBinding implements ViewBinding {
   @NonNull
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final TextView busyPlaces;
-
-  @NonNull
   public final ConstraintLayout contentMainFather;
 
-  @NonNull
-  public final FloatingActionButton floatingActionButton;
-
-  @NonNull
-  public final TextView freePlaces;
-
-  @NonNull
-  public final RecyclerView mainRecyclerView;
-
-  @NonNull
-  public final TextView numberBusyPlaces;
-
-  @NonNull
-  public final TextView numberFreePlaces;
-
-  @NonNull
-  public final ProgressBar progressBar;
-
-  @NonNull
-  public final CardView toolbar;
-
-  private ContentMainBinding(@NonNull ConstraintLayout rootView, @NonNull TextView busyPlaces,
-      @NonNull ConstraintLayout contentMainFather,
-      @NonNull FloatingActionButton floatingActionButton, @NonNull TextView freePlaces,
-      @NonNull RecyclerView mainRecyclerView, @NonNull TextView numberBusyPlaces,
-      @NonNull TextView numberFreePlaces, @NonNull ProgressBar progressBar,
-      @NonNull CardView toolbar) {
+  private ContentMainBinding(@NonNull ConstraintLayout rootView,
+      @NonNull ConstraintLayout contentMainFather) {
     this.rootView = rootView;
-    this.busyPlaces = busyPlaces;
     this.contentMainFather = contentMainFather;
-    this.floatingActionButton = floatingActionButton;
-    this.freePlaces = freePlaces;
-    this.mainRecyclerView = mainRecyclerView;
-    this.numberBusyPlaces = numberBusyPlaces;
-    this.numberFreePlaces = numberFreePlaces;
-    this.progressBar = progressBar;
-    this.toolbar = toolbar;
   }
 
   @Override
@@ -91,65 +48,12 @@ public final class ContentMainBinding implements ViewBinding {
 
   @NonNull
   public static ContentMainBinding bind(@NonNull View rootView) {
-    // The body of this method is generated in a way you would not otherwise write.
-    // This is done to optimize the compiled bytecode for size and performance.
-    int id;
-    missingId: {
-      id = R.id.busyPlaces;
-      TextView busyPlaces = ViewBindings.findChildViewById(rootView, id);
-      if (busyPlaces == null) {
-        break missingId;
-      }
-
-      ConstraintLayout contentMainFather = (ConstraintLayout) rootView;
-
-      id = R.id.floatingActionButton;
-      FloatingActionButton floatingActionButton = ViewBindings.findChildViewById(rootView, id);
-      if (floatingActionButton == null) {
-        break missingId;
-      }
-
-      id = R.id.freePlaces;
-      TextView freePlaces = ViewBindings.findChildViewById(rootView, id);
-      if (freePlaces == null) {
-        break missingId;
-      }
-
-      id = R.id.main_recycler_view;
-      RecyclerView mainRecyclerView = ViewBindings.findChildViewById(rootView, id);
-      if (mainRecyclerView == null) {
-        break missingId;
-      }
-
-      id = R.id.numberBusyPlaces;
-      TextView numberBusyPlaces = ViewBindings.findChildViewById(rootView, id);
-      if (numberBusyPlaces == null) {
-        break missingId;
-      }
-
-      id = R.id.numberFreePlaces;
-      TextView numberFreePlaces = ViewBindings.findChildViewById(rootView, id);
-      if (numberFreePlaces == null) {
-        break missingId;
-      }
-
-      id = R.id.progressBar;
-      ProgressBar progressBar = ViewBindings.findChildViewById(rootView, id);
-      if (progressBar == null) {
-        break missingId;
-      }
-
-      id = R.id.toolbar;
-      CardView toolbar = ViewBindings.findChildViewById(rootView, id);
-      if (toolbar == null) {
-        break missingId;
-      }
-
-      return new ContentMainBinding((ConstraintLayout) rootView, busyPlaces, contentMainFather,
-          floatingActionButton, freePlaces, mainRecyclerView, numberBusyPlaces, numberFreePlaces,
-          progressBar, toolbar);
+    if (rootView == null) {
+      throw new NullPointerException("rootView");
     }
-    String missingId = rootView.getResources().getResourceName(id);
-    throw new NullPointerException("Missing required view with ID: ".concat(missingId));
+
+    ConstraintLayout contentMainFather = (ConstraintLayout) rootView;
+
+    return new ContentMainBinding((ConstraintLayout) rootView, contentMainFather);
   }
 }

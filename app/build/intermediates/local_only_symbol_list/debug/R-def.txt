@@ -24,10 +24,9 @@ font bevan
 id LotFragment
 id SecondFragment
 id action_FirstFragment_to_SecondFragment
-id action_SecondFragment_to_FirstFragment
+id activity_fragment
 id busyPlaces
 id button
-id button_second
 id card_lot_item
 id contentMainFather
 id day
@@ -53,12 +52,11 @@ id spot_number
 id start_day
 id start_hour_of_day
 id start_month_and_year
-id textview_second
 id toolbar
 layout activity_main
 layout content_main
-layout fragment_lot
-layout fragment_second
+layout fragment_parking_lots
+layout fragment_reservations
 layout lot_item_recycler_view
 layout main_recycle_view_item_free
 layout main_recycle_view_item_with_content

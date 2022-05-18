@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.my_first_app.R
-import com.example.my_first_app.objects.parking_lot
+import com.example.my_first_app.model.objects.parking_lot
 
 class parking_lot_adapter (private val itemsList: List<parking_lot>, private val onClickListener:(parking_lot)-> Unit): RecyclerView.Adapter<parking_lot_view_holder>() {
 

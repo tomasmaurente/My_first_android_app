@@ -5,7 +5,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.my_first_app.R
 import com.example.my_first_app.databinding.MainRecycleViewItemWithContentBinding
-import com.example.my_first_app.objects.parking_lot
+import com.example.my_first_app.model.objects.parking_lot
 
 class parking_lot_view_holder (view: View): RecyclerView.ViewHolder(view) {
 
@@ -17,7 +17,7 @@ class parking_lot_view_holder (view: View): RecyclerView.ViewHolder(view) {
     val hour_of_reservation = view.findViewById<TextView>(R.id.hour_of_day)
 
     fun render(actualName: parking_lot, onClickListener:(parking_lot)-> Unit) {
-        binding.spotNumber.text = actualName.spot
+        binding.spotNumber.text = actualName.spot.toString()
         binding.day.text = actualName.day
         binding.monthAndYear.text = actualName.month_and_year
         binding.hourOfDay.text = actualName.hour
