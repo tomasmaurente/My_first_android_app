@@ -7,9 +7,9 @@
     android:layout_height="60dp"
     android:layout_marginHorizontal="10dp"
     android:layout_marginVertical="5dp"
-    android:background="@color/teal_700"
-
-    android:clipToPadding="false">
+    android:background="@drawable/recycler_view_constraintlayout"
+    android:clipToPadding="false"
+    >
 
     <View
         android:id="@+id/ellipse_1"

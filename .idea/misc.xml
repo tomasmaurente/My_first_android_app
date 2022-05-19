@@ -9,13 +9,17 @@
         <entry key="..\:/Users/Tomas/Desktop/Globant/Proyecto_Globant/My_First_App/app/src/main/res/drawable/ic_launcher_background.xml" value="0.157" />
         <entry key="..\:/Users/Tomas/Desktop/Globant/Proyecto_Globant/My_First_App/app/src/main/res/drawable/progress_bar_content_main.xml" value="0.2375" />
         <entry key="..\:/Users/Tomas/Desktop/Globant/Proyecto_Globant/My_First_App/app/src/main/res/drawable/progress_bar_drawable.xml" value="0.157" />
+        <entry key="..\:/Users/Tomas/Desktop/Globant/Proyecto_Globant/My_First_App/app/src/main/res/drawable/recycler_view_constraintlayout.xml" value="0.1585" />
         <entry key="..\:/Users/Tomas/Desktop/Globant/Proyecto_Globant/My_First_App/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/Tomas/Desktop/Globant/Proyecto_Globant/My_First_App/app/src/main/res/layout/content_main.xml" value="0.25" />
         <entry key="..\:/Users/Tomas/Desktop/Globant/Proyecto_Globant/My_First_App/app/src/main/res/layout/fragment_add_reservation.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Tomas/Desktop/Globant/Proyecto_Globant/My_First_App/app/src/main/res/layout/fragment_first.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Tomas/Desktop/Globant/Proyecto_Globant/My_First_App/app/src/main/res/layout/fragment_lot.xml" value="0.264" />
         <entry key="..\:/Users/Tomas/Desktop/Globant/Proyecto_Globant/My_First_App/app/src/main/res/layout/fragment_parking_lots.xml" value="0.25025641025641027" />
+        <entry key="..\:/Users/Tomas/Desktop/Globant/Proyecto_Globant/My_First_App/app/src/main/res/layout/fragment_reservations.xml" value="0.23854166666666668" />
         <entry key="..\:/Users/Tomas/Desktop/Globant/Proyecto_Globant/My_First_App/app/src/main/res/layout/fragment_second.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Tomas/Desktop/Globant/Proyecto_Globant/My_First_App/app/src/main/res/layout/layout_parking_lots.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Tomas/Desktop/Globant/Proyecto_Globant/My_First_App/app/src/main/res/layout/layout_reservations.xml" value="0.18385416666666668" />
         <entry key="..\:/Users/Tomas/Desktop/Globant/Proyecto_Globant/My_First_App/app/src/main/res/layout/lot_item_recycler_view.xml" value="0.4" />
         <entry key="..\:/Users/Tomas/Desktop/Globant/Proyecto_Globant/My_First_App/app/src/main/res/layout/main_recycle_view_item.xml" value="0.536" />
         <entry key="..\:/Users/Tomas/Desktop/Globant/Proyecto_Globant/My_First_App/app/src/main/res/layout/main_recycle_view_item_free.xml" value="0.4" />

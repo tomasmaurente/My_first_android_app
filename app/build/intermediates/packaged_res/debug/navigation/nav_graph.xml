@@ -3,24 +3,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/">
+    app:startDestination="@id/parkingLotsFragment">
 
     <fragment
-        android:id="@+id/LotFragment"
-        android:name="com.example.my_first_app.ParkingLotsFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_reservations">
+        android:id="@+id/parkingLotsFragment"
+        android:name="com.example.my_first_app.view.ParkingLotsFragment"
+        android:label="ParkingLotsFragment"
+        tools:layout="@layout/layout_parking_lots"
+        >
 
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            android:id="@+id/action_parkingLotsFragment_to_reservationsFragment"
+            app:destination="@id/reservationsFragment" />
+
     </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.example.my_first_app.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_parking_lots">
+        android:id="@+id/reservationsFragment"
+        android:name="com.example.my_first_app.view.ReservationsFragment"
+        android:label="ReservationsFragment"
+        tools:layout="@layout/layout_reservations"
+        />
 
 
-    </fragment>
 </navigation>
