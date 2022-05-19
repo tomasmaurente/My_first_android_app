@@ -17,16 +17,25 @@
                             <option name="y" value="-130" />
                           </Point>
                         </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_parkingLotsFragment_to_reservationsFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="reservationsFragment2">
+                  <entry key="reservationsFragment">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
                             <option name="x" value="-398" />
-                            <option name="y" value="-141" />
+                            <option name="y" value="-125" />
                           </Point>
                         </option>
                       </LayoutPositions>

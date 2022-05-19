@@ -12,6 +12,10 @@
         "source": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-main-30:\\mipmap-hdpi\\ic_launcher.webp"
     },
     {
+        "merged": "com.example.my_first_app-merged_res-28:/navigation_nav_graph.xml.flat",
+        "source": "com.example.my_first_app-main-30:/navigation/nav_graph.xml"
+    },
+    {
         "merged": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-merged_res-28:\\mipmap-mdpi_ic_launcher_round.webp.flat",
         "source": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-main-30:\\mipmap-mdpi\\ic_launcher_round.webp"
     },
@@ -36,12 +40,12 @@
         "source": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-main-30:\\drawable\\recycler_view_constraintlayout.xml"
     },
     {
-        "merged": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-merged_res-28:\\drawable_progress_bar_drawable.xml.flat",
-        "source": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-main-30:\\drawable\\progress_bar_drawable.xml"
-    },
-    {
         "merged": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-merged_res-28:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
         "source": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-main-30:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-merged_res-28:\\drawable_progress_bar_drawable.xml.flat",
+        "source": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-main-30:\\drawable\\progress_bar_drawable.xml"
     },
     {
         "merged": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-merged_res-28:\\font_alegreya_sans_sc_extrabold_italic.xml.flat",
@@ -68,10 +72,6 @@
         "source": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-main-30:\\drawable\\elipse_1.xml"
     },
     {
-        "merged": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-merged_res-28:\\layout_lot_item_recycler_view.xml.flat",
-        "source": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-main-30:\\layout\\lot_item_recycler_view.xml"
-    },
-    {
         "merged": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-merged_res-28:\\xml_data_extraction_rules.xml.flat",
         "source": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-main-30:\\xml\\data_extraction_rules.xml"
     },
@@ -80,16 +80,12 @@
         "source": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-main-30:\\font\\alegreya_sans_sc_thin.xml"
     },
     {
-        "merged": "com.example.my_first_app-merged_res-28:/layout_layout_parking_lots.xml.flat",
-        "source": "com.example.my_first_app-main-30:/layout/layout_parking_lots.xml"
-    },
-    {
-        "merged": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-merged_res-28:\\layout_content_main.xml.flat",
-        "source": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-main-30:\\layout\\content_main.xml"
-    },
-    {
         "merged": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-merged_res-28:\\layout_layout_reservations.xml.flat",
         "source": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-main-30:\\layout\\layout_reservations.xml"
+    },
+    {
+        "merged": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-merged_res-28:\\layout_layout_item_reservation.xml.flat",
+        "source": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-main-30:\\layout\\layout_item_reservation.xml"
     },
     {
         "merged": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-merged_res-28:\\mipmap-hdpi_ic_launcher_round.webp.flat",
@@ -108,12 +104,12 @@
         "source": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-main-30:\\mipmap-xhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-merged_res-28:\\layout_layout_parking_lots.xml.flat",
-        "source": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-main-30:\\layout\\layout_parking_lots.xml"
-    },
-    {
         "merged": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-merged_res-28:\\xml_backup_rules.xml.flat",
         "source": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-main-30:\\xml\\backup_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-merged_res-28:\\layout_layout_parking_lots.xml.flat",
+        "source": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-main-30:\\layout\\layout_parking_lots.xml"
     },
     {
         "merged": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-merged_res-28:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
@@ -126,9 +122,5 @@
     {
         "merged": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-merged_res-28:\\font_bevan.xml.flat",
         "source": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-main-30:\\font\\bevan.xml"
-    },
-    {
-        "merged": "com.example.my_first_app-merged_res-28:/drawable_ic_launcher_background.xml.flat",
-        "source": "com.example.my_first_app-main-30:/drawable/ic_launcher_background.xml"
     }
 ]

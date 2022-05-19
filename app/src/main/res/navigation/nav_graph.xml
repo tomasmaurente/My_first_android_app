@@ -9,7 +9,7 @@
         android:id="@+id/parkingLotsFragment"
         android:name="com.example.my_first_app.view.LotsFragment"
         android:label="ParkingLotsFragment"
-        tools:layout="@layout/layout_ParkingLots"
+        tools:layout="@layout/layout_parking_lots"
         >
 
         <action
@@ -22,7 +22,11 @@
         android:name="com.example.my_first_app.view.ReservationsFragment"
         android:label="ReservationsFragment"
         tools:layout="@layout/layout_reservations"
-        />
+        >
+        <action
+            android:id="@+id/action_reservationsFragment_to_parkingLotsFragment"
+            app:destination="@id/parkingLotsFragment" />
+    </fragment>
 
 
 </navigation>
