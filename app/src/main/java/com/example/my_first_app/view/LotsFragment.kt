@@ -34,7 +34,6 @@ class LotsFragment: Fragment(R.layout.layout_parking_lots) {
 
     fun onParkingSpotSelected(parkingLots: ParkingLot){
         Toast.makeText(activity,parkingLots.spot.toString(), Toast.LENGTH_SHORT).show()
-        binding.root.findNavController().navigate(R.id.action_parkingLotsFragment_to_reservationsFragment)  // Cambio de pantalla
-                                                                                                             // binding.root es la propia vista
+        binding.root.findNavController().navigate(R.id.action_parkingLotsFragment_to_addReservationFragment)  // switching screen to reservationsFragment
     }
 }

@@ -41,13 +41,12 @@ class ReservationsFragment: Fragment(R.layout.layout_reservations) {
 
     fun onReservationSelected(reservation: LotReservation){
         Toast.makeText(activity,"Hello World", Toast.LENGTH_SHORT).show()
-        //binding.root.findNavController().navigate(R.id.action_parkingLotsFragment_to_reservationsFragment)  // Cambio de pantalla
-        // binding.root es la propia vista
+        //binding.root.findNavController().navigate(R.id.action_reservationsFragment_to_parkingLotsFragment)  // switching screen to parkingLotsFragment
     }
 
     fun onBackButtonSelected(){
-        binding.root.findNavController().navigate(R.id.action_reservationsFragment_to_parkingLotsFragment)  // Cambio de pantalla
-        //                                                                                                     binding.root es la propia vista
+        binding.root.findNavController().navigate(R.id.action_reservationsFragment_to_parkingLotsFragment)  // switching screen to parkingLotsFragment
+
     }
 
 

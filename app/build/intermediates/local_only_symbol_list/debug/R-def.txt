@@ -22,10 +22,12 @@ drawable recycler_view_constraintlayout
 font alegreya_sans_sc_extrabold_italic
 font alegreya_sans_sc_thin
 font bevan
-id action_parkingLotsFragment_to_reservationsFragment
+id action_parkingLotsFragment_to_addReservationFragment
 id action_reservationsFragment_to_parkingLotsFragment
+id addReservationFragment
 id busyPlaces
 id card_lot_item
+id date_picker
 id day
 id deleteButton
 id elipse_number
@@ -59,7 +61,9 @@ id start_hour_of_day
 id start_month_and_year
 id toolbar
 id toolbar_layout
+id tvDate
 layout activity_main
+layout layout_add_reservation
 layout layout_item_reservation
 layout layout_parking_lots
 layout layout_reservations
@@ -70,6 +74,7 @@ mipmap ic_launcher
 mipmap ic_launcher_round
 navigation nav_graph
 string action_settings
+string addReservation
 string app_name
 string busyPlaces
 string day

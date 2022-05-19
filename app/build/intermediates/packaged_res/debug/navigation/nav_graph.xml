@@ -13,8 +13,8 @@
         >
 
         <action
-            android:id="@+id/action_parkingLotsFragment_to_reservationsFragment"
-            app:destination="@id/reservationsFragment" />
+            android:id="@+id/action_parkingLotsFragment_to_addReservationFragment"
+            app:destination="@id/addReservationFragment" />
 
     </fragment>
     <fragment
@@ -27,6 +27,20 @@
             android:id="@+id/action_reservationsFragment_to_parkingLotsFragment"
             app:destination="@id/parkingLotsFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/addReservationFragment"
+        android:name="com.example.my_first_app.view.AddReservationFragment"
+        android:label="AddReservationsFragment"
+        tools:layout="@layout/layout_add_reservation"
+        >
+        <action
+            android:id="@+id/action_reservationsFragment_to_parkingLotsFragment"
+            app:destination="@id/parkingLotsFragment" />
+
+    </fragment>
+
+
 
 
 </navigation>

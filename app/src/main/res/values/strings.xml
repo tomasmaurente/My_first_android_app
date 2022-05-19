@@ -13,6 +13,7 @@
     <string name="month_and_year">Diciembre 1998</string>
     <string name="hour_of_day">12:00 PM</string>
     <string name="lot">Lot</string>
+    <string name="addReservation">Add Reservation</string>
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment</string>
 </resources>

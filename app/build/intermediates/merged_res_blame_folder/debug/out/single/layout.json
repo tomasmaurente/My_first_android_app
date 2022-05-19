@@ -1,30 +1,30 @@
 [
     {
-        "merged": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-mergeDebugResources-27:\\layout\\main_recycle_view_item_with_content.xml",
-        "source": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-main-30:\\layout\\main_recycle_view_item_with_content.xml"
+        "merged": "com.example.my_first_app-mergeDebugResources-27:/layout/layout_parking_lots.xml",
+        "source": "com.example.my_first_app-main-30:/layout/layout_parking_lots.xml"
     },
     {
-        "merged": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-mergeDebugResources-27:\\layout\\layout_parking_lots.xml",
-        "source": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-main-30:\\layout\\layout_parking_lots.xml"
+        "merged": "com.example.my_first_app-mergeDebugResources-27:/layout/main_recycle_view_item_free.xml",
+        "source": "com.example.my_first_app-main-30:/layout/main_recycle_view_item_free.xml"
     },
     {
-        "merged": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-mergeDebugResources-27:\\layout\\layout_reservations.xml",
-        "source": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-main-30:\\layout\\layout_reservations.xml"
+        "merged": "com.example.my_first_app-mergeDebugResources-27:/layout/activity_main.xml",
+        "source": "com.example.my_first_app-main-30:/layout/activity_main.xml"
     },
     {
-        "merged": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-mergeDebugResources-27:\\layout\\activity_main.xml",
-        "source": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-main-30:\\layout\\activity_main.xml"
+        "merged": "com.example.my_first_app-mergeDebugResources-27:/layout/main_recycle_view_item_with_content.xml",
+        "source": "com.example.my_first_app-main-30:/layout/main_recycle_view_item_with_content.xml"
     },
     {
-        "merged": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-mergeDebugResources-27:\\layout\\main_recycle_view_item_free.xml",
-        "source": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-main-30:\\layout\\main_recycle_view_item_free.xml"
+        "merged": "com.example.my_first_app-mergeDebugResources-27:/layout/layout_item_reservation.xml",
+        "source": "com.example.my_first_app-main-30:/layout/layout_item_reservation.xml"
+    },
+    {
+        "merged": "com.example.my_first_app-mergeDebugResources-27:/layout/layout_add_reservation.xml",
+        "source": "com.example.my_first_app-main-30:/layout/layout_add_reservation.xml"
     },
     {
         "merged": "com.example.my_first_app-mergeDebugResources-27:/layout/layout_reservations.xml",
         "source": "com.example.my_first_app-main-30:/layout/layout_reservations.xml"
-    },
-    {
-        "merged": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-mergeDebugResources-27:\\layout\\layout_item_reservation.xml",
-        "source": "C:\\Users\\Tomas\\.gradle\\daemon\\7.3.3\\com.example.my_first_app-main-30:\\layout\\layout_item_reservation.xml"
     }
 ]

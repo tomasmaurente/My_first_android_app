@@ -30,6 +30,7 @@
     <color name="white">#FFFFFFFF</color>
     <dimen name="fab_margin">16dp</dimen>
     <string name="action_settings">Settings</string>
+    <string name="addReservation">Add Reservation</string>
     <string name="app_name">My_First_App</string>
     <string name="busyPlaces">busy</string>
     <string name="day">Martes 20</string>
