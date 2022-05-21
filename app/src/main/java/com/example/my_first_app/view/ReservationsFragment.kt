@@ -7,7 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.my_first_app.R
-import com.example.my_first_app.adapters.ParkingLot_adapter
+import com.example.my_first_app.adapters.ParkingLotAdapter
 import com.example.my_first_app.databinding.LayoutParkingLotsBinding
 import com.example.my_first_app.databinding.LayoutReservationsBinding
 import com.example.my_first_app.model.data_clases.ParkingProvider
@@ -28,6 +28,10 @@ class ReservationsFragment: Fragment(R.layout.layout_reservations) {
         binding.imageButton.setOnClickListener {
             onBackButtonSelected()
         }
+
+        binding.floatingAddButton.setOnClickListener{
+            binding.root.findNavController().navigate(R.id.action_reservationsFragment_to_addReservationFragment)  // switching screen to reservationsFragment
+        }
     }
 
     fun initRecyclerView(){
@@ -46,7 +50,6 @@ class ReservationsFragment: Fragment(R.layout.layout_reservations) {
 
     fun onBackButtonSelected(){
         binding.root.findNavController().navigate(R.id.action_reservationsFragment_to_parkingLotsFragment)  // switching screen to parkingLotsFragment
-
     }
 
 

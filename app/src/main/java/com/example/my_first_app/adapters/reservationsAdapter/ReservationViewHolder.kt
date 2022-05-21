@@ -11,7 +11,7 @@ import com.example.my_first_app.model.objects.LotReservation
 
 class ReservationViewHolder(view:View):RecyclerView.ViewHolder(view) {
 
-    val binding = LayoutItemReservationBinding.bind(view)
+    private val binding = LayoutItemReservationBinding.bind(view)
 
     fun render(actualName: LotReservation, onDeleteButtonListener:(LotReservation) -> Unit){
         binding.endDay.text = actualName.end_day

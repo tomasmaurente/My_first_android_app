@@ -34,13 +34,13 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-633" />
-                            <option name="y" value="-130" />
+                            <option name="x" value="-777" />
+                            <option name="y" value="-129" />
                           </Point>
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="action_parkingLotsFragment_to_reservationsFragment">
+                            <entry key="action_parkingLotsFragment_to_addReservationFragment">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -55,7 +55,7 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-398" />
+                            <option name="x" value="-313" />
                             <option name="y" value="-125" />
                           </Point>
                         </option>

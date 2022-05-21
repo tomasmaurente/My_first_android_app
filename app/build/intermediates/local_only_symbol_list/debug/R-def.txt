@@ -23,11 +23,13 @@ font alegreya_sans_sc_extrabold_italic
 font alegreya_sans_sc_thin
 font bevan
 id action_parkingLotsFragment_to_addReservationFragment
+id action_parkingLotsFragment_to_reservationsFragment
+id action_reservationsFragment_to_addReservationFragment
 id action_reservationsFragment_to_parkingLotsFragment
 id addReservationFragment
+id backButton
 id busyPlaces
 id card_lot_item
-id date_picker
 id day
 id deleteButton
 id elipse_number
@@ -35,7 +37,10 @@ id ellipse_1
 id end_day
 id end_hour_of_day
 id end_month_and_year
+id etDate
+id etTime
 id fatherLayout
+id floatingAddButton
 id freePlaces
 id hour_of_day
 id imageButton
@@ -59,9 +64,10 @@ id spot_number
 id start_day
 id start_hour_of_day
 id start_month_and_year
+id textDate
+id textTime
 id toolbar
 id toolbar_layout
-id tvDate
 layout activity_main
 layout layout_add_reservation
 layout layout_item_reservation
@@ -86,6 +92,8 @@ string hour_of_day
 string lot
 string month_and_year
 string next
+string ok
+string order_confirmation
 string previous
 string second_fragment_label
 string title_ParkingApp

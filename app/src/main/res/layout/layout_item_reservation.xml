@@ -34,7 +34,8 @@
             android:textStyle="bold"
 
             app:layout_constraintTop_toTopOf="@+id/card_lot_item"
-            app:layout_constraintStart_toStartOf="@+id/card_lot_item" />
+            app:layout_constraintStart_toStartOf="@+id/card_lot_item"
+        />
 
         <TextView
             android:id="@+id/start_day"
@@ -49,7 +50,7 @@
 
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/start_month_and_year"
-            />
+        />
 
         <TextView
             android:id="@+id/start_hour_of_day"
@@ -64,7 +65,7 @@
 
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/start_day"
-            />
+        />
 
         <TextView
             android:id="@+id/end_month_and_year"
@@ -79,7 +80,8 @@
             android:textStyle="bold"
 
             app:layout_constraintTop_toTopOf="@+id/card_lot_item"
-            app:layout_constraintEnd_toEndOf="@+id/card_lot_item" />
+            app:layout_constraintEnd_toEndOf="@+id/card_lot_item"
+        />
 
         <TextView
             android:id="@+id/end_day"
@@ -94,7 +96,7 @@
 
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/start_month_and_year"
-            />
+        />
 
         <TextView
             android:id="@+id/end_hour_of_day"
@@ -110,7 +112,7 @@
 
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/start_day"
-            />
+        />
 
         <Button
             android:id="@+id/deleteButton"
@@ -126,7 +128,8 @@
             android:textSize="12dp"
 
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+        />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

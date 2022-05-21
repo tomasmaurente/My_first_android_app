@@ -6,14 +6,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.my_first_app.R
 import com.example.my_first_app.model.objects.ParkingLot
 
-class ParkingLot_adapter (private val itemsList: List<ParkingLot>, private val onClickListener:(ParkingLot)-> Unit): RecyclerView.Adapter<ParkingLot_view_holder>() {
+class ParkingLotAdapter (private val itemsList: List<ParkingLot>, private val onClickListener:(ParkingLot)-> Unit): RecyclerView.Adapter<ParkingLotViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ParkingLot_view_holder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ParkingLotViewHolder {
         var layoutInflater = LayoutInflater.from(parent.context)
-        return ParkingLot_view_holder(layoutInflater.inflate(R.layout.main_recycle_view_item_with_content, parent, false))
+        return ParkingLotViewHolder(layoutInflater.inflate(R.layout.main_recycle_view_item_with_content, parent, false))
     }
 
-    override fun onBindViewHolder(holder: ParkingLot_view_holder, position: Int) {
+    override fun onBindViewHolder(holder: ParkingLotViewHolder, position: Int) {
         val item = itemsList[position]
         holder.render(item, onClickListener)
     }

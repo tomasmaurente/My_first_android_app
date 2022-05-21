@@ -7,9 +7,9 @@ import com.example.my_first_app.R
 import com.example.my_first_app.databinding.MainRecycleViewItemWithContentBinding
 import com.example.my_first_app.model.objects.ParkingLot
 
-class ParkingLot_view_holder (view: View): RecyclerView.ViewHolder(view) {
+class ParkingLotViewHolder (view: View): RecyclerView.ViewHolder(view) {
 
-    val binding = MainRecycleViewItemWithContentBinding.bind(view)
+    private val binding = MainRecycleViewItemWithContentBinding.bind(view)
 
 
 
