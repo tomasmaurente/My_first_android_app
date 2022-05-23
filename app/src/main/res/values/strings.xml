@@ -1,0 +1,67 @@
+<resources>
+    <string name="app_name">My_First_App</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="title_ParkingApp">ParkingApp</string>
+    <string name="busyPlaces">busy</string>
+    <string name="freePlaces">free</string>
+    <string name="day">Martes 20</string>
+    <string name="month_and_year">Diciembre 1998</string>
+    <string name="hour_of_day">12:00 PM</string>
+    <string name="lot">Lot</string>
+    <string name="addReservation">Add Reservation</string>
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment</string>
+    <string name="order_confirmation">Hello_World_Dialog</string>
+    <string name="ok">All is finee</string>
+    <string name="save">Save</string>
+    <string name="lotEditText">Which lot do you want?</string>
+    <string name="startDateTimeEditText">Start date/time</string>
+    <string name="endDateTimeEditText">End date/time</string>
+    <string name="authorizationEditText">Authorization code</string>
+
+    <!-- Delete dialog -->
+    <string name="deleteDialogTitle">Delete Reservation</string>
+    <string name="deleteDialogText">Are you sure you want to delete this reservation? Please input the autorization code to confirm.</string>
+    <string name="deleteDialogHint">Authorization Code</string>
+    <string name="deleteDialogOk">Ok</string>
+    <string name="deleteDialogDeleteButton">Delete</string>
+
+    <!-- lots spinner screen 3-->
+    <string-array name="lotsNumbers">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>25</item>
+        <item>26</item>
+        <item>27</item>
+        <item>28</item>
+        <item>29</item>
+        <item>30</item>
+    </string-array>
+</resources>

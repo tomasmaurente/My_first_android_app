@@ -1,0 +1,51 @@
+package com.example.my_first_app.view
+
+import android.os.Bundle
+import android.view.View
+import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.my_first_app.R
+import com.example.my_first_app.databinding.LayoutReservationsBinding
+import com.example.my_first_app.model.data_clasesLotReservation.ReservationProvider
+import com.example.my_first_app.model.objects.LotReservation
+import com.example.prueba_recycler_view.adapter.ReservationsAdapter
+
+class ReservationsFragment: Fragment(R.layout.layout_reservations) {
+
+    private lateinit var binding: LayoutReservationsBinding
+
+        override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding = LayoutReservationsBinding.bind(view)
+        initRecyclerView()
+
+        binding.imageButton.setOnClickListener {
+            onBackButtonSelected()
+        }
+
+        binding.floatingAddButton.setOnClickListener{
+            binding.root.findNavController().navigate(R.id.action_reservationsFragment_to_addReservationFragment)  // switching screen to reservationsFragment
+        }
+    }
+
+    fun initRecyclerView(){
+        binding.recyclerReservations.layoutManager = LinearLayoutManager(activity)
+        binding.recyclerReservations.adapter = ReservationsAdapter(ReservationProvider.reservations){reservation ->
+            onButtonDeleteSelected(
+                reservation
+            )
+        }
+    }
+
+    fun onButtonDeleteSelected(reservation: LotReservation){
+            // Create the fragment and show it as a dialog.
+        val newFragment: DialogFragment = DeleteDialogFragment.newInstance()
+        newFragment.show(parentFragmentManager, "dialog")
+    }
+
+    fun onBackButtonSelected(){
+        binding.root.findNavController().navigate(R.id.action_reservationsFragment_to_parkingLotsFragment)  // switching screen to parkingLotsFragment
+    }
+}
