@@ -32,11 +32,12 @@ id authorizationCodeButton
 id authorizationCodeText
 id backButton
 id busyPlaces
+id cancelButton
 id card_lot_item
 id day
 id deleteButton
 id dropDownText
-id elipse_number
+id editText
 id ellipse_1
 id endDateText
 id endDateTimeButton
@@ -49,6 +50,7 @@ id floatingAddButton
 id freePlaces
 id hour_of_day
 id imageButton
+id layout_delete_dialog
 id lot
 id lotListButton
 id lotListText
@@ -60,6 +62,7 @@ id nav_graph
 id nav_host_fragment
 id numberBusyPlaces
 id numberFreePlaces
+id okButton
 id parkingLotLayout
 id parkingLotsFragment
 id progressBar
@@ -76,7 +79,7 @@ id startTimeText
 id start_day
 id start_hour_of_day
 id start_month_and_year
-id testText
+id textDeleteDialog
 id toolbar
 id toolbar_layout
 layout activity_main
@@ -97,6 +100,11 @@ string app_name
 string authorizationEditText
 string busyPlaces
 string day
+string deleteDialogDeleteButton
+string deleteDialogHint
+string deleteDialogOk
+string deleteDialogText
+string deleteDialogTitle
 string endDateTimeEditText
 string first_fragment_label
 string freePlaces
@@ -109,6 +117,7 @@ string month_and_year
 string next
 string ok
 string order_confirmation
+string pickALot
 string previous
 string save
 string second_fragment_label

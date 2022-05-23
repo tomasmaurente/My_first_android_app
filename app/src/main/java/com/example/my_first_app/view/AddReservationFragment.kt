@@ -45,12 +45,12 @@ class AddReservationFragment: Fragment(R.layout.layout_add_reservation),
                 position: Int,
                 p3: Long,
             ) {
+                binding.lotListText.text = "hello World $position" 
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {
-                Toast.makeText(activity,"you didn´t do shit",Toast.LENGTH_SHORT)
+                binding.lotListText.text = "bye World"
             }
-
         }
 
         // Start Date and time picker
