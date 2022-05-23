@@ -3,6 +3,7 @@ local
 array com_google_android_gms_fonts_certs
 array com_google_android_gms_fonts_certs_dev
 array com_google_android_gms_fonts_certs_prod
+array lotsNumbers
 array preloaded_fonts
 color black
 color blue
@@ -34,10 +35,12 @@ id busyPlaces
 id card_lot_item
 id day
 id deleteButton
+id dropDownText
 id elipse_number
 id ellipse_1
+id endDateText
 id endDateTimeButton
-id endDateTimeText
+id endTimeText
 id end_day
 id end_hour_of_day
 id end_month_and_year
@@ -51,6 +54,7 @@ id lotListButton
 id lotListText
 id lot_number
 id main_recycler_view
+id markAsFree
 id month_and_year
 id nav_graph
 id nav_host_fragment
@@ -66,8 +70,9 @@ id reservation_layout
 id reservationsFragment
 id saveButton
 id spot_number
-id startDateTimeButton
-id startDateTimeText
+id startDateButton
+id startDateText
+id startTimeText
 id start_day
 id start_hour_of_day
 id start_month_and_year
@@ -77,6 +82,7 @@ id toolbar_layout
 layout activity_main
 layout layout_add_reservation
 layout layout_dialog_fragment_test
+layout layout_drop_down_item
 layout layout_item_reservation
 layout layout_parking_lots
 layout layout_reservations

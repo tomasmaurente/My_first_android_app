@@ -8,7 +8,6 @@
     android:fadingEdge="vertical"
     tools:context=".view.MainActivity">
 
-
     <Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -35,8 +34,7 @@
                 app:layout_constraintBottom_toBottomOf="@+id/toolbar_layout"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/toolbar_layout"
-                app:srcCompat="?attr/actionModeCloseDrawable"
-                />
+                app:srcCompat="?attr/actionModeCloseDrawable" />
 
             <TextView
                 android:id="@+id/lot"
@@ -58,19 +56,33 @@
     </Toolbar>
 
     <!-- parking lot -->
+
     <TextView
         android:id="@+id/lotListText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Selected date"
+        android:text="Selected lot"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="0.183" />
+        app:layout_constraintVertical_bias="0.147" />
 
-    <EditText
+    <Spinner
+        android:id="@+id/lotListButton"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="15dp"
+
+        android:spinnerMode="dialog"
+        app:barrierMargin="@dimen/cardview_compat_inset_shadow"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lotListText" />
+
+    <!--<EditText
         android:id="@+id/lotListButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -78,53 +90,60 @@
         android:clickable="false"
         android:focusable="false"
         android:hint="@string/lotEditText"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.517"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="0.1" />
+        app:layout_constraintTop_toBottomOf="@+id/lotListText" />-->
 
     <!-- Start date and time -->
+
     <TextView
-        android:id="@+id/startDateTimeText"
+        android:id="@+id/startDateText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="116dp"
         android:text="Selected time"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="0.303" />
+        app:layout_constraintEnd_toEndOf="@+id/startDateButton"
+        app:layout_constraintTop_toBottomOf="@+id/lotListButton" />
+
+    <TextView
+        android:id="@+id/startTimeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Selected time "
+        app:layout_constraintBottom_toBottomOf="@+id/startDateText"
+        app:layout_constraintEnd_toStartOf="@+id/startDateText"/>
 
     <EditText
-        android:id="@+id/startDateTimeButton"
+        android:id="@+id/startDateButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
         android:clickable="false"
         android:focusable="false"
         android:hint="@string/startDateTimeEditText"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.448"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="0.255" />
+        app:layout_constraintTop_toBottomOf="@+id/startDateText" />
 
     <!-- End date and time -->
+
     <TextView
-        android:id="@+id/endDateTimeText"
+        android:id="@+id/endDateText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Selected time"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="0.403" />
+        android:layout_marginEnd="116dp"
+        android:text=" Selected time "
+        app:layout_constraintEnd_toEndOf="@+id/startDateButton"
+        app:layout_constraintTop_toBottomOf="@+id/startDateButton" />
+
+    <TextView
+        android:id="@+id/endTimeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Selected time "
+        app:layout_constraintBottom_toBottomOf="@+id/endDateText"
+        app:layout_constraintEnd_toStartOf="@+id/startDateText" />
 
     <EditText
         android:id="@+id/endDateTimeButton"
@@ -134,39 +153,31 @@
         android:clickable="false"
         android:focusable="false"
         android:hint="@string/endDateTimeEditText"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.448"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="0.372" />
+        app:layout_constraintTop_toBottomOf="@+id/endDateText" />
 
     <!-- Authorization Code -->
     <TextView
         android:id="@+id/authorizationCodeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Selected time"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="Selected Code"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/toolbar" />
+        app:layout_constraintTop_toBottomOf="@+id/endDateTimeButton" />
 
     <EditText
         android:id="@+id/authorizationCodeButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
-        android:clickable="false"
-        android:focusable="false"
         android:hint="@string/authorizationEditText"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="0.486" />
+        app:layout_constraintTop_toBottomOf="@+id/authorizationCodeText" />
 
     <Button
         android:id="@+id/saveButton"
@@ -175,6 +186,7 @@
         android:layout_marginHorizontal="10dp"
         android:layout_marginBottom="5dp"
         android:text="@string/save"
+        android:backgroundTint="@color/blue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.789"

@@ -1,9 +1,13 @@
 package com.example.my_first_app.view
 
 import android.app.DatePickerDialog
+import android.app.TimePickerDialog
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import android.view.ViewParent
 import android.widget.*
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.example.my_first_app.R
@@ -12,12 +16,10 @@ import com.google.android.material.datepicker.MaterialDatePicker
 import java.text.SimpleDateFormat
 import java.util.*
 
-class AddReservationFragment: Fragment(R.layout.layout_add_reservation) {
+class AddReservationFragment: Fragment(R.layout.layout_add_reservation),
+    AdapterView.OnItemClickListener {
 
     private lateinit var binding: LayoutAddReservationBinding
-    private lateinit var tvDatePicker: TextView
-    private  lateinit var btnDatePicker: EditText
-    private var timeFormat = SimpleDateFormat("hh:mm a", Locale.getDefault())
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
@@ -25,72 +27,143 @@ class AddReservationFragment: Fragment(R.layout.layout_add_reservation) {
 
         binding = LayoutAddReservationBinding.bind(view)
 
-        tvDatePicker = binding.startDateTimeText
-        btnDatePicker = binding.startDateTimeButton
+        // Back button
+        binding.backButton.setOnClickListener{
+            binding.root.findNavController().navigate(R.id.action_reservationsFragment_to_parkingLotsFragment)  // switching screen to reservationsFragment
+        }
 
+        // Spinner
+        val spinner = binding.root.findViewById<Spinner>(R.id.lotListButton)
+        val listOfLots = resources.getStringArray(R.array.lotsNumbers)
+        val adapter = activity?.let { ArrayAdapter(it,R.layout.layout_drop_down_item,listOfLots) }
+
+        spinner.adapter = adapter
+        spinner.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(
+                ViewParent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                p3: Long,
+            ) {
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+                Toast.makeText(activity,"you didn´t do shit",Toast.LENGTH_SHORT)
+            }
+
+        }
+
+        // Start Date and time picker
+        binding.startDateButton.setOnClickListener{
+            pickStartDateTime()
+        }
+
+        // End Date and time picker
+        binding.endDateTimeButton.setOnClickListener{
+            pickEndDateTime()
+        }
+
+        // Authorization code picker
+        binding.authorizationCodeButton.setOnClickListener{
+            binding.authorizationCodeText.text = binding.authorizationCodeButton.text
+        }
+
+        // Save button
+        binding.saveButton.setOnClickListener{
+            Toast.makeText(activity,"You made it!!!",Toast.LENGTH_SHORT)
+        }
+    }
+
+    override fun onItemClick(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+        Toast.makeText(activity,"hols",Toast.LENGTH_SHORT)
+    }
+
+    private fun pickStartDateTime( ) {
         val myCalendar = Calendar.getInstance()
-
-        val datePicker = DatePickerDialog.OnDateSetListener{view, year, month, dayOfMonth ->
+        val timeListener = TimePickerDialog.OnTimeSetListener { view,hours,minutes ->
+            myCalendar.set(Calendar.MINUTE, minutes)
+            myCalendar.set(Calendar.HOUR, hours)
+            updateStartTimeLable(myCalendar)
+        }
+        val dateListener = DatePickerDialog.OnDateSetListener { _,year,month,day ->
             myCalendar.set(Calendar.YEAR, year)
             myCalendar.set(Calendar.MONTH, month)
-            myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
-            updateLable(myCalendar)
+            myCalendar.set(Calendar.DAY_OF_MONTH, day)
+            updateStartDateLable(myCalendar)
         }
 
-        // this button calls a date picker fragment
-        binding.startDateTimeButton.setOnClickListener{
-            // showDatePicker() this method shows the calendar in fullscreen, we are looking for a dialog fragment
-            DatePickerDialog(requireContext(), datePicker, myCalendar.get(Calendar.YEAR),myCalendar.get(Calendar.MONTH),myCalendar.get(Calendar.DAY_OF_MONTH)).show()
-        }
+        TimePickerDialog(
+            activity,
+            timeListener,
+            myCalendar.get(Calendar.HOUR_OF_DAY),
+            myCalendar.get(Calendar.MINUTE),
+            false
+        ).show()
 
-        // this button calls a test fragment
-        binding.endDateTimeButton.setOnClickListener {
-            val newFragment = DialogFragmentTest.newInstance()
-            newFragment.show(parentFragmentManager, "dialog")
-        }
-
-        binding.backButton.setOnClickListener {
-            binding.root.findNavController().navigate(R.id.action_reservationsFragment_to_parkingLotsFragment)  // switching screen to parkingLotsFragment
-        }
-
+        DatePickerDialog(
+            requireContext(),
+            dateListener,
+            myCalendar.get(Calendar.YEAR),
+            myCalendar.get(Calendar.MONTH),
+            myCalendar.get(Calendar.DAY_OF_MONTH)
+        ).show()
     }
+
     // useless method, this method just pick one time, not a range
-    private fun updateLable(myCalendar: Calendar) {
-        val myFormat = "yyyy-MM-dd"
+    private fun updateStartDateLable(myCalendar: Calendar) {
+        val myFormat = " dd-MM-yyyy "
         val sdf = SimpleDateFormat(myFormat, Locale.UK)
-        tvDatePicker.text = (sdf.format(myCalendar.time))
+        binding.startTimeText.text = (sdf.format(myCalendar.time))
     }
 
-    private fun showDatePicker(){
-        val dateRangePicker = MaterialDatePicker.Builder
-            .dateRangePicker()
-            .setTitleText("Select Date")
-            .build()
-        dateRangePicker.show(
-            parentFragmentManager,
-            "date_range_picker"
-        )
+    private fun updateStartTimeLable(myCalendar: Calendar) {
+        val myFormat = " hh:mm "
+        val sdf = SimpleDateFormat(myFormat, Locale.UK)
+        binding.startDateText.text = (sdf.format(myCalendar.time))
+    }
 
-        dateRangePicker.addOnPositiveButtonClickListener { datePicked ->
-            val startDate = datePicked.first
-            val endDate = datePicked.second
-            //val actualDate = LocalDateTime.now() this does not work
-            //Toast.makeText(activity,"$startDate $endDate", Toast.LENGTH_SHORT).show()  this was a practice
-
-            if (startDate != null && endDate != null){  // this sentence need to compare if actualDate is equals or previous to startDate, and
-                                                        // if in the range date selected there isn´t already a reservation
-                binding.startDateTimeText.text = "La fecha de inicio es: "+ convertLongToDate(startDate)+", y la final es:"+convertLongToDate(endDate)
-            }
+    private fun pickEndDateTime( ) {
+        val myCalendar = Calendar.getInstance()
+        val timeListener = TimePickerDialog.OnTimeSetListener { view,hours,minutes ->
+            myCalendar.set(Calendar.MINUTE, minutes)
+            myCalendar.set(Calendar.HOUR, hours)
+            updateEndTimeLable(myCalendar)
         }
+        val dateListener = DatePickerDialog.OnDateSetListener { _,year,month,day ->
+            myCalendar.set(Calendar.YEAR, year)
+            myCalendar.set(Calendar.MONTH, month)
+            myCalendar.set(Calendar.DAY_OF_MONTH, day)
+            updateEndDateLable(myCalendar)
+        }
+
+        TimePickerDialog(
+            activity,
+            timeListener,
+            myCalendar.get(Calendar.HOUR_OF_DAY),
+            myCalendar.get(Calendar.MINUTE),
+            false
+        ).show()
+
+        DatePickerDialog(
+            requireContext(),
+            dateListener,
+            myCalendar.get(Calendar.YEAR),
+            myCalendar.get(Calendar.MONTH),
+            myCalendar.get(Calendar.DAY_OF_MONTH)
+        ).show()
     }
 
-    private fun convertLongToDate(incommingDate:Long):String {
-        val date = Date(incommingDate)
-        val myFormat = "dd-MM-yyyy"
-        val format = SimpleDateFormat(myFormat, Locale.getDefault())
+    // useless method, this method just pick one time, not a range
+    private fun updateEndDateLable(myCalendar: Calendar) {
+        val myFormat = " dd-MM-yyyy "
+        val sdf = SimpleDateFormat(myFormat, Locale.UK)
+        binding.endTimeText.text = (sdf.format(myCalendar.time))
+    }
 
-        return format.format(date)
-
+    private fun updateEndTimeLable(myCalendar: Calendar) {
+        val myFormat = " hh:mm "
+        val sdf = SimpleDateFormat(myFormat, Locale.UK)
+        binding.endDateText.text = (sdf.format(myCalendar.time))
     }
 }
 
