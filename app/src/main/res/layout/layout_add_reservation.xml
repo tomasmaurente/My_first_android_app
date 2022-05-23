@@ -115,7 +115,7 @@
 
     <!-- End date and time -->
     <TextView
-        android:id="@+id/EndDateTimeText"
+        android:id="@+id/endDateTimeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Selected time"
@@ -127,7 +127,7 @@
         app:layout_constraintVertical_bias="0.403" />
 
     <EditText
-        android:id="@+id/EndDateTimeButton"
+        android:id="@+id/endDateTimeButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"

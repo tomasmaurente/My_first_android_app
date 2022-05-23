@@ -1,23 +1,15 @@
 package com.example.my_first_app.view
 
 import android.app.DatePickerDialog
-import android.app.TimePickerDialog
 import android.os.Bundle
 import android.view.View
 import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.my_first_app.R
-import com.example.my_first_app.adapters.ParkingLotAdapter
 import com.example.my_first_app.databinding.LayoutAddReservationBinding
-import com.example.my_first_app.model.data_clases.ParkingProvider
-import com.example.my_first_app.model.objects.ParkingLot
 import com.google.android.material.datepicker.MaterialDatePicker
 import java.text.SimpleDateFormat
-import java.time.LocalDate
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
 import java.util.*
 
 class AddReservationFragment: Fragment(R.layout.layout_add_reservation) {
@@ -45,15 +37,16 @@ class AddReservationFragment: Fragment(R.layout.layout_add_reservation) {
             updateLable(myCalendar)
         }
 
-        btnDatePicker.setOnClickListener{
-            showDatePicker()
-            //DatePickerDialog(requireContext(), datePicker, myCalendar.get(Calendar.YEAR),myCalendar.get(Calendar.MONTH),myCalendar.get(Calendar.DAY_OF_MONTH)).show()
+        // this button calls a date picker fragment
+        binding.startDateTimeButton.setOnClickListener{
+            // showDatePicker() this method shows the calendar in fullscreen, we are looking for a dialog fragment
+            DatePickerDialog(requireContext(), datePicker, myCalendar.get(Calendar.YEAR),myCalendar.get(Calendar.MONTH),myCalendar.get(Calendar.DAY_OF_MONTH)).show()
         }
 
-        binding.startDateTimeButton.setOnClickListener {
-            PurchaseConfirmationDialogFragment().show(
-                childFragmentManager, PurchaseConfirmationDialogFragment.TAG
-            )
+        // this button calls a test fragment
+        binding.endDateTimeButton.setOnClickListener {
+            val newFragment = DialogFragmentTest.newInstance()
+            newFragment.show(parentFragmentManager, "dialog")
         }
 
         binding.backButton.setOnClickListener {
@@ -67,36 +60,6 @@ class AddReservationFragment: Fragment(R.layout.layout_add_reservation) {
         val sdf = SimpleDateFormat(myFormat, Locale.UK)
         tvDatePicker.text = (sdf.format(myCalendar.time))
     }
-
-
-    /*private fun onTimePicker() {
-        val timePicker = TimePickerDialog(
-            activity, TimePickerDialog.OnTimeSetListener { view, hourOfDay, minute -> },
-            now.get(Calendar.HOUR_OF_DAY), now.get(Calendar.MINUTE), false
-        )
-
-        timePicker.show()
-
-    }    */
-
-    /*private fun showDialog() {
-        val timeRangePicker = TimeRangePickerDialog.Builder()
-            .setTimeRange(10, 20, 16, 40)
-            .setTimeInterval(20)
-            .setOnDayMode(false)
-            .setOnTimeRangeSelectedListener { tv_selected_range.text = it.readableTimeRange }
-            .build()
-            .show(supportFragmentManager)
-    }
-
-    private fun showBottomSheetDialog() {
-        TimeRangePickerBottomSheet.getInstance().show(this)
-    }*/
-
-
-
-
-
 
     private fun showDatePicker(){
         val dateRangePicker = MaterialDatePicker.Builder
