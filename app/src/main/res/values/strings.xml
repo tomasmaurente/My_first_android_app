@@ -24,6 +24,14 @@
     <string name="endDateTimeEditText">End date/time</string>
     <string name="authorizationEditText">Authorization code</string>
 
+    <!-- Delete dialog -->
+    <string name="deleteDialogTitle">Delete Reservation</string>
+    <string name="deleteDialogText">Are you sure you want to delete this reservation? Please input the autorization code to confirm.</string>
+    <string name="deleteDialogHint">Authorization Code</string>
+    <string name="deleteDialogOk">Ok</string>
+    <string name="deleteDialogDeleteButton">Delete</string>
+
+    <!-- lots spinner screen 3-->
     <string-array name="lotsNumbers">
         <item>1</item>
         <item>2</item>
