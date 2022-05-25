@@ -1,4 +1,4 @@
-package com.example.my_first_app.model.data_clasesLotReservation
+package com.example.my_first_app.model.data_clases
 import com.example.my_first_app.model.objects.LotReservation
 
 class ReservationProvider(){

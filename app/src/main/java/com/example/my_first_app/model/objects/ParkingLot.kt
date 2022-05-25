@@ -1,6 +1,6 @@
 package com.example.my_first_app.model.objects
 
-import com.example.my_first_app.model.data_clasesLotReservation.ReservationProvider
+import com.example.my_first_app.model.data_clases.ReservationProvider
 
 data class ParkingLot(
     val spot: Integer,

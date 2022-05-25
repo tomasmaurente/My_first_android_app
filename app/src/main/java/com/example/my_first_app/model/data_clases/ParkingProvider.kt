@@ -1,6 +1,5 @@
 package com.example.my_first_app.model.data_clases
 
-import com.example.my_first_app.model.data_clasesLotReservation.ReservationProvider
 import com.example.my_first_app.model.objects.LotReservation
 import com.example.my_first_app.model.objects.ParkingLot
 

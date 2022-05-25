@@ -8,7 +8,7 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.my_first_app.R
 import com.example.my_first_app.databinding.LayoutReservationsBinding
-import com.example.my_first_app.model.data_clasesLotReservation.ReservationProvider
+import com.example.my_first_app.model.data_clases.ReservationProvider
 import com.example.my_first_app.model.objects.LotReservation
 import com.example.prueba_recycler_view.adapter.ReservationsAdapter
 
@@ -32,7 +32,7 @@ class ReservationsFragment: Fragment(R.layout.layout_reservations) {
 
     fun initRecyclerView(){
         binding.recyclerReservations.layoutManager = LinearLayoutManager(activity)
-        binding.recyclerReservations.adapter = ReservationsAdapter(ReservationProvider.reservations){reservation ->
+        binding.recyclerReservations.adapter = ReservationsAdapter(ReservationProvider.reservations){ reservation ->
             onButtonDeleteSelected(
                 reservation
             )

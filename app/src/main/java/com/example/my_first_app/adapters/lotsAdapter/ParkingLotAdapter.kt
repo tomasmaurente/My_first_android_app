@@ -1,4 +1,4 @@
-package com.example.my_first_app.adapters
+package com.example.my_first_app.adapters.lotsAdapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -10,7 +10,7 @@ class ParkingLotAdapter (private val itemsList: List<ParkingLot>, private val on
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ParkingLotViewHolder {
         var layoutInflater = LayoutInflater.from(parent.context)
-        return ParkingLotViewHolder(layoutInflater.inflate(R.layout.main_recycle_view_item_with_content, parent, false))
+        return ParkingLotViewHolder(layoutInflater.inflate(R.layout.layout_lot_item, parent, false))
     }
 
     override fun onBindViewHolder(holder: ParkingLotViewHolder, position: Int) {

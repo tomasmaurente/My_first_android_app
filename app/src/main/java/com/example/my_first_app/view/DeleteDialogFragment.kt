@@ -13,7 +13,7 @@ class DeleteDialogFragment : DialogFragment() {
         savedInstanceState: Bundle?
 
     ): View? {
-        return inflater.inflate(R.layout.layout_dialog_fragment_test, container, false)
+        return inflater.inflate(R.layout.layout_delete_dialog, container, false)
     }
 
     companion object {

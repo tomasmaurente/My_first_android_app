@@ -7,7 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.my_first_app.R
-import com.example.my_first_app.adapters.ParkingLotAdapter
+import com.example.my_first_app.adapters.lotsAdapter.ParkingLotAdapter
 import com.example.my_first_app.model.data_clases.ParkingProvider
 import com.example.my_first_app.databinding.LayoutParkingLotsBinding
 import com.example.my_first_app.model.objects.ParkingLot

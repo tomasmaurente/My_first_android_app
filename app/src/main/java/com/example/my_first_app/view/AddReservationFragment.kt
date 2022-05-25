@@ -9,9 +9,11 @@ import android.view.ViewParent
 import android.widget.*
 import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavGraph
 import androidx.navigation.findNavController
 import com.example.my_first_app.R
 import com.example.my_first_app.databinding.LayoutAddReservationBinding
+import com.example.my_first_app.databinding.LayoutReservationsBinding
 import com.google.android.material.datepicker.MaterialDatePicker
 import java.text.SimpleDateFormat
 import java.util.*
@@ -20,6 +22,7 @@ class AddReservationFragment: Fragment(R.layout.layout_add_reservation),
     AdapterView.OnItemClickListener {
 
     private lateinit var binding: LayoutAddReservationBinding
+    private lateinit var bindingNavGraph: NavGraph
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
