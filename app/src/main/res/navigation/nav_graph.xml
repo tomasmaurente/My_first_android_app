@@ -21,7 +21,7 @@
     </fragment>
     <fragment
         android:id="@+id/reservationsFragment"
-        android:name="com.example.my_first_app.view.ReservationsFragment"
+        android:name="com.example.my_first_app.view.ReservationFragment"
         android:label="ReservationsFragment"
         tools:layout="@layout/layout_reservations"
         >

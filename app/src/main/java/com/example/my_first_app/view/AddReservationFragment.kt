@@ -22,7 +22,6 @@ class AddReservationFragment: Fragment(R.layout.layout_add_reservation),
     AdapterView.OnItemClickListener {
 
     private lateinit var binding: LayoutAddReservationBinding
-    private lateinit var bindingNavGraph: NavGraph
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
