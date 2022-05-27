@@ -40,6 +40,7 @@
         tools:layout_editor_absoluteX="130dp"
         tools:layout_editor_absoluteY="200dp"
         android:padding="10dp"
+        android:max="30"
         android:progress="38"
     />
 

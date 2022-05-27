@@ -12,15 +12,15 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        app:layout_constraintTop_toTopOf="parent"
         android:background="@color/blue"
-    >
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/toolbar_layout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-        >
+            android:layout_height="match_parent">
 
             <ImageButton
                 android:id="@+id/imageButton"
@@ -32,7 +32,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/toolbar_layout"
                 app:srcCompat="?attr/actionModeCloseDrawable"
-            />
+                tools:ignore="NotSibling" />
 
             <TextView
                 android:id="@+id/lot"
@@ -47,8 +47,7 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/toolbar_layout"
                 app:layout_constraintStart_toEndOf="@+id/imageButton"
-                app:layout_constraintTop_toTopOf="@+id/toolbar_layout"
-            />
+                app:layout_constraintTop_toTopOf="@+id/toolbar_layout" />
 
             <TextView
                 android:id="@+id/lot_number"
@@ -63,8 +62,7 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/toolbar_layout"
                 app:layout_constraintStart_toEndOf="@+id/lot"
-                app:layout_constraintTop_toTopOf="@+id/toolbar_layout"
-            />
+                app:layout_constraintTop_toTopOf="@+id/toolbar_layout" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </Toolbar>

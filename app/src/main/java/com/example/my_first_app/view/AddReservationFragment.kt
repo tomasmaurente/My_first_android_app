@@ -18,8 +18,7 @@ import com.google.android.material.datepicker.MaterialDatePicker
 import java.text.SimpleDateFormat
 import java.util.*
 
-class AddReservationFragment: Fragment(R.layout.layout_add_reservation),
-    AdapterView.OnItemClickListener {
+class AddReservationFragment: Fragment(R.layout.layout_add_reservation) {
 
     private lateinit var binding: LayoutAddReservationBinding
 
@@ -72,12 +71,10 @@ class AddReservationFragment: Fragment(R.layout.layout_add_reservation),
 
         // Save button
         binding.saveButton.setOnClickListener{
-            Toast.makeText(activity,"You made it!!!",Toast.LENGTH_SHORT)
+            Toast.makeText(activity,"You made it!!!",Toast.LENGTH_SHORT).show()
+            // Code to Add a reservation
+            binding.root.findNavController().navigate(R.id.action_reservationsFragment_to_parkingLotsFragment)  // switching screen to reservationsFragment
         }
-    }
-
-    override fun onItemClick(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-        Toast.makeText(activity,"hols",Toast.LENGTH_SHORT)
     }
 
     private fun pickStartDateTime( ) {

@@ -28,7 +28,7 @@
     <string name="deleteDialogTitle">Delete Reservation</string>
     <string name="deleteDialogText">Are you sure you want to delete this reservation? Please input the autorization code to confirm.</string>
     <string name="deleteDialogHint">Authorization Code</string>
-    <string name="deleteDialogOk">Ok</string>
+    <string name="deleteDialogCancel">Cancel</string>
     <string name="deleteDialogDeleteButton">Delete</string>
     <string name="pickALot">Pick a lot</string>
 

@@ -15,13 +15,24 @@ import com.example.my_first_app.databinding.LayoutParkingLotsBinding
 class LotFragment: Fragment(R.layout.layout_parking_lots) {
 
     private lateinit var binding: LayoutParkingLotsBinding
-    private lateinit var getLotListRepositoryImp: GetLotListRepositoryImp
+    private var getLotListRepositoryImp: GetLotListRepositoryImp = GetLotListRepositoryImp()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = LayoutParkingLotsBinding.bind(view)
         val recyclerViewBinding = binding.mainRecyclerView
-        getLotListRepositoryImp = GetLotListRepositoryImp()
+        val lotList = getLotListRepositoryImp.getLotList()
+
+        var parkingAvailability = lotList.size
+        lotList.forEach(){
+            if (it.reservations.isEmpty()){
+                parkingAvailability --
+            }
+        }
+        binding.progressBar.max = lotList.size
+        binding.progressBar.progress = parkingAvailability
+        binding.numberFreePlaces.text = (lotList.size - parkingAvailability).toString()
+        binding.numberBusyPlaces.text = parkingAvailability.toString()
 
         initRecyclerView()
 
