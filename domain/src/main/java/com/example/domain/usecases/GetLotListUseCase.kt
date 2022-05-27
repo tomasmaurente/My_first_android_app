@@ -4,5 +4,5 @@ import com.example.domain.repositories.GetLotListRepository
 
 class GetLotListUseCase {
     lateinit var getLotListRepository: GetLotListRepository
-    operator fun invoke(id: Int, getFromRemote: Boolean) = getLotListRepository.getLotList()
+    operator fun invoke() = getLotListRepository.getLotList()
 }

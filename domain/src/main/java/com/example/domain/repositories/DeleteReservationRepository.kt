@@ -1,7 +1,7 @@
 package com.example.domain.repositories
 
-import com.example.domain.entities.LotReservation
+import com.example.domain.entities.Reservation
 
 interface DeleteReservationRepository {
-    fun deleteReservation(reservation: LotReservation, authorizationCode: Int): Boolean
+    fun deleteReservation(reservation: Reservation, authorizationCode: String): Boolean
 }

@@ -16,4 +16,3 @@ rootProject.name = "My_First_App"
 include ':app'
 include ':domain'
 include ':data'
-include ':di'

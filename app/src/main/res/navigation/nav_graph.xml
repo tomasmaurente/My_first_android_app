@@ -7,14 +7,16 @@
 
     <fragment
         android:id="@+id/parkingLotsFragment"
-        android:name="com.example.my_first_app.view.LotsFragment"
+        android:name="com.example.my_first_app.view.LotFragment"
         android:label="ParkingLotsFragment"
         tools:layout="@layout/layout_parking_lots"
     >
 
         <action
             android:id="@+id/action_parkingLotsFragment_to_reservationsFragment"
-            app:destination="@id/reservationsFragment" />
+            app:destination="@id/reservationsFragment"
+
+            />
         <action
             android:id="@+id/action_parkingLotsFragment_to_addReservationFragment"
             app:destination="@id/addReservationFragment" />

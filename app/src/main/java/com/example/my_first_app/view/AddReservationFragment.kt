@@ -111,7 +111,6 @@ class AddReservationFragment: Fragment(R.layout.layout_add_reservation),
         ).show()
     }
 
-    // useless method, this method just pick one time, not a range
     private fun updateStartDateLable(myCalendar: Calendar) {
         val myFormat = " dd-MM-yyyy "
         val sdf = SimpleDateFormat(myFormat, Locale.UK)
@@ -155,7 +154,6 @@ class AddReservationFragment: Fragment(R.layout.layout_add_reservation),
         ).show()
     }
 
-    // useless method, this method just pick one time, not a range
     private fun updateEndDateLable(myCalendar: Calendar) {
         val myFormat = " dd-MM-yyyy "
         val sdf = SimpleDateFormat(myFormat, Locale.UK)

@@ -1,8 +1,7 @@
 package com.example.domain.repositories
 
-import com.example.domain.entities.ParkingLot
-import java.time.LocalDateTime
+import com.example.domain.entities.Lot
 
 interface AddReservationRepository {
-    fun addReservation(lot: ParkingLot, startDateTime: String, endDateTime: String, authorizationCode: Int): Boolean
+    fun addReservation(lot: Lot, startDateTime: String, endDateTime: String, authorizationCode: Int): Boolean
 }

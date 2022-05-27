@@ -3,10 +3,10 @@ package com.example.my_first_app.adapters.lotAdapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.domain.entities.ParkingLot
+import com.example.domain.entities.Lot
 import com.example.my_first_app.R
 
-class ParkingLotAdapter (private val itemsList: List<ParkingLot>, private val onClickListener:(ParkingLot)-> Unit): RecyclerView.Adapter<ParkingLotViewHolder>() {
+class ParkingLotAdapter (private val itemsList: List<Lot>, private val onClickListener:(Lot)-> Unit): RecyclerView.Adapter<ParkingLotViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ParkingLotViewHolder {
         var layoutInflater = LayoutInflater.from(parent.context)
