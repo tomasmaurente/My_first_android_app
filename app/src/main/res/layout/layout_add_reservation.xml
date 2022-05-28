@@ -75,9 +75,16 @@
         android:layout_height="50dp"
         android:layout_marginHorizontal="15dp"
 
+        android:paddingStart="16dp"
+        android:textSize="20sp"
+
+        android:contentDescription="@string/spinner_content"
+
         android:spinnerMode="dropdown"
         app:flow_maxElementsWrap="6"
-        app:barrierMargin="@dimen/cardview_compat_inset_shadow"
+        app:barrierMargin="10dp"
+
+        android:background="@drawable/spinner_background"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -85,18 +92,6 @@
 
         tools:listitem="@layout/layout_drop_down_item"
         />
-
-    <!--<EditText
-        android:id="@+id/lotListButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        android:clickable="false"
-        android:focusable="false"
-        android:hint="@string/lotEditText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lotListText" />-->
 
     <!-- Start date and time -->
 
@@ -117,13 +112,27 @@
         app:layout_constraintBottom_toBottomOf="@+id/startDateText"
         app:layout_constraintEnd_toStartOf="@+id/startDateText"/>
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+
+        app:layout_constraintBottom_toBottomOf="@+id/startDateButton"
+        app:layout_constraintEnd_toEndOf="@+id/startDateButton"
+        app:layout_constraintTop_toTopOf="@+id/startDateButton"
+        app:srcCompat="@drawable/ic_baseline_calendar_today_24"
+        />
+
     <EditText
         android:id="@+id/startDateButton"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_margin="15dp"
+        android:background="@drawable/spinner_background"
         android:clickable="false"
+
         android:focusable="false"
+        android:hapticFeedbackEnabled="false"
         android:hint="@string/startDateTimeEditText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.448"
@@ -149,14 +158,26 @@
         app:layout_constraintBottom_toBottomOf="@+id/endDateText"
         app:layout_constraintEnd_toStartOf="@+id/startDateText" />
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+
+        app:layout_constraintBottom_toBottomOf="@+id/endDateTimeButton"
+        app:layout_constraintEnd_toEndOf="@+id/endDateTimeButton"
+        app:layout_constraintTop_toTopOf="@+id/endDateTimeButton"
+        app:srcCompat="@drawable/ic_baseline_calendar_today_24"
+        />
+
     <EditText
         android:id="@+id/endDateTimeButton"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_margin="15dp"
         android:clickable="false"
         android:focusable="false"
         android:hint="@string/endDateTimeEditText"
+        android:background="@drawable/spinner_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/endDateText" />
@@ -175,9 +196,10 @@
     <EditText
         android:id="@+id/authorizationCodeButton"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_margin="15dp"
         android:hint="@string/authorizationEditText"
+        android:background="@drawable/spinner_background"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

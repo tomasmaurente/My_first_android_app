@@ -31,6 +31,7 @@
     <string name="deleteDialogCancel">Cancel</string>
     <string name="deleteDialogDeleteButton">Delete</string>
     <string name="pickALot">Pick a lot</string>
+    <string name="spinner_content">Pick a lot</string>
 
     <!-- lots spinner screen 3-->
     <string-array name="lotsNumbers">

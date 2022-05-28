@@ -17,16 +17,14 @@ class ReservationFragment: Fragment(R.layout.layout_reservations) {
 
     private lateinit var binding: LayoutReservationsBinding
     private lateinit var getReservationListRepositoryImp: GetReservationListRepositoryImp
-    private lateinit var exampleLot: Lot
-    private var lotSpot: Int = 0
+    private lateinit var lotSelected: Lot
 
         override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
             super.onViewCreated(view, savedInstanceState)
             binding = LayoutReservationsBinding.bind(view)
             getReservationListRepositoryImp = GetReservationListRepositoryImp()
-            exampleLot = Lot(4,listOf())
-            arguments?.let { lotSpot = it.getInt("lotSpot", 0) }
-            binding.lotNumber.text = lotSpot.toString()
+            arguments?.let { lotSelected = it.getSerializable("lot") as Lot }
+            binding.lotNumber.text = lotSelected.spot.toString()
 
             initRecyclerView()
 
@@ -39,22 +37,24 @@ class ReservationFragment: Fragment(R.layout.layout_reservations) {
             }
     }
 
-    fun initRecyclerView(){
+    // getReservationListRepositoryImp.getReservationList(lotSelected)
+
+    private fun initRecyclerView(){
         binding.recyclerReservations.layoutManager = LinearLayoutManager(activity)
-        binding.recyclerReservations.adapter = ReservationAdapter(getReservationListRepositoryImp.getReservationList(exampleLot)){ reservation ->
+        binding.recyclerReservations.adapter = ReservationAdapter(lotSelected.reservations){ reservation ->
             onButtonDeleteSelected(
                 reservation
             )
         }
     }
 
-    fun onButtonDeleteSelected(reservation: Reservation){
+    private fun onButtonDeleteSelected(reservation: Reservation){
             // Create the fragment and show it as a dialog.
         val newFragment: DialogFragment = DeleteDialogFragment.newInstance()
         newFragment.show(parentFragmentManager, "dialog")
     }
 
-    fun onBackButtonSelected(){
+    private fun onBackButtonSelected(){
         binding.root.findNavController().navigate(R.id.action_reservationsFragment_to_parkingLotsFragment)  // switching screen to parkingLotsFragment
     }
 }

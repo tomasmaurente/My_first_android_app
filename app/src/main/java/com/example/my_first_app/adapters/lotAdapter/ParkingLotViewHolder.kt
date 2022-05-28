@@ -7,8 +7,7 @@ import com.example.domain.entities.Lot
 import com.example.domain.entities.Reservation
 import com.example.my_first_app.databinding.LayoutLotItemBinding
 import com.example.my_first_app.utils.AppDateFormat
-import kotlinx.coroutines.withContext
-import java.security.AccessController.getContext
+import com.example.my_first_app.utils.StringsUtils
 
 class ParkingLotViewHolder (view: View): RecyclerView.ViewHolder(view) {
 
@@ -19,7 +18,7 @@ class ParkingLotViewHolder (view: View): RecyclerView.ViewHolder(view) {
     fun render(actualLot: Lot, onClickListener:(Lot)-> Unit) {
 
         if(actualLot.reservations.isEmpty()){
-            binding.markAsFree.text = "Free"
+            binding.markAsFree.text = StringsUtils.FREE
             binding.day.text = ""
             binding.monthAndYear.text = ""
             binding.hourOfDay.text = ""
@@ -30,6 +29,7 @@ class ParkingLotViewHolder (view: View): RecyclerView.ViewHolder(view) {
         }
         else{
             firstReservation = actualLot.reservations[0]
+            binding.markAsFree.text = ""
             binding.day.text = dateFormat.dayFormat(firstReservation.startDateInMillis)
             binding.monthAndYear.text = dateFormat.monthYearFormat(firstReservation.startDateInMillis)
             binding.hourOfDay.text = dateFormat.hourFormat(firstReservation.startDateInMillis)

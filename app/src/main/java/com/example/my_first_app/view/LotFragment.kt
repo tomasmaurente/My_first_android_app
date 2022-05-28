@@ -54,7 +54,8 @@ class LotFragment: Fragment(R.layout.layout_parking_lots) {
         //Toast.makeText(activity,parkingLot.spot.toString(), Toast.LENGTH_SHORT).show()
         val navController = binding.root.findNavController()
         val bundle = Bundle()
-        bundle.putInt("lotSpot",parkingLot.spot)
+        //bundle.putInt("lotSpot",parkingLot.spot)
+        bundle.putSerializable("lot", parkingLot)
         navController.navigate(R.id.action_parkingLotsFragment_to_reservationsFragment,bundle)
     }
 }
