@@ -46,11 +46,9 @@ class AddReservationFragment: Fragment(R.layout.layout_add_reservation) {
                 position: Int,
                 p3: Long,
             ) {
-                binding.lotListText.text = "hello World $position" 
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {
-                binding.lotListText.text = "bye World"
             }
         }
 
@@ -65,9 +63,8 @@ class AddReservationFragment: Fragment(R.layout.layout_add_reservation) {
         }
 
         // Authorization code picker
-        binding.authorizationCodeButton.setOnClickListener{
-            binding.authorizationCodeText.text = binding.authorizationCodeButton.text
-        }
+        //binding.authorizationCodeButton.setOnClickListener{
+        //}
 
         // Save button
         binding.saveButton.setOnClickListener{
@@ -77,13 +74,18 @@ class AddReservationFragment: Fragment(R.layout.layout_add_reservation) {
         }
     }
 
+    private lateinit var hora : String
+    private lateinit var fecha : String
+
     private fun pickStartDateTime( ) {
         val myCalendar = Calendar.getInstance()
+
         val timeListener = TimePickerDialog.OnTimeSetListener { view,hours,minutes ->
             myCalendar.set(Calendar.MINUTE, minutes)
             myCalendar.set(Calendar.HOUR, hours)
             updateStartTimeLable(myCalendar)
         }
+
         val dateListener = DatePickerDialog.OnDateSetListener { _,year,month,day ->
             myCalendar.set(Calendar.YEAR, year)
             myCalendar.set(Calendar.MONTH, month)
@@ -111,13 +113,13 @@ class AddReservationFragment: Fragment(R.layout.layout_add_reservation) {
     private fun updateStartDateLable(myCalendar: Calendar) {
         val myFormat = " dd-MM-yyyy "
         val sdf = SimpleDateFormat(myFormat, Locale.UK)
-        binding.startTimeText.text = (sdf.format(myCalendar.time))
+        hora = (sdf.format(myCalendar.time))
     }
 
-    private fun updateStartTimeLable(myCalendar: Calendar) {
+    private fun updateStartTimeLable(myCalendar: Calendar){
         val myFormat = " hh:mm "
         val sdf = SimpleDateFormat(myFormat, Locale.UK)
-        binding.startDateText.text = (sdf.format(myCalendar.time))
+        fecha = (sdf.format(myCalendar.time))
     }
 
     private fun pickEndDateTime( ) {
@@ -154,13 +156,13 @@ class AddReservationFragment: Fragment(R.layout.layout_add_reservation) {
     private fun updateEndDateLable(myCalendar: Calendar) {
         val myFormat = " dd-MM-yyyy "
         val sdf = SimpleDateFormat(myFormat, Locale.UK)
-        binding.endTimeText.text = (sdf.format(myCalendar.time))
+        binding.endDateTimeButton.hint = (sdf.format(myCalendar.time))
     }
 
     private fun updateEndTimeLable(myCalendar: Calendar) {
         val myFormat = " hh:mm "
         val sdf = SimpleDateFormat(myFormat, Locale.UK)
-        binding.endDateText.text = (sdf.format(myCalendar.time))
+        binding.endDateTimeButton.hint = (sdf.format(myCalendar.time))
     }
 }
 

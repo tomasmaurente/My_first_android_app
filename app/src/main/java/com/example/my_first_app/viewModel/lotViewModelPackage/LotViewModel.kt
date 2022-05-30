@@ -10,8 +10,14 @@ import com.example.my_first_app.utils.Event
 class LotViewModel (val getLotList: GetLotListUseCase) : ViewModel() {
 
     private var mutableListParkingLotState: MutableLiveData<Event<List<Lot>>> = MutableLiveData()
+
     val listParkingLotState: LiveData<Event<List<Lot>>>
         get() {
             return mutableListParkingLotState
         }
+
+
+
+
+
 }

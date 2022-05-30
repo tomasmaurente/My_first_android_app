@@ -12,6 +12,7 @@ import com.example.domain.entities.Reservation
 import com.example.my_first_app.R
 import com.example.my_first_app.databinding.LayoutReservationsBinding
 import com.example.my_first_app.adapters.reservationAdapter.ReservationAdapter
+import com.example.my_first_app.databinding.LayoutDeleteDialogBinding
 
 class ReservationFragment: Fragment(R.layout.layout_reservations) {
 
@@ -35,6 +36,8 @@ class ReservationFragment: Fragment(R.layout.layout_reservations) {
             binding.floatingAddButton.setOnClickListener{
                 binding.root.findNavController().navigate(R.id.action_reservationsFragment_to_addReservationFragment)  // switching screen to reservationsFragment
             }
+
+
     }
 
     // getReservationListRepositoryImp.getReservationList(lotSelected)

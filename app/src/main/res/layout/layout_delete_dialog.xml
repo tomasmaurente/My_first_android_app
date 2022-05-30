@@ -50,7 +50,7 @@
 
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/authCode"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
@@ -68,7 +68,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textDeleteDialog" />
 
         <Button
-            android:id="@+id/cancelButton"
+            android:id="@+id/deleteButton"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
 
@@ -84,10 +84,10 @@
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editText" />
+            app:layout_constraintTop_toBottomOf="@+id/authCode" />
 
         <Button
-            android:id="@+id/okButton"
+            android:id="@+id/cancelButton"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
 
@@ -101,8 +101,8 @@
             android:textColor="@color/black"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/cancelButton"
-            app:layout_constraintTop_toBottomOf="@+id/editText" />
+            app:layout_constraintEnd_toStartOf="@+id/deleteButton"
+            app:layout_constraintTop_toBottomOf="@+id/authCode" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>
