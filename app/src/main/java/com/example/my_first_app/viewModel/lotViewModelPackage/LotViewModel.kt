@@ -16,8 +16,4 @@ class LotViewModel (val getLotList: GetLotListUseCase) : ViewModel() {
             return mutableListParkingLotState
         }
 
-
-
-
-
 }

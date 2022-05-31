@@ -88,7 +88,7 @@
     <!-- Start date and time -->
 
     <EditText
-        android:id="@+id/startDateButton"
+        android:id="@+id/startDateTimeButton"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_margin="15dp"
@@ -110,9 +110,9 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
 
-        app:layout_constraintBottom_toBottomOf="@+id/startDateButton"
-        app:layout_constraintEnd_toEndOf="@+id/startDateButton"
-        app:layout_constraintTop_toTopOf="@+id/startDateButton"
+        app:layout_constraintBottom_toBottomOf="@+id/startDateTimeButton"
+        app:layout_constraintEnd_toEndOf="@+id/startDateTimeButton"
+        app:layout_constraintTop_toTopOf="@+id/startDateTimeButton"
         app:srcCompat="@drawable/ic_baseline_calendar_today_24"
         />
 
@@ -132,7 +132,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.517"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/startDateButton" />
+        app:layout_constraintTop_toBottomOf="@+id/startDateTimeButton" />
 
     <ImageView
         android:layout_width="wrap_content"

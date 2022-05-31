@@ -11,6 +11,8 @@ import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavGraph
 import androidx.navigation.findNavController
+import com.example.data.repositories.GetReservationListRepositoryImp
+import com.example.domain.entities.Reservation
 import com.example.my_first_app.R
 import com.example.my_first_app.databinding.LayoutAddReservationBinding
 import com.example.my_first_app.databinding.LayoutReservationsBinding
@@ -21,6 +23,10 @@ import java.util.*
 class AddReservationFragment: Fragment(R.layout.layout_add_reservation) {
 
     private lateinit var binding: LayoutAddReservationBinding
+    private var lot: Int = 0
+    private lateinit var startDateTime: Calendar
+    private lateinit var endDateTime: Calendar
+    private lateinit var authorizationCode: String
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
@@ -46,6 +52,7 @@ class AddReservationFragment: Fragment(R.layout.layout_add_reservation) {
                 position: Int,
                 p3: Long,
             ) {
+                lot = position
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {
@@ -53,7 +60,7 @@ class AddReservationFragment: Fragment(R.layout.layout_add_reservation) {
         }
 
         // Start Date and time picker
-        binding.startDateButton.setOnClickListener{
+        binding.startDateTimeButton.setOnClickListener{
             pickStartDateTime()
         }
 
@@ -63,106 +70,96 @@ class AddReservationFragment: Fragment(R.layout.layout_add_reservation) {
         }
 
         // Authorization code picker
-        //binding.authorizationCodeButton.setOnClickListener{
-        //}
+        binding.authorizationCodeButton.setOnClickListener{
+            authorizationCode = binding.authorizationCodeButton.text.toString()
+        }
 
         // Save button
         binding.saveButton.setOnClickListener{
-            Toast.makeText(activity,"You made it!!!",Toast.LENGTH_SHORT).show()
-            // Code to Add a reservation
-            binding.root.findNavController().navigate(R.id.action_reservationsFragment_to_parkingLotsFragment)  // switching screen to reservationsFragment
+            if( startDateTime != null && endDateTime != null && lot != 0 && authorizationCode != null){
+                val getReservationListRepositoryImp = GetReservationListRepositoryImp()
+                getReservationListRepositoryImp.addReservation(Reservation(startDateTime.timeInMillis,endDateTime.timeInMillis,authorizationCode, lot))
+                // Back to main
+                Toast.makeText(activity,"You made it!!!",Toast.LENGTH_SHORT).show()
+                binding.root.findNavController().navigate(R.id.action_reservationsFragment_to_parkingLotsFragment)  // switching screen to reservationsFragment
+            } else {
+                Toast.makeText(activity, "You have to complete all the fields", Toast.LENGTH_SHORT)
+                    .show()
+            }
         }
     }
 
-    private lateinit var hora : String
-    private lateinit var fecha : String
-
     private fun pickStartDateTime( ) {
-        val myCalendar = Calendar.getInstance()
+        startDateTime = Calendar.getInstance()
 
         val timeListener = TimePickerDialog.OnTimeSetListener { view,hours,minutes ->
-            myCalendar.set(Calendar.MINUTE, minutes)
-            myCalendar.set(Calendar.HOUR, hours)
-            updateStartTimeLable(myCalendar)
+            startDateTime.set(Calendar.MINUTE, minutes)
+            startDateTime.set(Calendar.HOUR, hours)
+
+            val myFormat = " dd-MM-yyyy hh:mm "
+            val sdf = SimpleDateFormat(myFormat, Locale.UK)
+            (sdf.format(startDateTime.time))
+
+            binding.startDateTimeButton.hint = (sdf.format(startDateTime.time))
         }
 
         val dateListener = DatePickerDialog.OnDateSetListener { _,year,month,day ->
-            myCalendar.set(Calendar.YEAR, year)
-            myCalendar.set(Calendar.MONTH, month)
-            myCalendar.set(Calendar.DAY_OF_MONTH, day)
-            updateStartDateLable(myCalendar)
+            startDateTime.set(Calendar.YEAR, year)
+            startDateTime.set(Calendar.MONTH, month)
+            startDateTime.set(Calendar.DAY_OF_MONTH, day)
         }
 
         TimePickerDialog(
             activity,
             timeListener,
-            myCalendar.get(Calendar.HOUR_OF_DAY),
-            myCalendar.get(Calendar.MINUTE),
+            startDateTime.get(Calendar.HOUR_OF_DAY),
+            startDateTime.get(Calendar.MINUTE),
             false
         ).show()
 
         DatePickerDialog(
             requireContext(),
             dateListener,
-            myCalendar.get(Calendar.YEAR),
-            myCalendar.get(Calendar.MONTH),
-            myCalendar.get(Calendar.DAY_OF_MONTH)
+            startDateTime.get(Calendar.YEAR),
+            startDateTime.get(Calendar.MONTH),
+            startDateTime.get(Calendar.DAY_OF_MONTH)
         ).show()
-    }
-
-    private fun updateStartDateLable(myCalendar: Calendar) {
-        val myFormat = " dd-MM-yyyy "
-        val sdf = SimpleDateFormat(myFormat, Locale.UK)
-        hora = (sdf.format(myCalendar.time))
-    }
-
-    private fun updateStartTimeLable(myCalendar: Calendar){
-        val myFormat = " hh:mm "
-        val sdf = SimpleDateFormat(myFormat, Locale.UK)
-        fecha = (sdf.format(myCalendar.time))
     }
 
     private fun pickEndDateTime( ) {
-        val myCalendar = Calendar.getInstance()
+        endDateTime = Calendar.getInstance()
+
         val timeListener = TimePickerDialog.OnTimeSetListener { view,hours,minutes ->
-            myCalendar.set(Calendar.MINUTE, minutes)
-            myCalendar.set(Calendar.HOUR, hours)
-            updateEndTimeLable(myCalendar)
+            endDateTime.set(Calendar.MINUTE, minutes)
+            endDateTime.set(Calendar.HOUR, hours)
+
+            val myFormat = " dd-MM-yyyy hh:mm "
+            val sdf = SimpleDateFormat(myFormat, Locale.UK)
+            (sdf.format(endDateTime.time))
+
+            binding.endDateTimeButton.hint = (sdf.format(endDateTime.time))
         }
         val dateListener = DatePickerDialog.OnDateSetListener { _,year,month,day ->
-            myCalendar.set(Calendar.YEAR, year)
-            myCalendar.set(Calendar.MONTH, month)
-            myCalendar.set(Calendar.DAY_OF_MONTH, day)
-            updateEndDateLable(myCalendar)
+            endDateTime.set(Calendar.YEAR, year)
+            endDateTime.set(Calendar.MONTH, month)
+            endDateTime.set(Calendar.DAY_OF_MONTH, day)
         }
 
         TimePickerDialog(
             activity,
             timeListener,
-            myCalendar.get(Calendar.HOUR_OF_DAY),
-            myCalendar.get(Calendar.MINUTE),
+            endDateTime.get(Calendar.HOUR_OF_DAY),
+            endDateTime.get(Calendar.MINUTE),
             false
         ).show()
 
         DatePickerDialog(
             requireContext(),
             dateListener,
-            myCalendar.get(Calendar.YEAR),
-            myCalendar.get(Calendar.MONTH),
-            myCalendar.get(Calendar.DAY_OF_MONTH)
+            endDateTime.get(Calendar.YEAR),
+            endDateTime.get(Calendar.MONTH),
+            endDateTime.get(Calendar.DAY_OF_MONTH)
         ).show()
-    }
-
-    private fun updateEndDateLable(myCalendar: Calendar) {
-        val myFormat = " dd-MM-yyyy "
-        val sdf = SimpleDateFormat(myFormat, Locale.UK)
-        binding.endDateTimeButton.hint = (sdf.format(myCalendar.time))
-    }
-
-    private fun updateEndTimeLable(myCalendar: Calendar) {
-        val myFormat = " hh:mm "
-        val sdf = SimpleDateFormat(myFormat, Locale.UK)
-        binding.endDateTimeButton.hint = (sdf.format(myCalendar.time))
     }
 }
 

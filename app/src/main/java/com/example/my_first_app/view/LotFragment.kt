@@ -1,7 +1,6 @@
 package com.example.my_first_app.view
 
 import android.os.Bundle
-import android.provider.SyncStateContract.Helpers.update
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -9,25 +8,22 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.data.repositories.GetLotListRepositoryImp
 import com.example.domain.entities.Lot
-import com.example.domain.entities.Reservation
 import com.example.my_first_app.R
 import com.example.my_first_app.adapters.lotAdapter.ParkingLotAdapter
 import com.example.my_first_app.databinding.LayoutParkingLotsBinding
 import com.example.my_first_app.utils.Event
 import com.example.my_first_app.viewModel.lotViewModelPackage.LotViewModel
 import com.example.my_first_app.viewModel.lotViewModelPackage.LotViewModelProvider
-import com.example.my_first_app.viewModel.reservationsViewModelPackage.ReservationViewModel
-import com.example.my_first_app.viewModel.reservationsViewModelPackage.ReservationViewModelProvider
 
 class LotFragment: Fragment(R.layout.layout_parking_lots) {
 
     private lateinit var binding: LayoutParkingLotsBinding
+    private var getLotListRepositoryImp: GetLotListRepositoryImp = GetLotListRepositoryImp()
+    private lateinit var lotList: List<Lot>
 
     private val viewModel by lazy{
         LotViewModelProvider(activity).get(LotViewModel::class.java)
     }
-    private var getLotListRepositoryImp: GetLotListRepositoryImp = GetLotListRepositoryImp()
-    private lateinit var lotList: List<Lot>
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

@@ -10,6 +10,7 @@ import com.example.my_first_app.utils.Event
 class ReservationViewModel (val getLotReservationList: GetReservationListUseCase) : ViewModel() {
 
     private var mutableListReservationState: MutableLiveData<Event<List<Reservation>>> = MutableLiveData()
+
     val listReservationState: LiveData<Event<List<Reservation>>>
         get() {
             return mutableListReservationState
