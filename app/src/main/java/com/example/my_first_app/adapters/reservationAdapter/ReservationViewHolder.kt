@@ -1,13 +1,10 @@
-package com.example.prueba_recycler_view.adapter
+package com.example.my_first_app.adapters.reservationAdapter
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.example.domain.entities.Reservation
 import com.example.my_first_app.databinding.LayoutItemReservationBinding
 import com.example.my_first_app.utils.AppDateFormat
-import java.text.DateFormat
-import java.text.SimpleDateFormat
-import java.util.*
 
 class ReservationViewHolder(view:View):RecyclerView.ViewHolder(view) {
 

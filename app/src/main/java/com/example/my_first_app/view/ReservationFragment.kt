@@ -43,7 +43,6 @@ class ReservationFragment: Fragment(R.layout.layout_reservations) {
         }
         activity?.let { viewModel.listReservationState.observe(it, liveDataObserver) }
 
-
 //  borrarr
         lotSelected = Lot()
 
@@ -55,6 +54,7 @@ class ReservationFragment: Fragment(R.layout.layout_reservations) {
 
         binding.floatingAddButton.setOnClickListener{
             binding.root.findNavController().navigate(R.id.action_reservationsFragment_to_addReservationFragment)  // switching screen to reservationsFragment
+
         }
     }
 
@@ -78,6 +78,7 @@ class ReservationFragment: Fragment(R.layout.layout_reservations) {
             // Create the fragment and show it as a dialog.
         val newFragment: DialogFragment = DeleteDialogFragment.newInstance()
         newFragment.show(parentFragmentManager, "dialog")
+
     }
 
     private fun onBackButtonSelected(){

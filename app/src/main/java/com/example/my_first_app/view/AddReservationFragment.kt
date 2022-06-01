@@ -3,20 +3,14 @@ package com.example.my_first_app.view
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.view.ViewParent
 import android.widget.*
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.fragment.app.Fragment
-import androidx.navigation.NavGraph
 import androidx.navigation.findNavController
 import com.example.data.repositories.GetReservationListRepositoryImp
 import com.example.domain.entities.Reservation
 import com.example.my_first_app.R
 import com.example.my_first_app.databinding.LayoutAddReservationBinding
-import com.example.my_first_app.databinding.LayoutReservationsBinding
-import com.google.android.material.datepicker.MaterialDatePicker
 import java.text.SimpleDateFormat
 import java.util.*
 

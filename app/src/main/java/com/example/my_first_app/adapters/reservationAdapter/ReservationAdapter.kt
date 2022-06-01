@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.domain.entities.Reservation
 import com.example.my_first_app.R
-import com.example.prueba_recycler_view.adapter.ReservationViewHolder
 
 class ReservationAdapter(private val itemsList: List<Reservation>, private val onClickListener:(Reservation) -> Unit): RecyclerView.Adapter<ReservationViewHolder>() {
 

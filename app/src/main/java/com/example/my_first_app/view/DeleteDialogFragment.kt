@@ -25,6 +25,8 @@ class DeleteDialogFragment : DialogFragment() {
         }
 
         rootView.findViewById<View>(R.id.deleteButton).setOnClickListener {
+            val autText = rootView.findViewById<EditText>(R.id.authCode).text
+            Toast.makeText(activity,autText,Toast.LENGTH_SHORT).show()
         }
 
         return rootView

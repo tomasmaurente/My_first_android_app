@@ -16,6 +16,10 @@ class GetReservationListRepositoryImp: GetReservationListRepository {
         reservations.add(reservation)
     }
 
+    fun deleteReservation(reservation: Reservation){
+        reservations.remove(reservation)
+    }
+
     override fun getReservationList(lot: Lot): List<Reservation> {
         return reservations
     }

@@ -11,7 +11,6 @@
         android:label="ParkingLotsFragment"
         tools:layout="@layout/layout_parking_lots"
     >
-
         <action
             android:id="@+id/action_parkingLotsFragment_to_reservationsFragment"
             app:destination="@id/reservationsFragment"
@@ -44,10 +43,5 @@
         <action
             android:id="@+id/action_reservationsFragment_to_parkingLotsFragment"
             app:destination="@id/parkingLotsFragment" />
-
     </fragment>
-
-
-
-
 </navigation>

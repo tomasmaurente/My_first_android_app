@@ -34,7 +34,8 @@
                 app:layout_constraintBottom_toBottomOf="@+id/toolbar_layout"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/toolbar_layout"
-                app:srcCompat="?attr/actionModeCloseDrawable" />
+                app:srcCompat="?attr/actionModeCloseDrawable"
+            />
 
             <TextView
                 android:id="@+id/lot"
