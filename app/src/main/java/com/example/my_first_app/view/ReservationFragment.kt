@@ -36,7 +36,7 @@ class ReservationFragment: Fragment(R.layout.layout_reservations), DeleteDialogC
         super.onViewCreated(view, savedInstanceState)
         binding = LayoutReservationsBinding.bind(view)
         binding.recyclerReservations.layoutManager = LinearLayoutManager(activity)
-        getReservationListRepositoryImp = GetReservationListRepositoryImp()
+        getReservationListRepositoryImp = GetReservationListRepositoryImp
         arguments?.let { lotSelected = it.getSerializable("lot") as Lot }
         binding.lotNumber.text = lotSelected.spot.toString()
 

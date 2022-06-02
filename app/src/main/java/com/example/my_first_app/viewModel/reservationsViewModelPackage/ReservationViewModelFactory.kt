@@ -11,7 +11,7 @@ class ReservationViewModelFactory(private val context: Context) : NewInstanceFac
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         return if (modelClass == ReservationViewModel::class.java) {
             ReservationViewModel(GetReservationListUseCase().apply {
-                getReservationListRepository = GetReservationListRepositoryImp()
+                getReservationListRepository = GetReservationListRepositoryImp
             }) as T
         } else {
             super.create(modelClass)
