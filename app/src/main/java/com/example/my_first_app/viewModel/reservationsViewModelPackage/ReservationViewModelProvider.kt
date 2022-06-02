@@ -1,6 +1,5 @@
 package com.example.my_first_app.viewModel.reservationsViewModelPackage
 
-import android.app.Activity
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner

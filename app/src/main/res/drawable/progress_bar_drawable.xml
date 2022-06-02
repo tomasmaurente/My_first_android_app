@@ -22,9 +22,9 @@
                     android:top="2dp"
                     android:right="2dp">
                     <shape>
-                        <gradient android:startColor="@color/blue"
-                            android:centerColor="@color/blue"
-                            android:endColor="@color/blue"
+                        <gradient android:startColor="@color/green"
+                            android:centerColor="@color/green"
+                            android:endColor="@color/green"
                             android:angle="-90"/>
                         <corners android:radius="5dp"/>
                     </shape>

@@ -2,6 +2,7 @@ package com.example.my_first_app.view
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -13,15 +14,17 @@ import com.example.domain.entities.Reservation
 import com.example.my_first_app.R
 import com.example.my_first_app.databinding.LayoutReservationsBinding
 import com.example.my_first_app.adapters.reservationAdapter.ReservationAdapter
+import com.example.my_first_app.utils.DeleteDialogCallBack
 import com.example.my_first_app.utils.Event
 import com.example.my_first_app.viewModel.reservationsViewModelPackage.ReservationViewModel
 import com.example.my_first_app.viewModel.reservationsViewModelPackage.ReservationViewModelProvider
 
-class ReservationFragment: Fragment(R.layout.layout_reservations) {
+class ReservationFragment: Fragment(R.layout.layout_reservations), DeleteDialogCallBack {
 
     private lateinit var binding: LayoutReservationsBinding
     private lateinit var getReservationListRepositoryImp: GetReservationListRepositoryImp
     private lateinit var mutableReservationList : List<Reservation>
+    private lateinit var deleteCode: String
 
     private lateinit var lotSelected: Lot
 
@@ -76,12 +79,17 @@ class ReservationFragment: Fragment(R.layout.layout_reservations) {
 
     private fun onButtonDeleteSelected(reservation: Reservation){
             // Create the fragment and show it as a dialog.
-        val newFragment: DialogFragment = DeleteDialogFragment.newInstance()
-        newFragment.show(parentFragmentManager, "dialog")
 
+        val newFragment: DialogFragment = DeleteDialogFragment.newInstance(this)
+        newFragment.show(parentFragmentManager, "dialog")
     }
 
     private fun onBackButtonSelected(){
         binding.root.findNavController().navigate(R.id.action_reservationsFragment_to_parkingLotsFragment)  // switching screen to parkingLotsFragment
+    }
+
+    override fun onDeleteClicked(text: String) {
+        deleteCode = text
+        Toast.makeText(activity,text,Toast.LENGTH_SHORT).show()
     }
 }

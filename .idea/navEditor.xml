@@ -29,6 +29,18 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="deleteDialogFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-77" />
+                            <option name="y" value="-124" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="parkingLotsFragment">
                     <value>
                       <LayoutPositions>
@@ -41,6 +53,11 @@
                         <option name="myPositions">
                           <map>
                             <entry key="action_parkingLotsFragment_to_addReservationFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_parkingLotsFragment_to_reservationsFragment">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -61,6 +78,11 @@
                         </option>
                         <option name="myPositions">
                           <map>
+                            <entry key="action_reservationsFragment_to_addReservationFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                             <entry key="action_reservationsFragment_to_parkingLotsFragment">
                               <value>
                                 <LayoutPositions />

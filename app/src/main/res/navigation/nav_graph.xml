@@ -28,10 +28,19 @@
         >
         <action
             android:id="@+id/action_reservationsFragment_to_parkingLotsFragment"
-            app:destination="@id/parkingLotsFragment" />
+            app:destination="@id/parkingLotsFragment"
+        />
         <action
             android:id="@+id/action_reservationsFragment_to_addReservationFragment"
-            app:destination="@id/addReservationFragment" />
+            app:destination="@id/addReservationFragment"
+        />
+
+        <argument
+            android:name="autCode"
+            app:argType="string"
+            app:nullable="true"
+            />
+
     </fragment>
 
     <fragment
@@ -43,5 +52,16 @@
         <action
             android:id="@+id/action_reservationsFragment_to_parkingLotsFragment"
             app:destination="@id/parkingLotsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/deleteDialogFragment"
+        android:name="com.example.my_first_app.view.DeleteDialogFragment"
+        android:label="DeleteDialogFragment"
+        tools:layout="@layout/layout_delete_dialog">
+
+        <action
+            android:id="@+id/action_deleteDialogFragment_to_reservationsFragment"
+            app:destination="@id/reservationsFragment" />
+
     </fragment>
 </navigation>
