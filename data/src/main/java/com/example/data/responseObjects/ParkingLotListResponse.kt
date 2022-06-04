@@ -1,3 +1,8 @@
 package com.example.data.responseObjects
 
-data class ParkingLotListResponse(var lotList: MutableList<ParkingLotResponse>)
+import java.io.Serializable
+
+data class ParkingLotListResponse(var lotList: List<ParkingLotResponse>,
+                                  var owner: String?,
+                                  var parkingSize: Int
+                                  ) : Serializable

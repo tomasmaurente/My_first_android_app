@@ -2,7 +2,10 @@ package com.example.my_first_app.view
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -20,6 +23,7 @@ class LotFragment: Fragment(R.layout.layout_parking_lots) {
     private lateinit var binding: LayoutParkingLotsBinding
     private var getLotListRepositoryImp: GetLotListRepositoryImp = GetLotListRepositoryImp()
     private lateinit var lotList: List<Lot>
+    private val parkingId: String = "-N0TUDrXZUxA_wbd391E"
 
     private val viewModel by lazy{
         LotViewModelProvider(activity).get(LotViewModel::class.java)
@@ -32,24 +36,20 @@ class LotFragment: Fragment(R.layout.layout_parking_lots) {
 
         val liveDataObserver: Observer<Event<List<Lot>>> = Observer<Event<List<Lot>>> {
             updateRecyclerView(it.peekContent())
+            updateProgressBar(viewModel.getNumberOfFreeLots(it.peekContent()))
             lotList = it.peekContent()
         }
 
         lotList = getLotListRepositoryImp.getLotList()
+        updateProgressBar(viewModel.getNumberOfFreeLots(lotList))
 
-        activity?.let { viewModel.listParkingLotState.observe(it, liveDataObserver) }
-
-        var parkingAvailability = lotList.size
-        lotList.forEach(){
-            if (it.reservations.isEmpty()){
-                parkingAvailability --
-            }
+        //activity?.let { viewModel.listParkingLotState.observe(it, liveDataObserver) }
+        viewModel.getLots(parkingId)
+        viewModel.listParkingLotState.observe(viewLifecycleOwner) {
+            Toast.makeText(activity,it.first().spot.toString(),Toast.LENGTH_SHORT).show()
         }
-        binding.progressBar.max = lotList.size
-        binding.progressBar.progress = parkingAvailability
-        binding.numberFreePlaces.text = (lotList.size - parkingAvailability).toString()
-        binding.numberBusyPlaces.text = parkingAvailability.toString()
 
+        binding.progressBar.max = lotList.size
 
         initRecyclerView()
 
@@ -74,6 +74,11 @@ class LotFragment: Fragment(R.layout.layout_parking_lots) {
         }
     }
 
+    private fun updateProgressBar(parkingAvailability: Int){
+        binding.progressBar.progress = parkingAvailability
+        binding.numberFreePlaces.text = (lotList.size - parkingAvailability).toString()
+        binding.numberBusyPlaces.text = parkingAvailability.toString()
+    }
 
     private fun onParkingSpotSelected(parkingLot: Lot){
         //Toast.makeText(activity,parkingLot.spot.toString(), Toast.LENGTH_SHORT).show()
@@ -84,3 +89,4 @@ class LotFragment: Fragment(R.layout.layout_parking_lots) {
         navController.navigate(R.id.action_parkingLotsFragment_to_reservationsFragment,bundle)
     }
 }
+

@@ -72,7 +72,7 @@ class AddReservationFragment: Fragment(R.layout.layout_add_reservation) {
         binding.saveButton.setOnClickListener{
             if( startDateTime != null && endDateTime != null && lot != 0 && authorizationCode != null){
                 val getReservationListRepositoryImp = GetReservationListRepositoryImp
-                getReservationListRepositoryImp.addReservation(Reservation(startDateTime.timeInMillis,endDateTime.timeInMillis,authorizationCode, lot))
+                getReservationListRepositoryImp.addReservation(Reservation("for now, this is the id",startDateTime.timeInMillis,endDateTime.timeInMillis,authorizationCode, lot))
                 // Back to main
                 Toast.makeText(activity,"You made it!!!",Toast.LENGTH_SHORT).show()
                 binding.root.findNavController().navigate(R.id.action_reservationsFragment_to_parkingLotsFragment)  // switching screen to reservationsFragment
