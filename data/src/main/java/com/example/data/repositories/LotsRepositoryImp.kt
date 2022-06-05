@@ -11,11 +11,11 @@ class LotsRepositoryImp() : LotsRepository {
     lateinit var lotService : LotService
     override suspend fun getLots(parkingId: String): ParkingLotListModel {
         val result =  lotService.getLots(parkingId)
-        return when (result){
+        /*return when (result){
             is Result.Success -> {MapperParkingLotList.toParkingListResponseToModel(result.value!!)}
-            is Result.Failure -> {result.exception}
-        }
-        //return MapperParkingLotList.toParkingListResponseToModel(result.v)
+            is Result.Failure(result.exception)
+        }*/
+        return MapperParkingLotList.
     }
 
     //override suspend fun getLots(parkingId: String) = lotService.getLots(parkingId)

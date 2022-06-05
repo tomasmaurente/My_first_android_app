@@ -17,6 +17,7 @@ class LotViewModel (private val getLotList: GetLotListUseCase) : ViewModel() {
         get() {
             return mutableListParkingLotState
         }
+    
     fun getLots(parkingId: String) = viewModelScope.launch {
         val lotResponse = getLotList.invoke()
         mutableListParkingLotState.postValue(lotResponse)

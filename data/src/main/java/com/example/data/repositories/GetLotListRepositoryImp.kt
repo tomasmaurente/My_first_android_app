@@ -41,6 +41,6 @@ class GetLotListRepositoryImp: GetLotListRepository {
     )
 
     override fun getLotList(): List<Lot> {
-        return 
+        return spots
     }
 }
