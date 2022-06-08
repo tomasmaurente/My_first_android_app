@@ -11,6 +11,7 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.data.repositories.GetLotListRepositoryImp
 import com.example.domain.entities.Lot
+import com.example.domain.entities.ParkingLotModel
 import com.example.my_first_app.R
 import com.example.my_first_app.adapters.lotAdapter.ParkingLotAdapter
 import com.example.my_first_app.databinding.LayoutParkingLotsBinding
@@ -22,7 +23,8 @@ class LotFragment: Fragment(R.layout.layout_parking_lots) {
 
     private lateinit var binding: LayoutParkingLotsBinding
     private var getLotListRepositoryImp: GetLotListRepositoryImp = GetLotListRepositoryImp()
-    private lateinit var lotList: List<Lot>
+    private lateinit var lotList: List<ParkingLotModel>
+    private lateinit var internLotList: List<Lot>
     private val parkingId: String = "-N0TUDrXZUxA_wbd391E"
 
     private val viewModel by lazy{
@@ -34,22 +36,22 @@ class LotFragment: Fragment(R.layout.layout_parking_lots) {
         binding = LayoutParkingLotsBinding.bind(view)
         binding.mainRecyclerView.layoutManager = LinearLayoutManager(activity)
 
-        val liveDataObserver: Observer<Event<List<Lot>>> = Observer<Event<List<Lot>>> {
-            updateRecyclerView(it.peekContent())
-            updateProgressBar(viewModel.getNumberOfFreeLots(it.peekContent()))
+        val liveDataObserver: Observer<Event<List<ParkingLotModel>>> = Observer<Event<List<ParkingLotModel>>> {
+            //updateRecyclerView(it.peekContent())
+            //updateProgressBar(viewModel.getNumberOfFreeLots(it.peekContent()))
             lotList = it.peekContent()
         }
 
-        lotList = getLotListRepositoryImp.getLotList()
-        updateProgressBar(viewModel.getNumberOfFreeLots(lotList))
+        internLotList = getLotListRepositoryImp.getLotList()
+        //updateProgressBar(viewModel.getNumberOfFreeLots(lotList))
 
         //activity?.let { viewModel.listParkingLotState.observe(it, liveDataObserver) }
         viewModel.getLots(parkingId)
         viewModel.listParkingLotState.observe(viewLifecycleOwner) {
-            Toast.makeText(activity,it.first().spot.toString(),Toast.LENGTH_SHORT).show()
+            Toast.makeText(activity,it.first().parkingLot.toString(),Toast.LENGTH_SHORT).show()
         }
 
-        binding.progressBar.max = lotList.size
+        binding.progressBar.max = internLotList.size
 
         initRecyclerView()
 
@@ -59,7 +61,7 @@ class LotFragment: Fragment(R.layout.layout_parking_lots) {
     }
 
     private fun initRecyclerView(){
-        binding.mainRecyclerView.adapter = ParkingLotAdapter(getLotListRepositoryImp.getLotList()) { parkingSpot ->
+        binding.mainRecyclerView.adapter = ParkingLotAdapter(internLotList) { parkingSpot ->
             onParkingSpotSelected(
                 parkingSpot
             )

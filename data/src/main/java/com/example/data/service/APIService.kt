@@ -12,7 +12,7 @@ interface APIService {
     @GET("{parkingId}/reservations.json")
     suspend fun getReservationList(@Path("parkingId") id: String) : Response<ReservationListResponse>
 
-    @GET ("{parkingId}/reservations.json")
+    @GET ("parkings/{parkingId}/.json")
     suspend fun getParkingLotList(@Path("parkingId") id: String) : Response<ParkingLotListResponse>
 
     @DELETE("{parkingId}/reservations/{reservationId}/.json")

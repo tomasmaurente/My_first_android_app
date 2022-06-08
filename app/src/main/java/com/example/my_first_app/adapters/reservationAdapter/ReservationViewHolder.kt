@@ -16,9 +16,9 @@ class ReservationViewHolder(view:View):RecyclerView.ViewHolder(view) {
         binding.endDay.text = dateFormat.dayFormat(actualReservation.endDateTimeInMillis)
         binding.endMonthAndYear.text = dateFormat.monthYearFormat(actualReservation.endDateTimeInMillis)
 
-        binding.startDay.text = dateFormat.dayFormat(actualReservation.startDateInMillis)
-        binding.startHourOfDay.text = dateFormat.hourFormat(actualReservation.startDateInMillis)
-        binding.startMonthAndYear.text = dateFormat.monthYearFormat(actualReservation.startDateInMillis)
+        binding.startDay.text = dateFormat.dayFormat(actualReservation.startDateTimeInMillis)
+        binding.startHourOfDay.text = dateFormat.hourFormat(actualReservation.startDateTimeInMillis)
+        binding.startMonthAndYear.text = dateFormat.monthYearFormat(actualReservation.startDateTimeInMillis)
 
         binding.deleteButton.setOnClickListener{ onDeleteButtonListener(actualReservation)}
 

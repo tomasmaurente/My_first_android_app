@@ -1,11 +1,15 @@
 package com.example.data.repositories
 
+import com.example.data.entities.MapperParkingLotList
+import com.example.data.service.LotService
 import com.example.domain.entities.Reservation
 import com.example.domain.entities.Lot
+import com.example.domain.entities.ParkingLotListModel
 import com.example.domain.repositories.GetLotListRepository
+import com.example.domain.entities.Result
 
 
-class GetLotListRepositoryImp: GetLotListRepository {
+class GetLotListRepositoryImp: GetLotListRepository{
 
     private var spots = listOf<Lot>(
         Lot(1, listOf(Reservation("hello",1653625063,1653625063,"hola",0))),
@@ -22,25 +26,26 @@ class GetLotListRepositoryImp: GetLotListRepository {
         Lot(12, listOf()),
         Lot(13, listOf(Reservation("hello",0,0,"",0))),
         Lot(14, listOf(Reservation("hello",0,0,"",0))),
-        Lot(15, listOf()),
-        Lot(16, listOf(Reservation("hello",0,0,"",0))),
-        Lot(17, listOf(Reservation("hello",0,0,"",0))),
-        Lot(18, listOf(Reservation("hello",0,0,"",0))),
-        Lot(19, listOf(Reservation("hello",0,0,"",0))),
-        Lot(20, listOf()),
-        Lot(21, listOf(Reservation("hello",0,0,"",0))),
-        Lot(22, listOf(Reservation("hello",0,0,"",0))),
-        Lot(23, listOf()),
-        Lot(24, listOf(Reservation("hello",0,0,"",0))),
-        Lot(25, listOf(Reservation("hello",0,0,"",0))),
-        Lot(26, listOf(Reservation("hello",0,0,"",0))),
-        Lot(27, listOf(Reservation("hello",0,0,"",0))),
-        Lot(28, listOf(Reservation("hello",0,0,"",0))),
-        Lot(29, listOf(Reservation("hello",0,0,"",0))),
-        Lot(30, listOf(Reservation("hello",0,0,"",0))),
-    )
+        )
 
-    override fun getLotList(): List<Lot> {
+    fun getLotList(): List<Lot> {
         return spots
     }
+
+    private val lotService : LotService = LotService()
+
+    override suspend fun getLotList(parkingId: String): Result<ParkingLotListModel> {
+        val result =  lotService.getLots(parkingId)
+        return when (result){
+            is Result.Success -> {
+                Result.Success(MapperParkingLotList.toParkingListResponseToModel(result.value!!))
+            }
+            is Result.Failure -> {
+                Result.Failure(result.exception)
+            }
+        }
+    }
+
+    //override suspend fun getLots(parkingId: String) = lotService.getLots(parkingId)
+
 }

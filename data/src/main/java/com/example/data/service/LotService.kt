@@ -1,6 +1,7 @@
 package com.example.data.service
 
 import com.example.data.responseObjects.ParkingLotListResponse
+import com.example.domain.entities.Result
 import com.example.parkinglottest.RetrofitFactory
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers

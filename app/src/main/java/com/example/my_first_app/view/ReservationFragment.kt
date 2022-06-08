@@ -79,8 +79,7 @@ class ReservationFragment: Fragment(R.layout.layout_reservations), DeleteDialogC
 
     private fun onButtonDeleteSelected(reservation: Reservation){
             // Create the fragment and show it as a dialog.
-
-        val newFragment: DialogFragment = DeleteDialogFragment.newInstance(this)
+        val newFragment: DialogFragment = DeleteDialogFragment.newInstance(this, reservation)
         newFragment.show(parentFragmentManager, "dialog")
     }
 
@@ -88,8 +87,11 @@ class ReservationFragment: Fragment(R.layout.layout_reservations), DeleteDialogC
         binding.root.findNavController().navigate(R.id.action_reservationsFragment_to_parkingLotsFragment)  // switching screen to parkingLotsFragment
     }
 
-    override fun onDeleteClicked(text: String) {
-        deleteCode = text
-        Toast.makeText(activity,text,Toast.LENGTH_SHORT).show()
+    override fun onDeleteClicked(authorizationCode: String, reservation: Reservation) {
+        if(viewModel.delteReservation(authorizationCode,reservation)){
+            Toast.makeText(activity,"Your reservation has been deleted",Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(activity,"Incorrect authorization code",Toast.LENGTH_SHORT).show()
+        }
     }
 }

@@ -7,13 +7,14 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
+import com.example.domain.entities.Reservation
 import com.example.my_first_app.R
 import com.example.my_first_app.utils.DeleteDialogCallBack
 
-class DeleteDialogFragment(dialogCallBack: DeleteDialogCallBack) : DialogFragment() {
+class DeleteDialogFragment(dialogCallBack: DeleteDialogCallBack, reservation: Reservation) : DialogFragment() {
 
-    private lateinit var authorizationCode: String
     private val dialogCallBack = dialogCallBack
+    private val reservation = reservation
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,17 +29,15 @@ class DeleteDialogFragment(dialogCallBack: DeleteDialogCallBack) : DialogFragmen
 
         rootView.findViewById<View>(R.id.deleteButton).setOnClickListener {
             val authorizationText = rootView.findViewById<EditText>(R.id.authCode).text
-            //Toast.makeText(activity,authorizationText,Toast.LENGTH_SHORT).show()
-            dialogCallBack.onDeleteClicked(authorizationText.toString())
+            dialogCallBack.onDeleteClicked(authorizationText.toString(), reservation)
             dismiss()
         }
-
         return rootView
     }
 
     companion object {
-        fun newInstance(dialogCallBack: DeleteDialogCallBack): DeleteDialogFragment {
-            return DeleteDialogFragment(dialogCallBack)
+        fun newInstance(dialogCallBack: DeleteDialogCallBack, reservation: Reservation): DeleteDialogFragment {
+            return DeleteDialogFragment(dialogCallBack,reservation)
         }
     }
 }

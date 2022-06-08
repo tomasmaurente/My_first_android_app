@@ -15,8 +15,7 @@ object MapperParkingLotList {
         return ParkingLotListModel(lotList, listResponse.owner,listResponse.parkingSize)
     }
 
-    fun toParkingLotResponseToModel(lotResponse: ParkingLotResponse): ParkingLotModel{
+    private fun toParkingLotResponseToModel(lotResponse: ParkingLotResponse): ParkingLotModel{
         return ParkingLotModel(lotResponse.parkingLot)
-
     }
 }

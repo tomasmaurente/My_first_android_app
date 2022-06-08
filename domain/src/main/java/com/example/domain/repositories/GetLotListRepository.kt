@@ -1,8 +1,9 @@
 package com.example.domain.repositories
 
-import com.example.domain.entities.Lot
+import com.example.domain.entities.ParkingLotListModel
+import com.example.domain.entities.Result
 
 interface GetLotListRepository {
 
-    fun getLotList(): List<Lot>
+    suspend fun getLotList(parkingId: String): Result<ParkingLotListModel>
 }

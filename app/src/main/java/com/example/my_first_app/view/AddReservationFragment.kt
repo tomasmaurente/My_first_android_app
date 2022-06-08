@@ -7,10 +7,11 @@ import android.view.View
 import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
-import com.example.data.repositories.GetReservationListRepositoryImp
 import com.example.domain.entities.Reservation
 import com.example.my_first_app.R
 import com.example.my_first_app.databinding.LayoutAddReservationBinding
+import com.example.my_first_app.viewModel.addViewModelPackage.AddViewModel
+import com.example.my_first_app.viewModel.addViewModelPackage.AddViewModelProvider
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -21,6 +22,10 @@ class AddReservationFragment: Fragment(R.layout.layout_add_reservation) {
     private lateinit var startDateTime: Calendar
     private lateinit var endDateTime: Calendar
     private lateinit var authorizationCode: String
+
+    private val viewModel by lazy{
+        activity?.let { AddViewModelProvider(it).get(AddViewModel::class.java) }
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
@@ -49,8 +54,7 @@ class AddReservationFragment: Fragment(R.layout.layout_add_reservation) {
                 lot = position
             }
 
-            override fun onNothingSelected(p0: AdapterView<*>?) {
-            }
+            override fun onNothingSelected(p0: AdapterView<*>?) {}
         }
 
         // Start Date and time picker
@@ -70,15 +74,11 @@ class AddReservationFragment: Fragment(R.layout.layout_add_reservation) {
 
         // Save button
         binding.saveButton.setOnClickListener{
-            if( startDateTime != null && endDateTime != null && lot != 0 && authorizationCode != null){
-                val getReservationListRepositoryImp = GetReservationListRepositoryImp
-                getReservationListRepositoryImp.addReservation(Reservation("for now, this is the id",startDateTime.timeInMillis,endDateTime.timeInMillis,authorizationCode, lot))
-                // Back to main
-                Toast.makeText(activity,"You made it!!!",Toast.LENGTH_SHORT).show()
-                binding.root.findNavController().navigate(R.id.action_reservationsFragment_to_parkingLotsFragment)  // switching screen to reservationsFragment
+            if (viewModel!!.addReservation(Reservation("",startDateTime.timeInMillis,endDateTime.timeInMillis,authorizationCode,lot ))){
+                Toast.makeText(activity, "You have to complete all the fields", Toast.LENGTH_SHORT).show()
+                binding.root.findNavController().navigate(R.id.action_reservationsFragment_to_parkingLotsFragment)
             } else {
-                Toast.makeText(activity, "You have to complete all the fields", Toast.LENGTH_SHORT)
-                    .show()
+                Toast.makeText(activity, "You have to complete all the fields", Toast.LENGTH_SHORT).show()
             }
         }
     }

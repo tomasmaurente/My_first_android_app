@@ -97,6 +97,10 @@
         android:background="@drawable/spinner_background"
         android:clickable="false"
 
+        android:focusableInTouchMode="true"
+        android:inputType="text"
+        android:singleLine="true"
+
         android:focusable="false"
         android:hapticFeedbackEnabled="false"
         android:hint="@string/startDateTimeEditText"

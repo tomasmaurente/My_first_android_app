@@ -30,9 +30,9 @@ class ParkingLotViewHolder (view: View): RecyclerView.ViewHolder(view) {
         else{
             firstReservation = actualLot.reservations[0]
             binding.markAsFree.text = ""
-            binding.day.text = dateFormat.dayFormat(firstReservation.startDateInMillis)
-            binding.monthAndYear.text = dateFormat.monthYearFormat(firstReservation.startDateInMillis)
-            binding.hourOfDay.text = dateFormat.hourFormat(firstReservation.startDateInMillis)
+            binding.day.text = dateFormat.dayFormat(firstReservation.startDateTimeInMillis)
+            binding.monthAndYear.text = dateFormat.monthYearFormat(firstReservation.startDateTimeInMillis)
+            binding.hourOfDay.text = dateFormat.hourFormat(firstReservation.startDateTimeInMillis)
 
             // Setting click listener into the item
             itemView.setOnClickListener{onClickListener(actualLot)}
