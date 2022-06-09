@@ -37,6 +37,7 @@ class ReservationFragment: Fragment(R.layout.layout_reservations), DeleteDialogC
         binding = LayoutReservationsBinding.bind(view)
         binding.recyclerReservations.layoutManager = LinearLayoutManager(activity)
         getReservationListRepositoryImp = GetReservationListRepositoryImp
+
         arguments?.let { lotSelected = it.getSerializable("lot") as Lot }
         binding.lotNumber.text = lotSelected.spot.toString()
 
@@ -44,10 +45,10 @@ class ReservationFragment: Fragment(R.layout.layout_reservations), DeleteDialogC
             updateRecyclerView(it.peekContent())
             mutableReservationList = it.peekContent()
         }
+
         activity?.let { viewModel.listReservationState.observe(it, liveDataObserver) }
 
 //  borrarr
-        lotSelected = Lot()
 
         initRecyclerView()
 
@@ -70,7 +71,7 @@ class ReservationFragment: Fragment(R.layout.layout_reservations), DeleteDialogC
     }
 
     private fun initRecyclerView(){
-        binding.recyclerReservations.adapter = ReservationAdapter(getReservationListRepositoryImp.getReservationList(lotSelected)){ reservation ->
+        binding.recyclerReservations.adapter = ReservationAdapter(lotSelected.reservations){ reservation ->
             onButtonDeleteSelected(
                 reservation
             )
@@ -88,7 +89,7 @@ class ReservationFragment: Fragment(R.layout.layout_reservations), DeleteDialogC
     }
 
     override fun onDeleteClicked(authorizationCode: String, reservation: Reservation) {
-        if(viewModel.delteReservation(authorizationCode,reservation)){
+        if(viewModel.deleteReservation(authorizationCode,reservation)){
             Toast.makeText(activity,"Your reservation has been deleted",Toast.LENGTH_SHORT).show()
         } else {
             Toast.makeText(activity,"Incorrect authorization code",Toast.LENGTH_SHORT).show()

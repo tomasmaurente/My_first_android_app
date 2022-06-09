@@ -5,7 +5,7 @@ import com.example.domain.repositories.AddReservationRepository
 
 class AddReservationRepositoryImp: AddReservationRepository {
     override fun addReservation(
-        lot: Lot,
+        lot: Int,
         startDateTime: String,
         endDateTime: String,
         authorizationCode: Int

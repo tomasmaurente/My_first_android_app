@@ -1,7 +1,7 @@
 package com.example.data.repositories
 
-import com.example.data.entities.MapperParkingLotList
-import com.example.data.service.LotService
+import com.example.data.local_data_base.ParkingMapper
+import com.example.data.service.ParkingService
 import com.example.domain.entities.Reservation
 import com.example.domain.entities.Lot
 import com.example.domain.entities.ParkingLotListModel
@@ -32,13 +32,13 @@ class GetLotListRepositoryImp: GetLotListRepository{
         return spots
     }
 
-    private val lotService : LotService = LotService()
+    private val lotService : ParkingService = ParkingService()
 
     override suspend fun getLotList(parkingId: String): Result<ParkingLotListModel> {
         val result =  lotService.getLots(parkingId)
         return when (result){
             is Result.Success -> {
-                Result.Success(MapperParkingLotList.toParkingListResponseToModel(result.value!!))
+                Result.Success(ParkingMapper.toParkingListResponseToModel(result.value!!))
             }
             is Result.Failure -> {
                 Result.Failure(result.exception)

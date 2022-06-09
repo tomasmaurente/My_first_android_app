@@ -19,7 +19,7 @@ class RealTimeDatabaseDeserializer : JsonDeserializer<ReservationListResponse> {
     override fun deserialize(json: JsonElement?, typeOfT: Type?, context: JsonDeserializationContext?): ReservationListResponse {
         val eJson = json?.asJsonObject
         val keys = eJson?.keySet()
-        var reservationResponse: ReservationResponse = ReservationResponse("", "", "", 1)
+        var reservationResponse: ReservationResponse
         var reservationListResponse = ReservationListResponse(mutableListOf<ReservationResponse>())
 
         keys?.let {
@@ -27,6 +27,7 @@ class RealTimeDatabaseDeserializer : JsonDeserializer<ReservationListResponse> {
                 try {
                     val asJsonObject = eJson.get(key).asJsonObject
                     reservationResponse = ReservationResponse(
+                        key,
                         asJsonObject.get(AUTHORIZATION_CODE).asString, asJsonObject.get(START_DATE).asString, asJsonObject.get(
                             END_DATE
                         ).asString, asJsonObject.get(PARKING_LOT).asInt

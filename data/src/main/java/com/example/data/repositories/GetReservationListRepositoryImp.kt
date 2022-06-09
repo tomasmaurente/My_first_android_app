@@ -1,7 +1,8 @@
 package com.example.data.repositories
 
-import com.example.domain.entities.Reservation
-import com.example.domain.entities.Lot
+import com.example.data.local_data_base.ParkingMapper
+import com.example.data.service.ParkingService
+import com.example.domain.entities.*
 import com.example.domain.repositories.GetReservationListRepository
 
 object GetReservationListRepositoryImp: GetReservationListRepository {
@@ -21,7 +22,21 @@ object GetReservationListRepositoryImp: GetReservationListRepository {
         reservations.remove(reservation)
     }
 
-    override fun getReservationList(lot: Lot): List<Reservation> {
+    fun getReservationList(): List<Reservation> {
         return reservations
+    }
+
+    private val reservationService : ParkingService = ParkingService()
+
+    override suspend fun getReservationList(parkingId: String): Result<ReservationListModel> {
+        val result =  reservationService.getReservations(parkingId)
+        return when (result){
+            is Result.Success -> {
+                Result.Success(ParkingMapper.toReservationListResponseToModel(result.value!!))
+            }
+            is Result.Failure -> {
+                Result.Failure(result.exception)
+            }
+        }
     }
 }

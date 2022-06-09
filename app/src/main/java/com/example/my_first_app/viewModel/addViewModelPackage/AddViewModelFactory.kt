@@ -19,10 +19,3 @@ class AddViewModelFactory(private val context: Context) : NewInstanceFactory() {
         }
     }
 }
-        /*return if (modelClass == AddViewModel::class.java) {
-            AddViewModel(AddReservationUseCase().apply {
-                addReservationRepository =AddReservationRepositoryImp()
-            }) as T
-        } else {
-            super.create(modelClass)
-        }*/

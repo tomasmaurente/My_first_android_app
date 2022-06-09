@@ -1,7 +1,6 @@
-package com.example.parkinglottest
+package com.example.data.service
 
 import com.example.data.responseObjects.ReservationListResponse
-import com.example.data.service.RealTimeDatabaseDeserializer
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit

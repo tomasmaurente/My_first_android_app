@@ -1,8 +1,8 @@
 package com.example.domain.repositories
 
-import com.example.domain.entities.Reservation
-import com.example.domain.entities.Lot
+import com.example.domain.entities.ReservationListModel
+import com.example.domain.entities.Result
 
 interface GetReservationListRepository {
-    fun getReservationList(lot: Lot): List<Reservation>
+    suspend fun getReservationList(parkingId: String): Result<ReservationListModel>
 }

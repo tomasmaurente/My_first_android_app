@@ -23,7 +23,7 @@ class LotFragment: Fragment(R.layout.layout_parking_lots) {
 
     private lateinit var binding: LayoutParkingLotsBinding
     private var getLotListRepositoryImp: GetLotListRepositoryImp = GetLotListRepositoryImp()
-    private lateinit var lotList: List<ParkingLotModel>
+    private lateinit var lotList: List<Lot>
     private lateinit var internLotList: List<Lot>
     private val parkingId: String = "-N0TUDrXZUxA_wbd391E"
 
@@ -36,23 +36,21 @@ class LotFragment: Fragment(R.layout.layout_parking_lots) {
         binding = LayoutParkingLotsBinding.bind(view)
         binding.mainRecyclerView.layoutManager = LinearLayoutManager(activity)
 
-        val liveDataObserver: Observer<Event<List<ParkingLotModel>>> = Observer<Event<List<ParkingLotModel>>> {
+        /*val liveDataObserver: Observer<Event<List<ParkingLotModel>>> = Observer<Event<List<ParkingLotModel>>> {
             //updateRecyclerView(it.peekContent())
             //updateProgressBar(viewModel.getNumberOfFreeLots(it.peekContent()))
             lotList = it.peekContent()
+        }*/
+
+        lotList = listOf()
+        viewModel.createParkingState(parkingId)
+        viewModel.parkingState.observe(viewLifecycleOwner){
+            lotList = it
         }
 
         internLotList = getLotListRepositoryImp.getLotList()
-        //updateProgressBar(viewModel.getNumberOfFreeLots(lotList))
 
-        //activity?.let { viewModel.listParkingLotState.observe(it, liveDataObserver) }
-        viewModel.getLots(parkingId)
-        viewModel.listParkingLotState.observe(viewLifecycleOwner) {
-            Toast.makeText(activity,it.first().parkingLot.toString(),Toast.LENGTH_SHORT).show()
-        }
-
-        binding.progressBar.max = internLotList.size
-
+        updateProgressBar(viewModel.getNumberOfFreeLots(lotList))
         initRecyclerView()
 
         binding.floatingAddButton.setOnClickListener{
@@ -61,7 +59,7 @@ class LotFragment: Fragment(R.layout.layout_parking_lots) {
     }
 
     private fun initRecyclerView(){
-        binding.mainRecyclerView.adapter = ParkingLotAdapter(internLotList) { parkingSpot ->
+        binding.mainRecyclerView.adapter = ParkingLotAdapter(lotList) { parkingSpot ->
             onParkingSpotSelected(
                 parkingSpot
             )
@@ -77,16 +75,15 @@ class LotFragment: Fragment(R.layout.layout_parking_lots) {
     }
 
     private fun updateProgressBar(parkingAvailability: Int){
+        binding.progressBar.max = lotList.size
         binding.progressBar.progress = parkingAvailability
         binding.numberFreePlaces.text = (lotList.size - parkingAvailability).toString()
         binding.numberBusyPlaces.text = parkingAvailability.toString()
     }
 
     private fun onParkingSpotSelected(parkingLot: Lot){
-        //Toast.makeText(activity,parkingLot.spot.toString(), Toast.LENGTH_SHORT).show()
         val navController = binding.root.findNavController()
         val bundle = Bundle()
-        //bundle.putInt("lotSpot",parkingLot.spot)
         bundle.putSerializable("lot", parkingLot)
         navController.navigate(R.id.action_parkingLotsFragment_to_reservationsFragment,bundle)
     }
