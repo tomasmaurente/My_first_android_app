@@ -27,14 +27,20 @@ class GetLotListRepositoryImp: GetLotListRepository{
         Lot(13, listOf(Reservation("hello",0,0,"",0))),
         Lot(14, listOf(Reservation("hello",0,0,"",0))),
         )
-
     fun getLotList(): List<Lot> {
         return spots
     }
 
     private val lotService : ParkingService = ParkingService()
 
-    override suspend fun getLotList(parkingId: String): Result<ParkingLotListModel> {
+    override suspend fun getLotList(parkingId: String, localDataBase: Boolean): Result<ParkingLotListModel> {
+        return when(localDataBase){
+            true -> {getLocalInfo()}
+            else -> {getServiceInfo(parkingId)}
+        }
+    }
+
+    suspend fun getServiceInfo(parkingId: String): Result<ParkingLotListModel> {
         val result =  lotService.getLotList(parkingId)
         return when (result){
             is Result.Success -> {
@@ -46,6 +52,9 @@ class GetLotListRepositoryImp: GetLotListRepository{
         }
     }
 
-    //override suspend fun getLots(parkingId: String) = lotService.getLots(parkingId)
+    suspend fun getLocalInfo(): Result<ParkingLotListModel>{
+
+    }
+
 
 }

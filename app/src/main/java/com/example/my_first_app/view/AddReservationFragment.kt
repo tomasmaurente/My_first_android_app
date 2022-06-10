@@ -5,6 +5,7 @@ import android.app.TimePickerDialog
 import android.os.Bundle
 import android.view.View
 import android.widget.*
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.example.domain.entities.Reservation
@@ -72,14 +73,19 @@ class AddReservationFragment: Fragment(R.layout.layout_add_reservation) {
             authorizationCode = binding.authorizationCodeButton.text.toString()
         }
 
-        // Save button
-        binding.saveButton.setOnClickListener{
-            if (viewModel!!.addReservation(Reservation("",startDateTime.timeInMillis,endDateTime.timeInMillis,authorizationCode,lot ))){
-                Toast.makeText(activity, "You have to complete all the fields", Toast.LENGTH_SHORT).show()
-                binding.root.findNavController().navigate(R.id.action_reservationsFragment_to_parkingLotsFragment)
+        viewModel?.addReservationState?.observe(viewLifecycleOwner){
+            if (it){
+                Toast.makeText(activity, "Your reservation has been saved", Toast.LENGTH_SHORT).show()
+                binding.root.findNavController().popBackStack()
+            //binding.root.findNavController().navigate(R.id.action_reservationsFragment_to_parkingLotsFragment)
             } else {
                 Toast.makeText(activity, "You have to complete all the fields", Toast.LENGTH_SHORT).show()
             }
+        }
+
+        // Save button
+        binding.saveButton.setOnClickListener{
+            viewModel!!.addReservation(Reservation("",startDateTime.timeInMillis,endDateTime.timeInMillis,authorizationCode,lot ))
         }
     }
 

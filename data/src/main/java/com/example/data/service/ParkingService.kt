@@ -2,6 +2,7 @@ package com.example.data.service
 
 import com.example.data.responseObjects.LotListResponse
 import com.example.data.responseObjects.ReservationListResponse
+import com.example.data.responseObjects.ReservationRequest
 import com.example.domain.entities.Result
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
@@ -68,14 +69,13 @@ class ParkingService (private val dispatcher: CoroutineDispatcher = Dispatchers.
         return result
     }
 
-    /*suspend fun addReservation(lot: Int, startDateTime: Long, endDateTime: Long, authorizationCode: String) : Result<ReservationListResponse?> {
-        var result : Result<ReservationListResponse?>
-
+    suspend fun addReservation(parkingId: String, reservation: ReservationRequest) : Result<Boolean> {
+        var result : Result<Boolean>
         withContext(dispatcher){
             result = try {
-                val callResponse = RetrofitFactory.getRetrofit().create(APIService::class.java).getReservationList(parkingId)
+                val callResponse = RetrofitFactory.getRetrofit().create(APIService::class.java).postReservation(parkingId,reservation)
                 if(callResponse.isSuccessful){
-                    Result.Success((callResponse.body()))
+                    Result.Success(true)
                 }
                 else {
                     Result.Failure(Exception(callResponse.message()))
@@ -86,7 +86,7 @@ class ParkingService (private val dispatcher: CoroutineDispatcher = Dispatchers.
             }
         }
         return result
-    }*/
+    }
 
 
 

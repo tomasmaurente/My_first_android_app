@@ -36,6 +36,7 @@ class LotFragment: Fragment(R.layout.layout_parking_lots) {
 
         lotList = listOf()
         viewModel.createParkingState(parkingId)
+        viewModel.createParkingState(parkingId,true)
         viewModel.parkingState.observe(viewLifecycleOwner){
             lotList = it
             updateProgressBar(viewModel.getNumberOfFreeLots(lotList))

@@ -13,8 +13,8 @@ import kotlinx.coroutines.launch
 import java.lang.System.currentTimeMillis
 import java.util.*
 
-class LotViewModel (private val getLotList: GetLotListUseCase,
-                    private val getReservationList: GetReservationListUseCase) : ViewModel() {
+class LotViewModel (private val getLotListUseCase: GetLotListUseCase,
+                    private val getReservationListUseCase: GetReservationListUseCase) : ViewModel() {
 
     private var mutableParkingState: MutableLiveData<List<Lot>> = MutableLiveData()
 
@@ -23,9 +23,9 @@ class LotViewModel (private val getLotList: GetLotListUseCase,
             return mutableParkingState
         }
 
-    fun createParkingState(parkingId: String) = viewModelScope.launch {
-        var lotListModel = getLotList(parkingId)
-        var reservationListModel = getReservationList(parkingId)
+    fun createParkingState(parkingId: String, localDataBase: Boolean = false) = viewModelScope.launch {
+        var lotListModel = getLotList(parkingId,localDataBase)
+        var reservationListModel = getReservationList(parkingId,localDataBase)
 
         var lotList = mutableListOf<Lot>()
         lotListModel.forEach { lot ->
@@ -41,16 +41,16 @@ class LotViewModel (private val getLotList: GetLotListUseCase,
         mutableParkingState.postValue(lotList)
     }
 
-    private suspend fun getLotList(parkingId: String): List<ParkingLotModel>  {
-        val getLots = getLotList.invoke(parkingId)
+    private suspend fun getLotList(parkingId: String, localDataBase: Boolean): List<ParkingLotModel>  {
+        val getLots = getLotListUseCase(parkingId, localDataBase)
         when (getLots){
             is Result.Success -> return getLots.value.lotList
             else -> return listOf<ParkingLotModel>()
         }
     }
 
-    private suspend fun getReservationList(parkingId: String): List<ReservationModel>{
-        val getReservations = getReservationList.invoke(parkingId)
+    private suspend fun getReservationList(parkingId: String, localDataBase: Boolean): List<ReservationModel>{
+        val getReservations = getReservationListUseCase(parkingId)
         when(getReservations){
             is Result.Success -> return getReservations.value.reservationList
             else -> return listOf<ReservationModel>()
