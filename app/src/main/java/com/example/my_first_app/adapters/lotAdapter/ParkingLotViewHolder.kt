@@ -17,15 +17,11 @@ class ParkingLotViewHolder (view: View): RecyclerView.ViewHolder(view) {
 
     fun render(actualLot: Lot, onClickListener:(Lot)-> Unit) {
 
-        if(actualLot.reservations.isEmpty()){
+        if(actualLot.isFree){
             binding.markAsFree.text = StringsUtils.FREE
             binding.day.text = ""
             binding.monthAndYear.text = ""
             binding.hourOfDay.text = ""
-
-            // Setting click listener into the item
-            itemView.setOnClickListener{Toast.makeText(binding.fatherLayout.context,"No reservations to show",Toast.LENGTH_SHORT).show()
-            }
         }
         else{
             firstReservation = actualLot.reservations[0]
@@ -33,10 +29,10 @@ class ParkingLotViewHolder (view: View): RecyclerView.ViewHolder(view) {
             binding.day.text = dateFormat.dayFormat(firstReservation.startDateTimeInMillis)
             binding.monthAndYear.text = dateFormat.monthYearFormat(firstReservation.startDateTimeInMillis)
             binding.hourOfDay.text = dateFormat.hourFormat(firstReservation.startDateTimeInMillis)
-
-            // Setting click listener into the item
-            itemView.setOnClickListener{onClickListener(actualLot)}
         }
+
+        // Setting click listener into the item
+        itemView.setOnClickListener{onClickListener(actualLot)}
 
         binding.spotNumber.text = actualLot.spot.toString()
     }

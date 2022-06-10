@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.lifecycle.viewModelScope
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.data.repositories.GetReservationListRepositoryImp
@@ -18,13 +19,13 @@ import com.example.my_first_app.utils.DeleteDialogCallBack
 import com.example.my_first_app.utils.Event
 import com.example.my_first_app.viewModel.reservationsViewModelPackage.ReservationViewModel
 import com.example.my_first_app.viewModel.reservationsViewModelPackage.ReservationViewModelProvider
+import kotlinx.coroutines.launch
 
 class ReservationFragment: Fragment(R.layout.layout_reservations), DeleteDialogCallBack {
 
     private lateinit var binding: LayoutReservationsBinding
     private lateinit var getReservationListRepositoryImp: GetReservationListRepositoryImp
-    private lateinit var mutableReservationList : List<Reservation>
-    private lateinit var deleteCode: String
+    private val parkingId: String = "-N0TUDrXZUxA_wbd391E"
 
     private lateinit var lotSelected: Lot
 
@@ -40,17 +41,12 @@ class ReservationFragment: Fragment(R.layout.layout_reservations), DeleteDialogC
 
         arguments?.let { lotSelected = it.getSerializable("lot") as Lot }
         binding.lotNumber.text = lotSelected.spot.toString()
+        initRecyclerView(lotSelected.reservations)
 
-        val liveDataObserver: Observer<Event<List<Reservation>>> = Observer<Event<List<Reservation>>> {
+        /*val liveDataObserver: Observer<Event<List<Reservation>>> = Observer<Event<List<Reservation>>> {
             updateRecyclerView(it.peekContent())
             mutableReservationList = it.peekContent()
-        }
-
-        activity?.let { viewModel.listReservationState.observe(it, liveDataObserver) }
-
-//  borrarr
-
-        initRecyclerView()
+        }*/
 
         binding.imageButton.setOnClickListener {
             onBackButtonSelected()
@@ -62,16 +58,8 @@ class ReservationFragment: Fragment(R.layout.layout_reservations), DeleteDialogC
         }
     }
 
-    private fun updateRecyclerView(newReservationList: List<Reservation>) {
-        binding.recyclerReservations.adapter = ReservationAdapter(newReservationList){ reservation ->
-            onButtonDeleteSelected(
-                reservation
-            )
-        }
-    }
-
-    private fun initRecyclerView(){
-        binding.recyclerReservations.adapter = ReservationAdapter(lotSelected.reservations){ reservation ->
+    private fun initRecyclerView(reservationList: List<Reservation>){
+        binding.recyclerReservations.adapter = ReservationAdapter(reservationList){ reservation ->
             onButtonDeleteSelected(
                 reservation
             )
@@ -89,10 +77,22 @@ class ReservationFragment: Fragment(R.layout.layout_reservations), DeleteDialogC
     }
 
     override fun onDeleteClicked(authorizationCode: String, reservation: Reservation) {
-        if(viewModel.deleteReservation(authorizationCode,reservation)){
-            Toast.makeText(activity,"Your reservation has been deleted",Toast.LENGTH_SHORT).show()
-        } else {
-            Toast.makeText(activity,"Incorrect authorization code",Toast.LENGTH_SHORT).show()
+        viewModel.deleteReservation(parkingId,authorizationCode,reservation)
+
+        viewModel.deletedSuccessfully.observe(viewLifecycleOwner) { deletedSuccessfully ->
+            if (deletedSuccessfully) {
+                //viewModel.updatedeletedSuccessfullyVariable()
+                binding.root.findNavController()
+                    .navigate(R.id.action_reservationsFragment_to_parkingLotsFragment)
+                Toast.makeText(
+                    activity,
+                    "Your reservation has been deleted",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else {
+                Toast.makeText(activity, "Incorrect authorization code", Toast.LENGTH_SHORT)
+                    .show()
+            }
         }
     }
 }

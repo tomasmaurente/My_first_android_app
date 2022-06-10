@@ -1,6 +1,6 @@
 package com.example.data.repositories
 
-import com.example.data.local_data_base.ParkingMapper
+import com.example.data.local_data_base.entities.ParkingMapper
 import com.example.data.service.ParkingService
 import com.example.domain.entities.*
 import com.example.domain.repositories.GetReservationListRepository
@@ -29,7 +29,7 @@ object GetReservationListRepositoryImp: GetReservationListRepository {
     private val reservationService : ParkingService = ParkingService()
 
     override suspend fun getReservationList(parkingId: String): Result<ReservationListModel> {
-        val result =  reservationService.getReservations(parkingId)
+        val result =  reservationService.getReservationList(parkingId)
         return when (result){
             is Result.Success -> {
                 Result.Success(ParkingMapper.toReservationListResponseToModel(result.value!!))
