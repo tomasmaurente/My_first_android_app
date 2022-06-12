@@ -1,15 +1,41 @@
 package com.example.data.repositories
 
-import com.example.data.local_data_base.entities.ParkingMapper
+import com.example.data.mappers.ParkingMapper
+import com.example.data.local_data_base.LotDataBase
 import com.example.data.service.ParkingService
-import com.example.domain.entities.Reservation
-import com.example.domain.entities.Lot
 import com.example.domain.entities.ParkingLotListModel
 import com.example.domain.repositories.GetLotListRepository
 import com.example.domain.entities.Result
 
+class GetLotListRepositoryImp(
+    private val lotService: ParkingService,
+    private val lotDataBase: LotDataBase ) : GetLotListRepository{
 
-class GetLotListRepositoryImp: GetLotListRepository{
+    override suspend fun getLotList(parkingId: String, localDataBase: Boolean): Result<ParkingLotListModel> {
+        return when(localDataBase){
+            true -> {getLocalInfo()}
+            else -> {getServiceInfo(parkingId)}
+        }
+    }
+
+    private suspend fun getServiceInfo(parkingId: String): Result<ParkingLotListModel> {
+        val result =  lotService.getLotList(parkingId)
+        return when (result){
+            is Result.Success -> {
+                Result.Success(ParkingMapper.toParkingListResponseToModel(result.value!!))
+            }
+            is Result.Failure -> {
+                Result.Failure(result.exception)
+            }
+        }
+    }
+
+    private fun getLocalInfo(): Result<ParkingLotListModel>{
+        var lotList = lotDataBase.characterDao().findLotList()
+        return Result.Success(ParkingMapper.lotRoomListToParkingLotListModel(lotList))
+    }
+}
+/*
 
     private var spots = listOf<Lot>(
         Lot(1, listOf(Reservation("hello",1653625063,1653625063,"hola",0))),
@@ -30,31 +56,4 @@ class GetLotListRepositoryImp: GetLotListRepository{
     fun getLotList(): List<Lot> {
         return spots
     }
-
-    private val lotService : ParkingService = ParkingService()
-
-    override suspend fun getLotList(parkingId: String, localDataBase: Boolean): Result<ParkingLotListModel> {
-        return when(localDataBase){
-            true -> {getLocalInfo()}
-            else -> {getServiceInfo(parkingId)}
-        }
-    }
-
-    suspend fun getServiceInfo(parkingId: String): Result<ParkingLotListModel> {
-        val result =  lotService.getLotList(parkingId)
-        return when (result){
-            is Result.Success -> {
-                Result.Success(ParkingMapper.toParkingListResponseToModel(result.value!!))
-            }
-            is Result.Failure -> {
-                Result.Failure(result.exception)
-            }
-        }
-    }
-
-    suspend fun getLocalInfo(): Result<ParkingLotListModel>{
-        return  Result.Success(ParkingLotListModel(listOf(),"",0))
-    }
-
-
-}
+ */

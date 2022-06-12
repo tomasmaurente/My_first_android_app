@@ -4,5 +4,5 @@ import com.example.domain.entities.ReservationListModel
 import com.example.domain.entities.Result
 
 interface GetReservationListRepository {
-    suspend fun getReservationList(parkingId: String): Result<ReservationListModel>
+    suspend fun getReservationList(parkingId: String, localDataBase: Boolean): Result<ReservationListModel>
 }

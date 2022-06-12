@@ -1,8 +1,10 @@
 package com.example.data.local_data_base.entities
 
-import com.example.domain.entities.Reservation
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
+@Entity(tableName = "lotList")
 data class LotRoom(
-            val spot: Int,
-            val reservations: List<Reservation>,
+    @PrimaryKey
+    val parkingId: Int
 )

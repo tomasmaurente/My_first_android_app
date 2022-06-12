@@ -2,27 +2,20 @@ package com.example.my_first_app.view
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.data.repositories.GetLotListRepositoryImp
 import com.example.domain.entities.Lot
-import com.example.domain.entities.ParkingLotModel
 import com.example.my_first_app.R
 import com.example.my_first_app.adapters.lotAdapter.ParkingLotAdapter
 import com.example.my_first_app.databinding.LayoutParkingLotsBinding
-import com.example.my_first_app.utils.Event
 import com.example.my_first_app.viewModel.lotViewModelPackage.LotViewModel
 import com.example.my_first_app.viewModel.lotViewModelPackage.LotViewModelProvider
 
 class LotFragment: Fragment(R.layout.layout_parking_lots) {
 
     private lateinit var binding: LayoutParkingLotsBinding
-    private lateinit var lotList: List<Lot>
+    private var lotList: List<Lot> = listOf()
     private val parkingId: String = "-N0TUDrXZUxA_wbd391E"
 
     private val viewModel by lazy{
@@ -34,9 +27,8 @@ class LotFragment: Fragment(R.layout.layout_parking_lots) {
         binding = LayoutParkingLotsBinding.bind(view)
         binding.mainRecyclerView.layoutManager = LinearLayoutManager(activity)
 
-        lotList = listOf()
+        //viewModel.createParkingState(parkingId,true)
         viewModel.createParkingState(parkingId)
-        viewModel.createParkingState(parkingId,true)
         viewModel.parkingState.observe(viewLifecycleOwner){
             lotList = it
             updateProgressBar(viewModel.getNumberOfFreeLots(lotList))
@@ -45,14 +37,6 @@ class LotFragment: Fragment(R.layout.layout_parking_lots) {
 
         binding.floatingAddButton.setOnClickListener{
             binding.root.findNavController().navigate(R.id.action_parkingLotsFragment_to_addReservationFragment)  // switching screen to reservationsFragment
-        }
-    }
-
-    private fun initRecyclerView(){
-        binding.mainRecyclerView.adapter = ParkingLotAdapter(lotList) { parkingSpot ->
-            onParkingSpotSelected(
-                parkingSpot
-            )
         }
     }
 

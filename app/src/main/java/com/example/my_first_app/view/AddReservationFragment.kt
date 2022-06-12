@@ -20,9 +20,9 @@ class AddReservationFragment: Fragment(R.layout.layout_add_reservation) {
 
     private lateinit var binding: LayoutAddReservationBinding
     private var lot: Int = -1
-    private var startDateTime: Calendar? = null
-    private var endDateTime: Calendar? = null
-    private var authorizationCode: String? = null
+    private lateinit var startDateTime: Calendar
+    private lateinit var endDateTime: Calendar
+    private lateinit var authorizationCode: String
 
     private val viewModel by lazy{
         activity?.let { AddViewModelProvider(it).get(AddViewModel::class.java) }
@@ -75,7 +75,10 @@ class AddReservationFragment: Fragment(R.layout.layout_add_reservation) {
 
         // Save button
         binding.saveButton.setOnClickListener{
-            if( startDateTime != null && endDateTime != null && authorizationCode != null && lot != -1) {
+            if( this::startDateTime.isInitialized &&
+                this::endDateTime.isInitialized &&
+                this::authorizationCode.isInitialized &&
+                lot != -1) {
                 viewModel!!.addReservation(
                     Reservation(
                         "",
@@ -105,36 +108,36 @@ class AddReservationFragment: Fragment(R.layout.layout_add_reservation) {
         startDateTime = Calendar.getInstance()
 
         val timeListener = TimePickerDialog.OnTimeSetListener { view,hours,minutes ->
-            startDateTime?.set(Calendar.MINUTE, minutes)
-            startDateTime?.set(Calendar.HOUR, hours)
+            startDateTime.set(Calendar.MINUTE, minutes)
+            startDateTime.set(Calendar.HOUR, hours)
 
             val myFormat = " dd-MM-yyyy hh:mm "
             val sdf = SimpleDateFormat(myFormat, Locale.UK)
-            (sdf.format(startDateTime?.time))
+            (sdf.format(startDateTime.time))
 
-            binding.startDateTimeButton.hint = (sdf.format(startDateTime?.time))
+            binding.startDateTimeButton.hint = (sdf.format(startDateTime.time))
         }
 
         val dateListener = DatePickerDialog.OnDateSetListener { _,year,month,day ->
-            startDateTime?.set(Calendar.YEAR, year)
-            startDateTime?.set(Calendar.MONTH, month)
-            startDateTime?.set(Calendar.DAY_OF_MONTH, day)
+            startDateTime.set(Calendar.YEAR, year)
+            startDateTime.set(Calendar.MONTH, month)
+            startDateTime.set(Calendar.DAY_OF_MONTH, day)
         }
 
         TimePickerDialog(
             activity,
             timeListener,
-            startDateTime!!.get(Calendar.HOUR_OF_DAY),
-            startDateTime!!.get(Calendar.MINUTE),
+            startDateTime.get(Calendar.HOUR_OF_DAY),
+            startDateTime.get(Calendar.MINUTE),
             false
         ).show()
 
         DatePickerDialog(
             requireContext(),
             dateListener,
-            startDateTime!!.get(Calendar.YEAR),
-            startDateTime!!.get(Calendar.MONTH),
-            startDateTime!!.get(Calendar.DAY_OF_MONTH)
+            startDateTime.get(Calendar.YEAR),
+            startDateTime.get(Calendar.MONTH),
+            startDateTime.get(Calendar.DAY_OF_MONTH)
         ).show()
     }
 
@@ -142,35 +145,35 @@ class AddReservationFragment: Fragment(R.layout.layout_add_reservation) {
         endDateTime = Calendar.getInstance()
 
         val timeListener = TimePickerDialog.OnTimeSetListener { view,hours,minutes ->
-            endDateTime?.set(Calendar.MINUTE, minutes)
-            endDateTime?.set(Calendar.HOUR, hours)
+            endDateTime.set(Calendar.MINUTE, minutes)
+            endDateTime.set(Calendar.HOUR, hours)
 
             val myFormat = " dd-MM-yyyy hh:mm "
             val sdf = SimpleDateFormat(myFormat, Locale.UK)
-            (sdf.format(endDateTime?.time))
+            (sdf.format(endDateTime.time))
 
-            binding.endDateTimeButton.hint = (sdf.format(endDateTime?.time))
+            binding.endDateTimeButton.hint = (sdf.format(endDateTime.time))
         }
         val dateListener = DatePickerDialog.OnDateSetListener { _,year,month,day ->
-            endDateTime?.set(Calendar.YEAR, year)
-            endDateTime?.set(Calendar.MONTH, month)
-            endDateTime?.set(Calendar.DAY_OF_MONTH, day)
+            endDateTime.set(Calendar.YEAR, year)
+            endDateTime.set(Calendar.MONTH, month)
+            endDateTime.set(Calendar.DAY_OF_MONTH, day)
         }
 
         TimePickerDialog(
             activity,
             timeListener,
-            endDateTime!!.get(Calendar.HOUR_OF_DAY),
-            endDateTime!!.get(Calendar.MINUTE),
+            endDateTime.get(Calendar.HOUR_OF_DAY),
+            endDateTime.get(Calendar.MINUTE),
             false
         ).show()
 
         DatePickerDialog(
             requireContext(),
             dateListener,
-            endDateTime!!.get(Calendar.YEAR),
-            endDateTime!!.get(Calendar.MONTH),
-            endDateTime!!.get(Calendar.DAY_OF_MONTH)
+            endDateTime.get(Calendar.YEAR),
+            endDateTime.get(Calendar.MONTH),
+            endDateTime.get(Calendar.DAY_OF_MONTH)
         ).show()
     }
 }

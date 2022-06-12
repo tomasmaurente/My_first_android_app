@@ -6,6 +6,7 @@ import com.example.domain.repositories.GetLotListRepository
 
 class GetLotListUseCase{
     lateinit var getLotListRepository: GetLotListRepository
+
     suspend operator fun invoke(parkingId: String, localDataBase: Boolean): Result<ParkingLotListModel> {
         return getLotListRepository.getLotList(parkingId, localDataBase)
     }

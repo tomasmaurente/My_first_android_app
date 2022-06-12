@@ -4,13 +4,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.data.repositories.GetReservationListRepositoryImp
 import com.example.domain.entities.*
 import com.example.domain.usecases.GetLotListUseCase
 import com.example.domain.usecases.GetReservationListUseCase
-import com.example.my_first_app.viewModel.reservationsViewModelPackage.ReservationViewModel
 import kotlinx.coroutines.launch
-import java.lang.System.currentTimeMillis
 import java.util.*
 
 class LotViewModel (private val getLotListUseCase: GetLotListUseCase,
@@ -27,6 +24,17 @@ class LotViewModel (private val getLotListUseCase: GetLotListUseCase,
         var lotListModel = getLotList(parkingId,localDataBase)
         var reservationListModel = getReservationList(parkingId,localDataBase)
 
+        var newLotList = createLotList(lotListModel,reservationListModel)
+        var oldLotList = mutableParkingState.value
+
+        if( newLotList != oldLotList){
+            mutableParkingState.postValue(newLotList)
+        }
+    }
+
+
+
+    private fun createLotList(lotListModel: List<ParkingLotModel>, reservationListModel: List<ReservationModel>): List<Lot>{
         var lotList = mutableListOf<Lot>()
         lotListModel.forEach { lot ->
             var reservationList = mutableListOf<Reservation>()
@@ -38,7 +46,7 @@ class LotViewModel (private val getLotListUseCase: GetLotListUseCase,
             var actualLot = Lot(lot.parkingLot, reservationList)
             lotList.add(actualLot)
         }
-        mutableParkingState.postValue(lotList)
+        return lotList
     }
 
     private suspend fun getLotList(parkingId: String, localDataBase: Boolean): List<ParkingLotModel>  {
@@ -50,7 +58,7 @@ class LotViewModel (private val getLotListUseCase: GetLotListUseCase,
     }
 
     private suspend fun getReservationList(parkingId: String, localDataBase: Boolean): List<ReservationModel>{
-        val getReservations = getReservationListUseCase(parkingId)
+        val getReservations = getReservationListUseCase(parkingId, localDataBase)
         when(getReservations){
             is Result.Success -> return getReservations.value.reservationList
             else -> return listOf<ReservationModel>()
