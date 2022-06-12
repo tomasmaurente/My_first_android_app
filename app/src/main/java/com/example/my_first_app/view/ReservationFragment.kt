@@ -49,7 +49,7 @@ class ReservationFragment: Fragment(R.layout.layout_reservations), DeleteDialogC
         }*/
 
         binding.imageButton.setOnClickListener {
-            onBackButtonSelected()
+            binding.root.findNavController().popBackStack()
         }
 
         binding.floatingAddButton.setOnClickListener{
@@ -70,10 +70,6 @@ class ReservationFragment: Fragment(R.layout.layout_reservations), DeleteDialogC
             // Create the fragment and show it as a dialog.
         val newFragment: DialogFragment = DeleteDialogFragment.newInstance(this, reservation)
         newFragment.show(parentFragmentManager, "dialog")
-    }
-
-    private fun onBackButtonSelected(){
-        binding.root.findNavController().navigate(R.id.action_reservationsFragment_to_parkingLotsFragment)  // switching screen to parkingLotsFragment
     }
 
     override fun onDeleteClicked(authorizationCode: String, reservation: Reservation) {

@@ -7,6 +7,7 @@ import retrofit2.Response
 import retrofit2.http.*
 
 interface APIService {
+
     @GET("{parkingId}/reservations.json")
     suspend fun getReservationList(@Path("parkingId") id: String) : Response<ReservationListResponse>
 

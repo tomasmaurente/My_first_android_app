@@ -4,13 +4,12 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.domain.entities.Lot
 import com.example.domain.entities.Reservation
 import com.example.domain.entities.Result
-import com.example.domain.usecases.DeleteResevationUseCase
+import com.example.domain.usecases.DeleteReservationUseCase
 import kotlinx.coroutines.launch
 
-class ReservationViewModel (private val deleteReservation : DeleteResevationUseCase) : ViewModel() {
+class ReservationViewModel (private val deleteReservation : DeleteReservationUseCase) : ViewModel() {
 
     private var mutableDeleteState: MutableLiveData<Boolean> = MutableLiveData()
 

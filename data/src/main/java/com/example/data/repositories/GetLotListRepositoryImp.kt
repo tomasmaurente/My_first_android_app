@@ -53,7 +53,7 @@ class GetLotListRepositoryImp: GetLotListRepository{
     }
 
     suspend fun getLocalInfo(): Result<ParkingLotListModel>{
-
+        return  Result.Success(ParkingLotListModel(listOf(),"",0))
     }
 
 
