@@ -160,7 +160,7 @@
         android:layout_marginTop="28dp"
         android:background="@drawable/spinner_background"
         android:hint="@string/authorizationEditText"
-        android:inputType="number"
+        android:inputType="text"
         android:paddingHorizontal="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.689"

@@ -24,7 +24,6 @@ import kotlinx.coroutines.launch
 class ReservationFragment: Fragment(R.layout.layout_reservations), DeleteDialogCallBack {
 
     private lateinit var binding: LayoutReservationsBinding
-    private lateinit var getReservationListRepositoryImp: GetReservationListRepositoryImp
     private val parkingId: String = "-N0TUDrXZUxA_wbd391E"
 
     private lateinit var lotSelected: Lot
@@ -37,16 +36,10 @@ class ReservationFragment: Fragment(R.layout.layout_reservations), DeleteDialogC
         super.onViewCreated(view, savedInstanceState)
         binding = LayoutReservationsBinding.bind(view)
         binding.recyclerReservations.layoutManager = LinearLayoutManager(activity)
-        getReservationListRepositoryImp = GetReservationListRepositoryImp
 
         arguments?.let { lotSelected = it.getSerializable("lot") as Lot }
         binding.lotNumber.text = lotSelected.spot.toString()
         initRecyclerView(lotSelected.reservations)
-
-        /*val liveDataObserver: Observer<Event<List<Reservation>>> = Observer<Event<List<Reservation>>> {
-            updateRecyclerView(it.peekContent())
-            mutableReservationList = it.peekContent()
-        }*/
 
         binding.imageButton.setOnClickListener {
             binding.root.findNavController().popBackStack()

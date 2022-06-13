@@ -13,7 +13,6 @@ class ParkingLotViewHolder (view: View): RecyclerView.ViewHolder(view) {
 
     private val binding = LayoutLotItemBinding.bind(view)
     private lateinit var firstReservation: Reservation
-    private val dateFormat: AppDateFormat = AppDateFormat()
 
     fun render(actualLot: Lot, onClickListener:(Lot)-> Unit) {
 
@@ -26,9 +25,9 @@ class ParkingLotViewHolder (view: View): RecyclerView.ViewHolder(view) {
         else{
             firstReservation = actualLot.reservations[0]
             binding.markAsFree.text = ""
-            binding.day.text = dateFormat.dayFormat(firstReservation.startDateTimeInMillis)
-            binding.monthAndYear.text = dateFormat.monthYearFormat(firstReservation.startDateTimeInMillis)
-            binding.hourOfDay.text = dateFormat.hourFormat(firstReservation.startDateTimeInMillis)
+            binding.day.text = AppDateFormat.dayFormat(firstReservation.startDateTimeInMillis)
+            binding.monthAndYear.text = AppDateFormat.monthYearFormat(firstReservation.startDateTimeInMillis)
+            binding.hourOfDay.text = AppDateFormat.hourFormat(firstReservation.startDateTimeInMillis)
         }
 
         // Setting click listener into the item
