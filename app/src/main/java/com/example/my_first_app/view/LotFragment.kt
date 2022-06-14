@@ -28,23 +28,18 @@ class LotFragment: Fragment(R.layout.layout_parking_lots) {
         binding = LayoutParkingLotsBinding.bind(view)
         binding.mainRecyclerView.layoutManager = LinearLayoutManager(activity)
 
-        //viewModel.createParkingState(parkingId,true)
-        viewModel.createParkingState(parkingId,true)
+        binding.floatingAddButton.setOnClickListener{
+            binding.root.findNavController().navigate(R.id.action_parkingLotsFragment_to_addReservationFragment)  // switching screen to reservationsFragment
+        }
+
+
+        viewModel.chargeParkingStateFromDataBase(parkingId)
         viewModel.parkingState.observe(viewLifecycleOwner){
             lotList = it
             updateProgressBar(viewModel.getNumberOfFreeLots(lotList))
             updateRecyclerView(lotList)
         }
-
-        binding.floatingAddButton.setOnClickListener{
-            binding.root.findNavController().navigate(R.id.action_parkingLotsFragment_to_addReservationFragment)  // switching screen to reservationsFragment
-        }
-
-        /*viewModel.chargeDataBase(parkingId)
-        viewModel.lotListFromDataBase.observe(viewLifecycleOwner){
-            Toast.makeText(activity,it.first().spot.toString(),Toast.LENGTH_LONG).show()
-        }*/
-
+        viewModel.updateParkingStateFromService(parkingId)
     }
 
     private fun updateRecyclerView(newLotList: List<Lot>){

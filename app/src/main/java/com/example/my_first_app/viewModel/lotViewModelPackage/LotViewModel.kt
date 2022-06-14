@@ -8,7 +8,6 @@ import com.example.domain.entities.*
 import com.example.domain.usecases.AddReservationUseCase
 import com.example.domain.usecases.GetLotListUseCase
 import com.example.domain.usecases.GetReservationListUseCase
-import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.launch
 import java.util.*
 
@@ -23,15 +22,38 @@ class LotViewModel (private val getLotListUseCase: GetLotListUseCase,
             return mutableParkingState
         }
 
-    fun createParkingState(parkingId: String, localDataBase: Boolean = false) = viewModelScope.launch {
-        var lotListModel = getLotList(parkingId,localDataBase)
-        var reservationListModel = getReservationList(parkingId,localDataBase)
+    fun chargeParkingStateFromDataBase(parkingId: String) = viewModelScope.launch {
+        var lots = createLotList(getLotList(parkingId,true),getReservationList(parkingId,true))
+        lots.forEach{ lot ->
+            lot.reservations.forEach { reservation ->
+                addReservationUseCase(parkingId,reservation,true)
+            }
+        }
+        mutableParkingState.postValue(lots)
+    }
 
-        var newLotList = createLotList(lotListModel,reservationListModel)
-        var oldLotList = mutableParkingState.value
+    fun updateParkingStateFromService(parkingId: String) = viewModelScope.launch {
+        val parkingStateValue: List<Lot>? = parkingState.value
+        var parkingStateAux = createLotList(getLotList(parkingId,false),getReservationList(parkingId,false))
 
-        if( newLotList != oldLotList){
-            mutableParkingState.postValue(newLotList)
+        var lotIndex = 0
+        var reservationIndex = 0
+        if(parkingStateAux.size == parkingStateValue?.size ){
+            parkingStateAux.forEach{ lot ->
+                lotIndex ++
+                if(parkingStateAux[lotIndex].reservations.size == parkingStateValue?.get(lotIndex)?.reservations.size){
+                    while (reservationIndex < parkingStateAux[lotIndex].reservations.size){
+                        reservationIndex ++
+                        if (parkingStateAux[lotIndex].reservations[reservationIndex].id != parkingStateValue?.get(lotIndex)?.reservations?.get(reservationIndex)?.id){
+                            mutableParkingState.postValue(parkingStateAux)
+                        }
+                    }
+                } else {
+                    mutableParkingState.postValue(parkingStateAux)
+                }
+            }
+        } else {
+            mutableParkingState.postValue(parkingStateAux)
         }
     }
 
@@ -48,22 +70,6 @@ class LotViewModel (private val getLotListUseCase: GetLotListUseCase,
             lotList.add(actualLot)
         }
         return lotList
-    }
-
-    private var mutableLotListFromDataBaseState: MutableLiveData<List<Lot>> = MutableLiveData()
-
-    val lotListFromDataBase: LiveData<List<Lot>>
-        get() {
-            return mutableLotListFromDataBaseState
-        }
-    fun chargeDataBase(parkingId: String) = viewModelScope.launch {
-        var lots = createLotList(getLotList(parkingId,false),getReservationList(parkingId,false))
-        lots.forEach{ lot ->
-            lot.reservations.forEach { reservation ->
-                addReservationUseCase(parkingId,reservation,true)
-            }
-        }
-        mutableLotListFromDataBaseState.postValue(lots)
     }
 
     private suspend fun getLotList(parkingId: String, localDataBase: Boolean): List<ParkingLotModel>  {
