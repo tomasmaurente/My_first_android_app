@@ -6,9 +6,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider.NewInstanceFactory
 import com.example.data.local_data_base.LotDataBase
 import com.example.data.local_data_base.ReservationDataBase
+import com.example.data.repositories.AddReservationRepositoryImp
 import com.example.data.repositories.GetLotListRepositoryImp
 import com.example.data.repositories.GetReservationListRepositoryImp
 import com.example.data.service.ParkingService
+import com.example.domain.usecases.AddReservationUseCase
 import com.example.domain.usecases.GetLotListUseCase
 import com.example.domain.usecases.GetReservationListUseCase
 
@@ -20,12 +22,20 @@ class LotViewModelFactory(private val context: Context) : NewInstanceFactory() {
                 getLotListRepository = GetLotListRepositoryImp(
                     ParkingService(),
                     LotDataBase.getInstance(context)
-            ) }
+                )
+            }
             , GetReservationListUseCase().apply {
-                    getReservationListRepository = GetReservationListRepositoryImp(
-                        ParkingService(),
-                        ReservationDataBase.getInstance(context)
-                    )
+                getReservationListRepository = GetReservationListRepositoryImp(
+                    ParkingService(),
+                    ReservationDataBase.getInstance(context)
+                )
+            }
+            , AddReservationUseCase().apply {
+                addReservationRepository = AddReservationRepositoryImp(
+                    ParkingService(),
+                    LotDataBase.getInstance(context),
+                    ReservationDataBase.getInstance(context)
+                )
             } ) as T
         } else {
             super.create(modelClass)

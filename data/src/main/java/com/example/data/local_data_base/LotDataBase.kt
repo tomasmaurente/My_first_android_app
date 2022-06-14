@@ -4,10 +4,10 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.data.local_data_base.dao.ParkingDao
+import com.example.data.local_data_base.dao.LotDao
 import com.example.data.local_data_base.entities.LotRoom
 
-@Database(version = 1, entities = [LotRoom::class])
+@Database( entities = [LotRoom::class], version = 1)
 abstract class LotDataBase : RoomDatabase() {
     companion object{
 
@@ -26,5 +26,5 @@ abstract class LotDataBase : RoomDatabase() {
             return instance
         }
     }
-    abstract fun characterDao(): ParkingDao
+    abstract fun lotDataBaseDao(): LotDao
 }

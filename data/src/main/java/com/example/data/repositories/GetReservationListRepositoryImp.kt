@@ -33,7 +33,7 @@ class GetReservationListRepositoryImp(
     }
 
     private suspend fun getLocalReservationList(): Result<ReservationListModel>{
-        val reservationList = reservationDataBase.characterDao().findReservationList()
+        val reservationList = reservationDataBase.reservationDataBaseDao().findReservationList()
         return Result.Success(ParkingMapper.reservationRoomListToReservationListModel(reservationList))
     }
 }

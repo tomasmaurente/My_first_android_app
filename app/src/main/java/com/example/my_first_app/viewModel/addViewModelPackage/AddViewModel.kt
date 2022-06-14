@@ -13,7 +13,7 @@ import com.example.domain.entities.Result
 import com.example.domain.usecases.AddReservationUseCase
 import kotlinx.coroutines.launch
 
-class AddViewModel(val addReservation: AddReservationUseCase) : ViewModel() {
+class AddViewModel(private val addReservationUseCase: AddReservationUseCase) : ViewModel() {
 
     private val parkingId: String = "-N0TUDrXZUxA_wbd391E"
 
@@ -30,7 +30,7 @@ class AddViewModel(val addReservation: AddReservationUseCase) : ViewModel() {
             && reservation.parkingLot != 0 &&
                reservation.authorizationCode != null){
 
-            var newAddition = addReservation(parkingId,reservation)
+            var newAddition = addReservationUseCase(parkingId,reservation,false)
 
             when(newAddition){
                 is Result.Success -> mutableAddReservationState.postValue(true)

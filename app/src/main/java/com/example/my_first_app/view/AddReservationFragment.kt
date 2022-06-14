@@ -53,7 +53,7 @@ class AddReservationFragment: Fragment(R.layout.layout_add_reservation) {
                 position: Int,
                 p3: Long,
             ) {
-                lot = position
+                lot = position - 1
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {}
@@ -79,7 +79,7 @@ class AddReservationFragment: Fragment(R.layout.layout_add_reservation) {
             if( this::startDateTime.isInitialized &&
                 this::endDateTime.isInitialized &&
                 this::authorizationCode.isInitialized &&
-                lot != -1) {
+                lot > -1) {
                 viewModel!!.addReservation(
                     Reservation(
                         "",

@@ -8,8 +8,8 @@ import com.example.domain.repositories.GetLotListRepository
 import com.example.domain.entities.Result
 
 class GetLotListRepositoryImp(
-    private val lotService: ParkingService,
-    private val lotDataBase: LotDataBase ) : GetLotListRepository{
+    private val parkingService: ParkingService,
+    private val lotDataBase: LotDataBase) : GetLotListRepository{
 
     override suspend fun getLotList(parkingId: String, localDataBase: Boolean): Result<ParkingLotListModel> {
         return when(localDataBase){
@@ -19,7 +19,7 @@ class GetLotListRepositoryImp(
     }
 
     private suspend fun getServiceInfo(parkingId: String): Result<ParkingLotListModel> {
-        val result =  lotService.getLotList(parkingId)
+        val result =  parkingService.getLotList(parkingId)
         return when (result){
             is Result.Success -> {
                 Result.Success(ParkingMapper.toParkingListResponseToModel(result.value!!))
@@ -30,8 +30,8 @@ class GetLotListRepositoryImp(
         }
     }
 
-    private fun getLocalInfo(): Result<ParkingLotListModel>{
-        var lotList = lotDataBase.characterDao().findLotList()
+    private suspend fun getLocalInfo(): Result<ParkingLotListModel>{
+        var lotList = lotDataBase.lotDataBaseDao().findLotList()
         return Result.Success(ParkingMapper.lotRoomListToParkingLotListModel(lotList))
     }
 }

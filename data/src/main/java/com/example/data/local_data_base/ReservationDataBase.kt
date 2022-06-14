@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.data.local_data_base.dao.ParkingDao
+import com.example.data.local_data_base.dao.ReservationDao
 import com.example.data.local_data_base.entities.ReservationRoom
 
 @Database(version = 1, entities = [ReservationRoom::class])
@@ -26,5 +26,5 @@ abstract class ReservationDataBase: RoomDatabase() {
             return instance
         }
     }
-    abstract fun characterDao(): ParkingDao
+    abstract fun reservationDataBaseDao(): ReservationDao
 }
