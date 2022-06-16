@@ -5,21 +5,16 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.viewModelScope
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.data.repositories.GetReservationListRepositoryImp
 import com.example.domain.entities.Lot
 import com.example.domain.entities.Reservation
 import com.example.my_first_app.R
 import com.example.my_first_app.databinding.LayoutReservationsBinding
 import com.example.my_first_app.adapters.reservationAdapter.ReservationAdapter
 import com.example.my_first_app.utils.DeleteDialogCallBack
-import com.example.my_first_app.utils.Event
 import com.example.my_first_app.viewModel.reservationsViewModelPackage.ReservationViewModel
 import com.example.my_first_app.viewModel.reservationsViewModelPackage.ReservationViewModelProvider
-import kotlinx.coroutines.launch
 
 class ReservationFragment: Fragment(R.layout.layout_reservations), DeleteDialogCallBack {
 

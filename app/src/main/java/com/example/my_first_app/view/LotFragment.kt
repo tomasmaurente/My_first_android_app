@@ -2,7 +2,6 @@ package com.example.my_first_app.view
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -32,14 +31,13 @@ class LotFragment: Fragment(R.layout.layout_parking_lots) {
             binding.root.findNavController().navigate(R.id.action_parkingLotsFragment_to_addReservationFragment)  // switching screen to reservationsFragment
         }
 
-
-        viewModel.chargeParkingStateFromDataBase(parkingId)
+        viewModel.createParkingState(parkingId,true)
         viewModel.parkingState.observe(viewLifecycleOwner){
             lotList = it
             updateProgressBar(viewModel.getNumberOfFreeLots(lotList))
             updateRecyclerView(lotList)
         }
-        viewModel.updateParkingStateFromService(parkingId)
+        viewModel.createParkingState(parkingId,false)
     }
 
     private fun updateRecyclerView(newLotList: List<Lot>){

@@ -10,9 +10,9 @@ interface LotDao {
     suspend fun findLotList(): List<LotRoom>?
 
     @Query("SELECT * FROM lotList WHERE parkingId = :parkingId")
-    suspend fun findByParkingLot(parkingId: String): LotRoom?
+    suspend fun findByParkingLot(parkingId: Int): LotRoom?
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertNewLot(lot: LotRoom)
 
 }

@@ -21,7 +21,8 @@ class ReservationViewModel (private val deleteReservation : DeleteReservationUse
     fun deleteReservation(parkingId: String, authorizationCode: String, reservation: Reservation) = viewModelScope.launch {
 
         if(reservation.authorizationCode == authorizationCode){
-            val deleteReservation = deleteReservation.invoke(parkingId,reservation,authorizationCode)
+            deleteReservation(parkingId,reservation,true) // Delete reservation in DataBase
+            val deleteReservation = deleteReservation(parkingId,reservation,false) // Delete reservation in Service
             when(deleteReservation){
                 is Result.Success -> {mutableDeleteState.value = true}
                 is Result.Failure -> {mutableDeleteState.value = false}
@@ -29,9 +30,5 @@ class ReservationViewModel (private val deleteReservation : DeleteReservationUse
         } else {
             mutableDeleteState.value = false
         }
-    }
-
-    fun updatedeletedSuccessfullyVariable(){
-        mutableDeleteState.value = false
     }
 }

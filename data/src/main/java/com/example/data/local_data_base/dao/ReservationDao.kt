@@ -10,9 +10,12 @@ interface ReservationDao {
     @Query("SELECT * FROM reservationList")
     suspend fun findReservationList(): List<ReservationRoom>
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Query("SELECT * FROM reservationList WHERE parkingLot = :parkingLot")
+    suspend fun findReservationList(parkingLot: Int): List<ReservationRoom>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertNewReservation(reservation: ReservationRoom)
 
-    //@Delete()
-    //suspend fun deleteReservation(reservationId: String)
+    @Query("DELETE FROM reservationList WHERE id  = :reservationId")
+    suspend fun deleteReservation(reservationId: String)
 }

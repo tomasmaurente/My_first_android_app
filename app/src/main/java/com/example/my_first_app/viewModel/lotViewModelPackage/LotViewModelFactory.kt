@@ -6,37 +6,45 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider.NewInstanceFactory
 import com.example.data.local_data_base.LotDataBase
 import com.example.data.local_data_base.ReservationDataBase
-import com.example.data.repositories.AddReservationRepositoryImp
-import com.example.data.repositories.GetLotListRepositoryImp
-import com.example.data.repositories.GetReservationListRepositoryImp
+import com.example.data.repositories.AddRepositoryImp
+import com.example.data.repositories.LotRepositoryImp
+import com.example.data.repositories.ReservationRepositoryImp
 import com.example.data.service.ParkingService
-import com.example.domain.usecases.AddReservationUseCase
-import com.example.domain.usecases.GetLotListUseCase
-import com.example.domain.usecases.GetReservationListUseCase
+import com.example.domain.usecases.AddUseCase
+import com.example.domain.usecases.LotUseCase
+import com.example.domain.usecases.ReservationUseCase
 
 class LotViewModelFactory(private val context: Context) : NewInstanceFactory() {
 
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         return if (modelClass == LotViewModel::class.java) {
-            LotViewModel(GetLotListUseCase().apply {
-                getLotListRepository = GetLotListRepositoryImp(
-                    ParkingService(),
-                    LotDataBase.getInstance(context)
-                )
-            }
-            , GetReservationListUseCase().apply {
-                getReservationListRepository = GetReservationListRepositoryImp(
-                    ParkingService(),
-                    ReservationDataBase.getInstance(context)
-                )
-            }
-            , AddReservationUseCase().apply {
-                addReservationRepository = AddReservationRepositoryImp(
+            LotViewModel(LotUseCase().apply {
+                lotRepository = LotRepositoryImp(
                     ParkingService(),
                     LotDataBase.getInstance(context),
-                    ReservationDataBase.getInstance(context)
+                    AddUseCase().apply {
+                        addReservationRepository = AddRepositoryImp(
+                            ParkingService(),
+                            LotDataBase.getInstance(context),
+                            ReservationDataBase.getInstance(context)
+                        )
+                    }
                 )
-            } ) as T
+            }
+            , ReservationUseCase().apply {
+                getReservationListRepository = ReservationRepositoryImp(
+                    ParkingService(),
+                    ReservationDataBase.getInstance(context),
+                    AddUseCase().apply {
+                        addReservationRepository = AddRepositoryImp(
+                            ParkingService(),
+                            LotDataBase.getInstance(context),
+                            ReservationDataBase.getInstance(context)
+                        )
+                    }
+                )
+            }
+            ) as T
         } else {
             super.create(modelClass)
         }

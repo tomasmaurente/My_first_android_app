@@ -1,25 +1,24 @@
 package com.example.my_first_app.viewModel.addViewModelPackage
 
-import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.data.repositories.GetReservationListRepositoryImp
-import com.example.domain.entities.Lot
-import com.example.domain.entities.ParkingLotModel
+import com.example.data.utils.AddPossibilities
 import com.example.domain.entities.Reservation
 import com.example.domain.entities.Result
-import com.example.domain.usecases.AddReservationUseCase
+import com.example.domain.usecases.AddUseCase
+import com.example.domain.usecases.ReservationUseCase
 import kotlinx.coroutines.launch
 
-class AddViewModel(private val addReservationUseCase: AddReservationUseCase) : ViewModel() {
+class AddViewModel(private val addReservationUseCase: AddUseCase,
+                   private val reservationUseCase: ReservationUseCase) : ViewModel() {
 
     private val parkingId: String = "-N0TUDrXZUxA_wbd391E"
 
-    private var mutableAddReservationState: MutableLiveData<Boolean> = MutableLiveData()
+    private var mutableAddReservationState: MutableLiveData<AddPossibilities> = MutableLiveData()
 
-    val addReservationState: LiveData<Boolean>
+    val addReservationState: LiveData<AddPossibilities>
         get() {
             return mutableAddReservationState
         }
@@ -27,17 +26,33 @@ class AddViewModel(private val addReservationUseCase: AddReservationUseCase) : V
     fun addReservation(reservation: Reservation) = viewModelScope.launch{
         if( reservation.startDateTimeInMillis != null
             && reservation.endDateTimeInMillis != null
-            && reservation.parkingLot != 0 &&
+            && reservation.parkingLot > -1 &&
                reservation.authorizationCode != null){
 
-            var newAddition = addReservationUseCase(parkingId,reservation,false)
-
-            when(newAddition){
-                is Result.Success -> mutableAddReservationState.postValue(true)
-                is Result.Failure -> mutableAddReservationState.postValue(false)
+            val reservationState = AddPossibilities.Successful
+            val reservationListOfLot = reservationUseCase(reservation.parkingLot)
+            when(reservationListOfLot){
+                is Result.Success -> {
+                    val reservationList = reservationListOfLot.value?.reservationList
+                    reservationList?.forEach { reservationFromDataBase ->
+                        if (   reservationFromDataBase.endDate > reservation.startDateTimeInMillis
+                            || reservationFromDataBase.startDate > reservation.endDateTimeInMillis){
+                            mutableAddReservationState.postValue(AddPossibilities.Occupied)
+                            return@forEach
+                        }
+                    }
+                }
+                is Result.Failure -> mutableAddReservationState.postValue(AddPossibilities.Successful)
+            }
+            if (reservationState == AddPossibilities.Successful) {
+                var newAddition = addReservationUseCase(parkingId, reservation, false)
+                when (newAddition) {
+                    is Result.Success -> mutableAddReservationState.postValue(AddPossibilities.Successful)
+                    is Result.Failure -> mutableAddReservationState.postValue(AddPossibilities.Fail)
+                }
             }
         } else {
-            mutableAddReservationState.postValue(false)
+            mutableAddReservationState.postValue(AddPossibilities.IncorrectParameters)
         }
     }
 }

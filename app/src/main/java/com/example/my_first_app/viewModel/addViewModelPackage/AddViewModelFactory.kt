@@ -5,22 +5,38 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider.NewInstanceFactory
 import com.example.data.local_data_base.LotDataBase
 import com.example.data.local_data_base.ReservationDataBase
-import com.example.data.repositories.AddReservationRepositoryImp
+import com.example.data.repositories.AddRepositoryImp
+import com.example.data.repositories.ReservationRepositoryImp
 import com.example.data.service.ParkingService
-import com.example.domain.usecases.AddReservationUseCase
+import com.example.domain.usecases.AddUseCase
+import com.example.domain.usecases.ReservationUseCase
 
 class AddViewModelFactory(private val context: Context) : NewInstanceFactory() {
 
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         return when (modelClass) {
             AddViewModel::class.java -> {
-                AddViewModel(AddReservationUseCase().apply {
-                    addReservationRepository = AddReservationRepositoryImp(
+                AddViewModel(AddUseCase().apply {
+                    addReservationRepository = AddRepositoryImp(
                         ParkingService(),
                         LotDataBase.getInstance(context),
                         ReservationDataBase.getInstance(context)
                     )
-                }) as T
+                },
+                ReservationUseCase().apply {
+                    getReservationListRepository = ReservationRepositoryImp(
+                        ParkingService(),
+                        ReservationDataBase.getInstance(context),
+                        AddUseCase().apply {
+                            addReservationRepository = AddRepositoryImp(
+                                ParkingService(),
+                                LotDataBase.getInstance(context),
+                                ReservationDataBase.getInstance(context)
+                            )
+                        }
+                    )
+                }
+                ) as T
             }
             else -> super.create(modelClass)
         }
