@@ -14,8 +14,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="73c43db5-1f33-462a-837e-ffccbf7dbbf8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/data/src/main/java/com/example/data/repositories/DeleteRepositoryImp.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/src/main/java/com/example/data/utils/AddPossibilities.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/fileHashes/fileHashes.bin" afterDir="false" />
@@ -23,40 +21,22 @@
       <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/my_first_app/view/AddReservationFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/my_first_app/view/AddReservationFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/my_first_app/view/LotFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/my_first_app/view/LotFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/my_first_app/view/ReservationFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/my_first_app/view/ReservationFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/my_first_app/viewModel/addViewModelPackage/AddViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/my_first_app/viewModel/addViewModelPackage/AddViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/my_first_app/viewModel/addViewModelPackage/AddViewModelFactory.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/my_first_app/viewModel/addViewModelPackage/AddViewModelFactory.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/my_first_app/adapters/lotAdapter/ParkingLotViewHolder.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/my_first_app/adapters/lotAdapter/ParkingLotViewHolder.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/my_first_app/viewModel/lotViewModelPackage/LotViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/my_first_app/viewModel/lotViewModelPackage/LotViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/my_first_app/viewModel/lotViewModelPackage/LotViewModelFactory.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/my_first_app/viewModel/lotViewModelPackage/LotViewModelFactory.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/my_first_app/viewModel/reservationsViewModelPackage/ReservationViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/my_first_app/viewModel/reservationsViewModelPackage/ReservationViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/my_first_app/viewModel/reservationsViewModelPackage/ReservationViewModelFactory.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/my_first_app/viewModel/reservationsViewModelPackage/ReservationViewModelFactory.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/src/main/java/com/example/data/local_data_base/dao/LotDao.kt" beforeDir="false" afterPath="$PROJECT_DIR$/data/src/main/java/com/example/data/local_data_base/dao/LotDao.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/src/main/java/com/example/data/local_data_base/dao/ReservationDao.kt" beforeDir="false" afterPath="$PROJECT_DIR$/data/src/main/java/com/example/data/local_data_base/dao/ReservationDao.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/src/main/java/com/example/data/mappers/ParkingMapper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/data/src/main/java/com/example/data/utils/ParkingMapper.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/src/main/java/com/example/data/repositories/AddReservationRepositoryImp.kt" beforeDir="false" afterPath="$PROJECT_DIR$/data/src/main/java/com/example/data/repositories/AddRepositoryImp.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/src/main/java/com/example/data/repositories/DeleteReservationRepositoryImp.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/src/main/java/com/example/data/repositories/GetLotListRepositoryImp.kt" beforeDir="false" afterPath="$PROJECT_DIR$/data/src/main/java/com/example/data/repositories/LotRepositoryImp.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/src/main/java/com/example/data/repositories/GetReservationListRepositoryImp.kt" beforeDir="false" afterPath="$PROJECT_DIR$/data/src/main/java/com/example/data/repositories/ReservationRepositoryImp.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/src/main/java/com/example/domain/entities/Result.kt" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/com/example/domain/entities/Result.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/src/main/java/com/example/domain/repositories/AddReservationRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/com/example/domain/repositories/AddRepository.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/src/main/java/com/example/domain/repositories/DeleteReservationRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/com/example/domain/repositories/DeleteRepository.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/src/main/java/com/example/domain/repositories/GetLotListRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/com/example/domain/repositories/LotRepository.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/src/main/java/com/example/domain/repositories/GetReservationListRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/com/example/domain/repositories/ReservationRepository.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/src/main/java/com/example/domain/usecases/AddReservationUseCase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/com/example/domain/usecases/AddUseCase.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/src/main/java/com/example/domain/usecases/DeleteResevationUseCase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/com/example/domain/usecases/DeleteUseCase.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/src/main/java/com/example/domain/usecases/GetLotListUseCase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/com/example/domain/usecases/LotUseCase.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/src/main/java/com/example/domain/usecases/GetReservationListUseCase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/com/example/domain/usecases/ReservationUseCase.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/layout_add_reservation.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/layout_add_reservation.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/layout_drop_down_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/layout_drop_down_item.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/layout_parking_lots.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/layout_parking_lots.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/src/main/java/com/example/domain/entities/Lot.kt" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/com/example/domain/entities/Lot.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/src/main/java/com/example/domain/repositories/ReservationRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/com/example/domain/repositories/ReservationRepository.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[adb-R58R744EN8P-x2WLjZ._adb-tls-connect._tcp]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\Tomas\.android\avd\Pixel_5_API_30.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -114,6 +94,8 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="android-custom-viewC:/Users/Tomas/.gradle/caches/modules-2/files-2.1/androidx.recyclerview/recyclerview/1.1.0/f2bdf79e1977939817f54a9d3e2f6bc52b63bdd0/recyclerview-1.1.0-sources.jar!/androidx/recyclerview/widget/RecyclerView.java_RecyclerView_DIMENSIONS" value="1080&#10;1920" />
+    <property name="android-custom-viewC:/Users/Tomas/.gradle/caches/modules-2/files-2.1/androidx.recyclerview/recyclerview/1.1.0/f2bdf79e1977939817f54a9d3e2f6bc52b63bdd0/recyclerview-1.1.0-sources.jar!/androidx/recyclerview/widget/RecyclerView.java_SELECTED" value="RecyclerView" />
     <property name="cidr.known.project.marker" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/values-w1240dp" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/data/src/main/java/com/example/data/service" />
@@ -258,6 +240,11 @@
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/my_first_app/view/AddReservationFragment.kt</url>
           <line>54</line>
           <option name="timeStamp" value="73" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/my_first_app/adapters/lotAdapter/ParkingLotViewHolder.kt</url>
+          <line>24</line>
+          <option name="timeStamp" value="78" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/data/build/generated/source/kapt/debug/com/example/data/local_data_base/dao/LotDao_Impl.java</url>

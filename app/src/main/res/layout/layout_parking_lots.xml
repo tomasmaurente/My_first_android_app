@@ -41,7 +41,7 @@
         tools:layout_editor_absoluteY="200dp"
         android:padding="10dp"
         android:max="30"
-        android:progress="38"
+        android:progress="0"
     />
 
     <TextView
@@ -75,7 +75,7 @@
         app:layout_constraintTop_toBottomOf="@id/progressBar"
         app:layout_constraintEnd_toStartOf="@+id/freePlaces"
         android:paddingEnd="5dp"
-        android:text="30"
+        android:text="14"
         android:textStyle="bold"
         android:textColor="@color/sweet_grey"
     />

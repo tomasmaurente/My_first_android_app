@@ -1,7 +1,6 @@
 package com.example.my_first_app.adapters.lotAdapter
 
 import android.view.View
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.domain.entities.Lot
 import com.example.domain.entities.Reservation
@@ -16,14 +15,14 @@ class ParkingLotViewHolder (view: View): RecyclerView.ViewHolder(view) {
 
     fun render(actualLot: Lot, onClickListener:(Lot)-> Unit) {
 
-        if(actualLot.isFree){
+        if(actualLot.freeAt == -1){
             binding.markAsFree.text = StringsUtils.FREE
             binding.day.text = ""
             binding.monthAndYear.text = ""
             binding.hourOfDay.text = ""
         }
         else{
-            firstReservation = actualLot.reservations[0]
+            firstReservation = actualLot.reservations[actualLot.freeAt]
             binding.markAsFree.text = ""
             binding.day.text = AppDateFormat.dayFormat(firstReservation.startDateTimeInMillis)
             binding.monthAndYear.text = AppDateFormat.monthYearFormat(firstReservation.startDateTimeInMillis)
