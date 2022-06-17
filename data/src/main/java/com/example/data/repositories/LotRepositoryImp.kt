@@ -1,7 +1,7 @@
 package com.example.data.repositories
 
 import com.example.data.utils.ParkingMapper
-import com.example.data.local_data_base.LotDataBase
+import com.example.data.local_data_base.ParkingDataBase
 import com.example.data.service.ParkingService
 import com.example.domain.entities.ParkingLotListModel
 import com.example.domain.entities.ParkingLotModel
@@ -11,7 +11,7 @@ import com.example.domain.usecases.AddUseCase
 
 class LotRepositoryImp(
     private val parkingService: ParkingService,
-    private val lotDataBase: LotDataBase,
+    private val lotDataBase: ParkingDataBase,
     private val addReservationUseCase: AddUseCase
                                 ) : LotRepository{
 

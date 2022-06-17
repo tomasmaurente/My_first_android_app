@@ -1,7 +1,6 @@
 package com.example.data.repositories
 
-import com.example.data.local_data_base.LotDataBase
-import com.example.data.local_data_base.ReservationDataBase
+import com.example.data.local_data_base.ParkingDataBase
 import com.example.data.local_data_base.entities.LotRoom
 import com.example.data.local_data_base.entities.ReservationRoom
 import com.example.data.responseObjects.ReservationRequest
@@ -12,8 +11,7 @@ import com.example.domain.repositories.AddRepository
 
 class AddRepositoryImp(
     private val parkingService: ParkingService,
-    private val lotDataBase: LotDataBase,
-    private val reservationDataBase: ReservationDataBase)   : AddRepository {
+    private val parkingDataBase: ParkingDataBase)   : AddRepository {
 
     override suspend fun addLot(lot: Int): Result<Boolean> {
         addLotToDataBase(lot)
@@ -66,13 +64,13 @@ class AddRepositoryImp(
     private suspend fun addLotToDataBase(
         parkingId: Int
     ){
-        lotDataBase.lotDataBaseDao().insertNewLot(LotRoom(parkingId))
+        parkingDataBase.lotDataBaseDao().insertNewLot(LotRoom(parkingId))
     }
 
     private suspend fun addReservationToDataBase(
         reservation: Reservation
     ){
-        reservationDataBase.reservationDataBaseDao().insertNewReservation(ReservationRoom(reservation.id,
+        parkingDataBase.reservationDataBaseDao().insertNewReservation(ReservationRoom(reservation.id,
                                                                                         reservation.authorizationCode,
                                                                                         reservation.startDateTimeInMillis,
                                                                                         reservation.endDateTimeInMillis,

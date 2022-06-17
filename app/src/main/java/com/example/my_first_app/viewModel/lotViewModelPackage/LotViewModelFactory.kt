@@ -4,8 +4,7 @@ package com.example.my_first_app.viewModel.lotViewModelPackage
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider.NewInstanceFactory
-import com.example.data.local_data_base.LotDataBase
-import com.example.data.local_data_base.ReservationDataBase
+import com.example.data.local_data_base.ParkingDataBase
 import com.example.data.repositories.AddRepositoryImp
 import com.example.data.repositories.LotRepositoryImp
 import com.example.data.repositories.ReservationRepositoryImp
@@ -21,12 +20,11 @@ class LotViewModelFactory(private val context: Context) : NewInstanceFactory() {
             LotViewModel(LotUseCase().apply {
                 lotRepository = LotRepositoryImp(
                     ParkingService(),
-                    LotDataBase.getInstance(context),
+                    ParkingDataBase.getInstance(context),
                     AddUseCase().apply {
                         addReservationRepository = AddRepositoryImp(
                             ParkingService(),
-                            LotDataBase.getInstance(context),
-                            ReservationDataBase.getInstance(context)
+                            ParkingDataBase.getInstance(context)
                         )
                     }
                 )
@@ -34,12 +32,11 @@ class LotViewModelFactory(private val context: Context) : NewInstanceFactory() {
             , ReservationUseCase().apply {
                 getReservationListRepository = ReservationRepositoryImp(
                     ParkingService(),
-                    ReservationDataBase.getInstance(context),
+                    ParkingDataBase.getInstance(context),
                     AddUseCase().apply {
                         addReservationRepository = AddRepositoryImp(
                             ParkingService(),
-                            LotDataBase.getInstance(context),
-                            ReservationDataBase.getInstance(context)
+                            ParkingDataBase.getInstance(context)
                         )
                     }
                 )

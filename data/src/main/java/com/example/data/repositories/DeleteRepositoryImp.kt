@@ -1,6 +1,6 @@
 package com.example.data.repositories
 
-import com.example.data.local_data_base.ReservationDataBase
+import com.example.data.local_data_base.ParkingDataBase
 import com.example.data.service.ParkingService
 import com.example.domain.entities.Reservation
 import com.example.domain.entities.Result
@@ -8,22 +8,17 @@ import com.example.domain.repositories.DeleteRepository
 
 class DeleteRepositoryImp(
     private val deleteService : ParkingService,
-    private val deleteDataBase: ReservationDataBase
+    private val parkingDataBase: ParkingDataBase
                                         ): DeleteRepository {
 
-    override suspend fun deleteReservation(parkingId: String, reservation: Reservation, localDataBase: Boolean
+    override suspend fun deleteReservation(parkingId: String, reservation: Reservation
     ): Result<Boolean> {
-        if (localDataBase) {
-            deleteFromDataBase(reservation.id)
-            return Result.Success(true)
-        } else {
-            return deleteFromService(parkingId, reservation)
-        }
+        deleteFromDataBase(reservation.id)
+        return deleteFromService(parkingId, reservation)
     }
 
-    private suspend fun deleteFromDataBase(reservationId: String){
-        var delete = deleteDataBase.reservationDataBaseDao().deleteReservation(reservationId)
-        return delete
+    private suspend fun deleteFromDataBase(reservationId: String) {
+        return parkingDataBase.reservationDataBaseDao().deleteReservation(reservationId)
     }
 
     private suspend fun deleteFromService(parkingId: String, reservation: Reservation

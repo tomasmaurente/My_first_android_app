@@ -24,10 +24,7 @@ class AddViewModel(private val addReservationUseCase: AddUseCase,
         }
 
     fun addReservation(reservation: Reservation) = viewModelScope.launch{
-        if( reservation.startDateTimeInMillis != null
-            && reservation.endDateTimeInMillis != null
-            && reservation.parkingLot > -1 &&
-               reservation.authorizationCode != null){
+        if(reservation.parkingLot > -1){
 
             val reservationState = AddPossibilities.Successful
             val reservationListOfLot = reservationUseCase(reservation.parkingLot)

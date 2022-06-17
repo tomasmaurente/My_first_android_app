@@ -1,7 +1,7 @@
 package com.example.data.repositories
 
+import com.example.data.local_data_base.ParkingDataBase
 import com.example.data.utils.ParkingMapper
-import com.example.data.local_data_base.ReservationDataBase
 import com.example.data.service.ParkingService
 import com.example.domain.entities.*
 import com.example.domain.repositories.ReservationRepository
@@ -9,7 +9,7 @@ import com.example.domain.usecases.AddUseCase
 
 class ReservationRepositoryImp(
     private val reservationService : ParkingService,
-    private val reservationDataBase: ReservationDataBase,
+    private val parkingDataBase: ParkingDataBase,
     private val addReservationUseCase: AddUseCase
                                         ): ReservationRepository {
 
@@ -28,7 +28,7 @@ class ReservationRepositoryImp(
     }
 
     override suspend fun getReservationList(parkingId: Int): Result<ReservationListModel> {
-        val reservationList = reservationDataBase.reservationDataBaseDao().findReservationList(parkingId)
+        val reservationList = parkingDataBase.reservationDataBaseDao().findReservationList(parkingId)
         return if (reservationList != null) {
             Result.Success(ParkingMapper.reservationRoomListToReservationListModel(reservationList))
         } else {
@@ -60,7 +60,7 @@ class ReservationRepositoryImp(
     }
 
     private suspend fun getLocalReservationList(): Result<ReservationListModel>{
-        val reservationList = reservationDataBase.reservationDataBaseDao().findReservationList()
+        val reservationList = parkingDataBase.reservationDataBaseDao().findReservationList()
         return Result.Success(ParkingMapper.reservationRoomListToReservationListModel(reservationList))
     }
 }

@@ -9,7 +9,7 @@ import com.example.domain.entities.Result
 import com.example.domain.usecases.DeleteReservationUseCase
 import kotlinx.coroutines.launch
 
-class ReservationViewModel (private val deleteReservation : DeleteReservationUseCase) : ViewModel() {
+class ReservationViewModel (private val deleteReservationUseCase : DeleteReservationUseCase) : ViewModel() {
 
     private var mutableDeleteState: MutableLiveData<Boolean> = MutableLiveData()
 
@@ -18,17 +18,11 @@ class ReservationViewModel (private val deleteReservation : DeleteReservationUse
         return mutableDeleteState
     }
 
-    fun deleteReservation(parkingId: String, authorizationCode: String, reservation: Reservation) = viewModelScope.launch {
-
-        if(reservation.authorizationCode == authorizationCode){
-            deleteReservation(parkingId,reservation,true) // Delete reservation in DataBase
-            val deleteReservation = deleteReservation(parkingId,reservation,false) // Delete reservation in Service
-            when(deleteReservation){
-                is Result.Success -> {mutableDeleteState.value = true}
-                is Result.Failure -> {mutableDeleteState.value = false}
-            }
-        } else {
-            mutableDeleteState.value = false
+    fun deleteReservation(parkingId: String, authorizationCode: String, reservation: Reservation) = viewModelScope.launch { // Delete reservation in DataBase
+        val deleteReservation = deleteReservationUseCase(parkingId,reservation,authorizationCode) // Delete reservation in Service
+        when(deleteReservation){
+            is Result.Success -> {mutableDeleteState.value = true}
+            is Result.Failure -> {mutableDeleteState.value = false}
         }
     }
 }
