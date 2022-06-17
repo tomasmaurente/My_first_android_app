@@ -121,8 +121,10 @@ class AddReservationFragment: Fragment(R.layout.layout_add_reservation) {
             dateTime.set(Calendar.HOUR, hours)
 
             if(isStartDateTime){
+
                 startDateTime = dateTime
                 binding.startDateTimeButton.hint = AppDateFormat.completeFormat(startDateTime.timeInMillis)
+
             } else {
                 endDateTime = dateTime
                 binding.endDateTimeButton.hint = AppDateFormat.completeFormat(endDateTime.timeInMillis)

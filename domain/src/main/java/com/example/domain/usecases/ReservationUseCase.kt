@@ -13,5 +13,4 @@ class ReservationUseCase {
     suspend operator fun invoke(parkingId: Int): Result<ReservationListModel> {
         return getReservationListRepository.getReservationList(parkingId)
     }
-
 }
