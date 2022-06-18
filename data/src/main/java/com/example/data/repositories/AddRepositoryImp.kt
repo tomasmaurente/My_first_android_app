@@ -13,31 +13,19 @@ class AddRepositoryImp(
     private val parkingService: ParkingService,
     private val parkingDataBase: ParkingDataBase)   : AddRepository {
 
-    override suspend fun addLot(lot: Int): Result<Boolean> {
-        addLotToDataBase(lot)
-        return Result.Success(true )
-    }
-
-    override suspend fun addReservation(reservation: Reservation): Result<Boolean> {
-        addReservationToDataBase(reservation)
-        return Result.Success(true )
-    }
-
     override suspend fun addReservation(
         parkingId: String,
-        reservation: Reservation,
-        localDataBase: Boolean
+        reservation: Reservation
     ): Result<Boolean> {
-        if(localDataBase){
-            addReservationToDataBase(reservation)
-            return Result.Success(true )
-        } else {
-            return when (addReservationToService(parkingId,reservation)){
-                is Result.Success -> Result.Success(true)
-                else -> Result.Failure(null)
-            }
+        // Add reservation to data base
+        addReservationToDataBase(reservation)
+        // Add reservation to Service
+        return when (addReservationToService(parkingId,reservation)){
+            is Result.Success -> Result.Success(true)
+            else -> Result.Failure(null)
         }
     }
+
 
     private suspend fun addReservationToService(
         parkingId: String,

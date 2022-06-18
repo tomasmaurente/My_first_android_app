@@ -6,5 +6,4 @@ import com.example.domain.entities.Result
 
 interface LotRepository {
     suspend fun getLotList(parkingId: String, localDataBase: Boolean): Result<ParkingLotListModel>
-    suspend fun getLot(parkingId: Int): Result<ParkingLotModel>
 }

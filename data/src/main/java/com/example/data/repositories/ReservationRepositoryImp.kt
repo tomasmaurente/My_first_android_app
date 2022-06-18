@@ -1,6 +1,7 @@
 package com.example.data.repositories
 
 import com.example.data.local_data_base.ParkingDataBase
+import com.example.data.local_data_base.entities.ReservationRoom
 import com.example.data.utils.ParkingMapper
 import com.example.data.service.ParkingService
 import com.example.domain.entities.*
@@ -8,9 +9,8 @@ import com.example.domain.repositories.ReservationRepository
 import com.example.domain.usecases.AddUseCase
 
 class ReservationRepositoryImp(
-    private val reservationService : ParkingService,
-    private val parkingDataBase: ParkingDataBase,
-    private val addReservationUseCase: AddUseCase
+    private val parkingService : ParkingService,
+    private val parkingDataBase: ParkingDataBase
                                         ): ReservationRepository {
 
 
@@ -27,28 +27,21 @@ class ReservationRepositoryImp(
         }
     }
 
-    override suspend fun getReservationList(parkingId: Int): Result<ReservationListModel> {
-        val reservationList = parkingDataBase.reservationDataBaseDao().findReservationList(parkingId)
-        return if (reservationList != null) {
-            Result.Success(ParkingMapper.reservationRoomListToReservationListModel(reservationList))
-        } else {
-            Result.Failure(null)
-        }
-    }
-
     private suspend fun updateDataBase(reservationList: Result<ReservationListModel>){
         when(reservationList){
             is Result.Success -> {
                 val reservationListFromService = reservationList.value?.reservationList
                 reservationListFromService?.forEach { reservation ->
-                    addReservationUseCase(ParkingMapper.reservationModelToReservation(reservation))
+                    parkingDataBase.reservationDataBaseDao().insertNewReservation(
+                        ParkingMapper.reservationModelToReservationRoom(reservation)
+                    )
                 }
             }
         }
     }
 
     private suspend fun getServiceReservationList(parkingId: String): Result<ReservationListModel>{
-        val result =  reservationService.getReservationList(parkingId)
+        val result =  parkingService.getReservationList(parkingId)
         return when (result){
             is Result.Success -> {
                 Result.Success(ParkingMapper.toReservationListResponseToModel(result.value))

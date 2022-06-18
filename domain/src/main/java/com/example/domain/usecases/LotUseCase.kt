@@ -11,7 +11,4 @@ class LotUseCase{
     suspend operator fun invoke(parkingId: String, localDataBase: Boolean): Result<ParkingLotListModel> {
         return lotRepository.getLotList(parkingId, localDataBase)
     }
-    suspend operator fun invoke(parkingId: Int): Result<ParkingLotModel>? {
-        return lotRepository.getLot(parkingId)
-    }
 }

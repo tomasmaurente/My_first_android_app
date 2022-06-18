@@ -78,12 +78,12 @@ object ParkingMapper {
             return ReservationModel("wrong implementation","",0,0,0)
         }
     }
-    fun reservationModelToReservation(reservationModel: ReservationModel): Reservation{
-        return Reservation(reservationModel.id,
-                           reservationModel.startDate,
-                           reservationModel.endDate,
-                           reservationModel.authorizationCode,
-                           reservationModel.parkingLot)
+    fun reservationModelToReservationRoom(reservationModel: ReservationModel): ReservationRoom{
+        return ReservationRoom(reservationModel.id,
+                               reservationModel.authorizationCode,
+                               reservationModel.startDate,
+                               reservationModel.endDate,
+                               reservationModel.parkingLot)
     }
 
 }

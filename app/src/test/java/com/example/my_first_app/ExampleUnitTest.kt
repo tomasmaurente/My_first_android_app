@@ -28,19 +28,20 @@ class ExampleUnitTest {
     @MockK
     lateinit var addRepo: AddRepository
     lateinit var addUseCase: AddUseCase
-
+    lateinit var reservation: Reservation
     @Before
     fun setUp(){
         MockKAnnotations.init(this)
         addUseCase = AddUseCase()
         addUseCase.addReservationRepository = addRepo
+        reservation =  Reservation()
     }
     @Test
     fun addReservationAddsToDataBase() {
-        coEvery{ addRepo.addReservation("lsdfjbvbls", Reservation(), true)} answers
+        coEvery{ addRepo.addReservation("lsdfjbvbls", reservation, true)} answers
                 {Result.Success(true)}
-        runBlocking { addUseCase("lsdfjbvbls", Reservation(), true) }
-        coVerify (exactly = 1){ addRepo.addReservation("lsdfjbvbls", Reservation(), true) } // CoVerify se fija si el repo es llamado
+        runBlocking { addUseCase("lsdfjbvbls", reservation, true) }
+        coVerify (exactly = 1){ addRepo.addReservation("lsdfjbvbls", reservation, true) } // CoVerify se fija si el repo es llamado
     }
 
 }

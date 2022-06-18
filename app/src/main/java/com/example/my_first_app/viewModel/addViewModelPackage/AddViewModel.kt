@@ -4,15 +4,15 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.data.utils.AddPossibilities
+import com.example.data.local_data_base.ParkingDataBase
+import com.example.data.utils.ParkingMapper
+import com.example.domain.utils.AddPossibilities
 import com.example.domain.entities.Reservation
-import com.example.domain.entities.Result
 import com.example.domain.usecases.AddUseCase
-import com.example.domain.usecases.ReservationUseCase
 import kotlinx.coroutines.launch
 
 class AddViewModel(private val addReservationUseCase: AddUseCase,
-                   private val reservationUseCase: ReservationUseCase) : ViewModel() {
+                   private val parkingDataBase: ParkingDataBase) : ViewModel() {
 
     private val parkingId: String = "-N0TUDrXZUxA_wbd391E"
 
@@ -23,33 +23,20 @@ class AddViewModel(private val addReservationUseCase: AddUseCase,
             return mutableAddReservationState
         }
 
-    fun addReservation(reservation: Reservation) = viewModelScope.launch{
-        if(reservation.parkingLot > -1){
+    fun setWaitingState(){
+        mutableAddReservationState.postValue(AddPossibilities.Waiting)
+    }
 
-            val reservationState = AddPossibilities.Successful
-            val reservationListOfLot = reservationUseCase(reservation.parkingLot)
-            when(reservationListOfLot){
-                is Result.Success -> {
-                    val reservationList = reservationListOfLot.value?.reservationList
-                    reservationList?.forEach { reservationFromDataBase ->
-                        if (   reservationFromDataBase.endDate > reservation.startDateTimeInMillis
-                            || reservationFromDataBase.startDate > reservation.endDateTimeInMillis){
-                            mutableAddReservationState.postValue(AddPossibilities.Occupied)
-                            return@forEach
-                        }
-                    }
-                }
-                is Result.Failure -> mutableAddReservationState.postValue(AddPossibilities.Successful)
-            }
-            if (reservationState == AddPossibilities.Successful) {
-                var newAddition = addReservationUseCase(parkingId, reservation, false)
-                when (newAddition) {
-                    is Result.Success -> mutableAddReservationState.postValue(AddPossibilities.Successful)
-                    is Result.Failure -> mutableAddReservationState.postValue(AddPossibilities.Fail)
-                }
-            }
-        } else {
-            mutableAddReservationState.postValue(AddPossibilities.IncorrectParameters)
-        }
+    fun addReservation(reservation: Reservation) = viewModelScope.launch {
+        val reservationState: AddPossibilities
+        val reservationListOfLot =
+            parkingDataBase.reservationDataBaseDao().findReservationList(reservation.parkingLot)
+
+        reservationState = addReservationUseCase(
+            parkingId,
+            reservation,
+            ParkingMapper.reservationRoomListToReservationListModel(reservationListOfLot)
+        )
+        mutableAddReservationState.postValue(reservationState)
     }
 }

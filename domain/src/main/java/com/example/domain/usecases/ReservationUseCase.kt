@@ -10,7 +10,4 @@ class ReservationUseCase {
     suspend operator fun invoke(parkingId: String, localDataBase: Boolean): Result<ReservationListModel> {
         return getReservationListRepository.getReservationList(parkingId, localDataBase)
     }
-    suspend operator fun invoke(parkingId: Int): Result<ReservationListModel> {
-        return getReservationListRepository.getReservationList(parkingId)
-    }
 }

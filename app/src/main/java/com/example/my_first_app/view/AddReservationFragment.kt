@@ -7,13 +7,13 @@ import android.view.View
 import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
-import com.example.data.utils.AddPossibilities
+import com.example.domain.utils.AddPossibilities
 import com.example.domain.entities.Reservation
 import com.example.my_first_app.R
 import com.example.my_first_app.databinding.LayoutAddReservationBinding
 import com.example.my_first_app.utils.AppDateFormat
+import com.example.my_first_app.viewModel.AppViewModelProvider
 import com.example.my_first_app.viewModel.addViewModelPackage.AddViewModel
-import com.example.my_first_app.viewModel.addViewModelPackage.AddViewModelProvider
 import java.util.*
 
 class AddReservationFragment: Fragment(R.layout.layout_add_reservation) {
@@ -25,7 +25,7 @@ class AddReservationFragment: Fragment(R.layout.layout_add_reservation) {
     private lateinit var authorizationCode: String
 
     private val viewModel by lazy{
-        activity?.let { AddViewModelProvider(it).get(AddViewModel::class.java) }
+        activity?.let { AppViewModelProvider(it).get(AddViewModel::class.java) }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -36,7 +36,7 @@ class AddReservationFragment: Fragment(R.layout.layout_add_reservation) {
 
         // Back button
         binding.backButton.setOnClickListener{
-            binding.root.findNavController().popBackStack() // switching screen to reservationsFragment
+            binding.root.findNavController().popBackStack() // switching screen to previous fragment
         }
 
         // Spinner
@@ -99,6 +99,7 @@ class AddReservationFragment: Fragment(R.layout.layout_add_reservation) {
                 AddPossibilities.Successful -> {
                     Toast.makeText(activity, "Your reservation has been saved", Toast.LENGTH_SHORT).show()
                     binding.root.findNavController().popBackStack()
+                    viewModel!!.setWaitingState()
                 }
                 AddPossibilities.Occupied -> {
                     Toast.makeText(activity, "The dates you have chosen are already taken", Toast.LENGTH_SHORT).show()
@@ -106,6 +107,7 @@ class AddReservationFragment: Fragment(R.layout.layout_add_reservation) {
                 AddPossibilities.IncorrectParameters -> {
                     Toast.makeText(activity, "You have to complete all the fields", Toast.LENGTH_SHORT).show()
                 }
+                AddPossibilities.Waiting -> {}
                 else -> {
                     Toast.makeText(activity, "Unexpected error occurred", Toast.LENGTH_SHORT).show()
                 }

@@ -2,17 +2,16 @@ package com.example.data.repositories
 
 import com.example.data.utils.ParkingMapper
 import com.example.data.local_data_base.ParkingDataBase
+import com.example.data.local_data_base.entities.LotRoom
 import com.example.data.service.ParkingService
 import com.example.domain.entities.ParkingLotListModel
 import com.example.domain.entities.ParkingLotModel
 import com.example.domain.repositories.LotRepository
 import com.example.domain.entities.Result
-import com.example.domain.usecases.AddUseCase
 
 class LotRepositoryImp(
     private val parkingService: ParkingService,
-    private val lotDataBase: ParkingDataBase,
-    private val addReservationUseCase: AddUseCase
+    private val parkingDataBase: ParkingDataBase
                                 ) : LotRepository{
 
 
@@ -34,7 +33,7 @@ class LotRepositoryImp(
             is Result.Success -> {
                 val lotListFromService = lotList.value?.lotList
                 lotListFromService?.forEach { lot ->
-                    addReservationUseCase(lot.parkingLot)
+                    parkingDataBase.lotDataBaseDao().insertNewLot(LotRoom(lot.parkingLot))
                 }
             }
             else -> listOf<ParkingLotModel>()
@@ -54,7 +53,7 @@ class LotRepositoryImp(
     }
 
     override suspend fun getLot(parkingId: Int): Result<ParkingLotModel> {
-        val lotRoom = lotDataBase.lotDataBaseDao().findByParkingLot(parkingId)
+        val lotRoom = parkingDataBase.lotDataBaseDao().findByParkingLot(parkingId)
         if (lotRoom == null) {
             return Result.Success(ParkingMapper.lotRoomToLotModel(lotRoom))
         } else {
@@ -63,7 +62,7 @@ class LotRepositoryImp(
     }
 
     private suspend fun getLocalLotList(): Result<ParkingLotListModel>{
-        var lotList = lotDataBase.lotDataBaseDao().findLotList()
+        var lotList = parkingDataBase.lotDataBaseDao().findLotList()
         return Result.Success(ParkingMapper.lotRoomListToParkingLotListModel(lotList))
     }
 }

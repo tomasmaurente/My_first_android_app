@@ -13,8 +13,8 @@ import com.example.my_first_app.R
 import com.example.my_first_app.databinding.LayoutReservationsBinding
 import com.example.my_first_app.adapters.reservationAdapter.ReservationAdapter
 import com.example.my_first_app.utils.DeleteDialogCallBack
+import com.example.my_first_app.viewModel.AppViewModelProvider
 import com.example.my_first_app.viewModel.reservationsViewModelPackage.ReservationViewModel
-import com.example.my_first_app.viewModel.reservationsViewModelPackage.ReservationViewModelProvider
 
 class ReservationFragment: Fragment(R.layout.layout_reservations), DeleteDialogCallBack {
 
@@ -24,7 +24,7 @@ class ReservationFragment: Fragment(R.layout.layout_reservations), DeleteDialogC
     private lateinit var lotSelected: Lot
 
     private val viewModel by lazy{
-        ReservationViewModelProvider(activity).get(ReservationViewModel::class.java)
+        AppViewModelProvider(activity).get(ReservationViewModel::class.java)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
