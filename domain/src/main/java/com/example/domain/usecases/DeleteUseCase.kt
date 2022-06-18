@@ -7,12 +7,11 @@ import java.lang.RuntimeException
 
 class DeleteReservationUseCase{
     lateinit var deleteReservationRepository: DeleteRepository
-    suspend operator fun invoke(parkingId: String,
-                                reservation: Reservation,
+    suspend operator fun invoke(reservation: Reservation,
                                 authorizationCode: String
                                                     ): Result<Boolean> {
         return if (authorizationCode == reservation.authorizationCode) {
-            deleteReservationRepository.deleteReservation(parkingId, reservation)
+            deleteReservationRepository.deleteReservation(reservation)
         } else {
             Result.Failure(RuntimeException())
         }

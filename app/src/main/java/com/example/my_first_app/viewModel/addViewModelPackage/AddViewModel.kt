@@ -38,5 +38,6 @@ class AddViewModel(private val addReservationUseCase: AddUseCase,
             ParkingMapper.reservationRoomListToReservationListModel(reservationListOfLot)
         )
         mutableAddReservationState.postValue(reservationState)
+
     }
 }

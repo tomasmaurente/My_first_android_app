@@ -15,13 +15,13 @@ class LotRepositoryImp(
                                 ) : LotRepository{
 
 
-    override suspend fun getLotList(parkingId: String, localDataBase: Boolean): Result<ParkingLotListModel> {
+    override suspend fun getLotList(localDataBase: Boolean): Result<ParkingLotListModel> {
         return when(localDataBase){
             true -> {
                 getLocalLotList()
             }
             else -> {
-                val lotListFromService = getServiceLotList(parkingId)
+                val lotListFromService = getServiceLotList()
                     updateDataBase(lotListFromService)
                     lotListFromService
             }
@@ -40,24 +40,14 @@ class LotRepositoryImp(
         }
     }
 
-    private suspend fun getServiceLotList(parkingId: String): Result<ParkingLotListModel> {
-        val result =  parkingService.getLotList(parkingId)
-        return when (result){
+    private suspend fun getServiceLotList(): Result<ParkingLotListModel> {
+        return when (val result =  parkingService.getLotList()){
             is Result.Success -> {
                 Result.Success(ParkingMapper.toParkingListResponseToModel(result.value!!))
             }
             is Result.Failure -> {
                 Result.Failure(result.exception)
             }
-        }
-    }
-
-    override suspend fun getLot(parkingId: Int): Result<ParkingLotModel> {
-        val lotRoom = parkingDataBase.lotDataBaseDao().findByParkingLot(parkingId)
-        if (lotRoom == null) {
-            return Result.Success(ParkingMapper.lotRoomToLotModel(lotRoom))
-        } else {
-            return Result.Failure(null)
         }
     }
 

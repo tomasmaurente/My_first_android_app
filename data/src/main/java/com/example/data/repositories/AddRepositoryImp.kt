@@ -20,17 +20,14 @@ class AddRepositoryImp(
         // Add reservation to data base
         addReservationToDataBase(reservation)
         // Add reservation to Service
-        return when (addReservationToService(parkingId,reservation)){
+        return when (addReservationToService(reservation)){
             is Result.Success -> Result.Success(true)
             else -> Result.Failure(null)
         }
     }
 
 
-    private suspend fun addReservationToService(
-        parkingId: String,
-        reservation: Reservation,
-    ): Result<Boolean> {
+    private suspend fun addReservationToService(reservation: Reservation): Result<Boolean> {
         val newReservation = ReservationRequest(
             reservation.authorizationCode,
             reservation.startDateTimeInMillis.toString(),
@@ -38,7 +35,7 @@ class AddRepositoryImp(
             reservation.parkingLot
         )
 
-        var result = parkingService.addReservation(parkingId, newReservation)
+        var result = parkingService.addReservation(newReservation)
         return when (result) {
             is Result.Success -> {
                 Result.Success(result.value as Boolean)

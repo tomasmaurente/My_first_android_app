@@ -21,8 +21,8 @@ class LotViewModel (private val getLotListUseCase: LotUseCase,
             return mutableParkingState
         }
 
-    fun createParkingState(parkingId: String, localDataBase: Boolean) = viewModelScope.launch {
-        var lotList = createLotList(getLotList(parkingId,localDataBase),getReservationList(parkingId,localDataBase))
+    fun createParkingState(localDataBase: Boolean) = viewModelScope.launch {
+        var lotList = createLotList(getLotList(localDataBase),getReservationList(localDataBase))
         mutableParkingState.postValue(lotList)
     }
 
@@ -41,16 +41,16 @@ class LotViewModel (private val getLotListUseCase: LotUseCase,
         return lotList
     }
 
-    private suspend fun getLotList(parkingId: String, localDataBase: Boolean): List<ParkingLotModel>  {
-        val getLots = getLotListUseCase(parkingId, localDataBase)
+    private suspend fun getLotList(localDataBase: Boolean): List<ParkingLotModel>  {
+        val getLots = getLotListUseCase(localDataBase)
         when (getLots){
             is Result.Success -> return getLots.value?.lotList ?: listOf<ParkingLotModel>()
             else -> return listOf<ParkingLotModel>()
         }
     }
 
-    private suspend fun getReservationList(parkingId: String, localDataBase: Boolean): List<ReservationModel>{
-        val getReservations = getReservationListUseCase(parkingId, localDataBase)
+    private suspend fun getReservationList(localDataBase: Boolean): List<ReservationModel>{
+        val getReservations = getReservationListUseCase(localDataBase)
         when(getReservations){
             is Result.Success -> return getReservations.value?.reservationList ?: listOf<ReservationModel>()
             else -> return listOf<ReservationModel>()

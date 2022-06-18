@@ -10,7 +10,9 @@ import kotlinx.coroutines.withContext
 
 class ParkingService (private val dispatcher: CoroutineDispatcher = Dispatchers.IO) {
 
-    suspend fun getLotList(parkingId: String) : Result<LotListResponse?> {
+    private val parkingId: String = "-N0TUDrXZUxA_wbd391E"
+
+    suspend fun getLotList() : Result<LotListResponse?> {
         var result : Result<LotListResponse?>
 
         withContext(dispatcher){
@@ -30,7 +32,7 @@ class ParkingService (private val dispatcher: CoroutineDispatcher = Dispatchers.
         return result
     }
 
-    suspend fun getReservationList(parkingId: String) : Result<ReservationListResponse?> {
+    suspend fun getReservationList() : Result<ReservationListResponse?> {
         var result : Result<ReservationListResponse?>
 
         withContext(dispatcher){
@@ -50,7 +52,7 @@ class ParkingService (private val dispatcher: CoroutineDispatcher = Dispatchers.
         return result
     }
 
-    suspend fun deleteReservation(parkingId: String, reservationId: String): Result<Boolean>{
+    suspend fun deleteReservation(reservationId: String): Result<Boolean>{
         var result : Result<Boolean>
         withContext(dispatcher){
         result = try {
@@ -69,7 +71,7 @@ class ParkingService (private val dispatcher: CoroutineDispatcher = Dispatchers.
         return result
     }
 
-    suspend fun addReservation(parkingId: String, reservation: ReservationRequest) : Result<Boolean> {
+    suspend fun addReservation(reservation: ReservationRequest) : Result<Boolean> {
         var result : Result<Boolean>
         withContext(dispatcher){
             result = try {

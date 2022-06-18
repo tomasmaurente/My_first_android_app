@@ -17,7 +17,6 @@ class LotFragment: Fragment(R.layout.layout_parking_lots) {
 
     private lateinit var binding: LayoutParkingLotsBinding
     private var lotList: List<Lot> = listOf()
-    private val parkingId: String = "-N0TUDrXZUxA_wbd391E"
 
     private val viewModel by lazy{
         AppViewModelProvider(activity).get(LotViewModel::class.java)
@@ -32,13 +31,13 @@ class LotFragment: Fragment(R.layout.layout_parking_lots) {
             binding.root.findNavController().navigate(R.id.action_parkingLotsFragment_to_addReservationFragment)  // switching screen to reservationsFragment
         }
 
-        viewModel.createParkingState(parkingId,true)
+        viewModel.createParkingState(true)
         viewModel.parkingState.observe(viewLifecycleOwner){
             lotList = it
             updateProgressBar(viewModel.getNumberOfFreeLots(lotList))
             updateRecyclerView(lotList)
         }
-        viewModel.createParkingState(parkingId,false)
+        viewModel.createParkingState(false)
     }
 
     private fun updateRecyclerView(newLotList: List<Lot>){

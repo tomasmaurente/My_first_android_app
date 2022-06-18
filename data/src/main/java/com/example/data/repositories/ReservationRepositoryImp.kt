@@ -14,13 +14,13 @@ class ReservationRepositoryImp(
                                         ): ReservationRepository {
 
 
-    override suspend fun getReservationList(parkingId: String, localDataBase: Boolean): Result<ReservationListModel> {
+    override suspend fun getReservationList(localDataBase: Boolean): Result<ReservationListModel> {
         return when(localDataBase) {
             true -> {
                 getLocalReservationList()
             }
             else -> {
-                val reservationListFromService = getServiceReservationList(parkingId)
+                val reservationListFromService = getServiceReservationList()
                 updateDataBase(reservationListFromService)
                 reservationListFromService
             }
@@ -40,8 +40,8 @@ class ReservationRepositoryImp(
         }
     }
 
-    private suspend fun getServiceReservationList(parkingId: String): Result<ReservationListModel>{
-        val result =  parkingService.getReservationList(parkingId)
+    private suspend fun getServiceReservationList(): Result<ReservationListModel>{
+        val result =  parkingService.getReservationList()
         return when (result){
             is Result.Success -> {
                 Result.Success(ParkingMapper.toReservationListResponseToModel(result.value))

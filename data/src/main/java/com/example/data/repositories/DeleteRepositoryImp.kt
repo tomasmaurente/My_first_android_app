@@ -11,19 +11,19 @@ class DeleteRepositoryImp(
     private val parkingDataBase: ParkingDataBase
                                         ): DeleteRepository {
 
-    override suspend fun deleteReservation(parkingId: String, reservation: Reservation
+    override suspend fun deleteReservation(reservation: Reservation
     ): Result<Boolean> {
         deleteFromDataBase(reservation.id)
-        return deleteFromService(parkingId, reservation)
+        return deleteFromService(reservation)
     }
 
     private suspend fun deleteFromDataBase(reservationId: String) {
         return parkingDataBase.reservationDataBaseDao().deleteReservation(reservationId)
     }
 
-    private suspend fun deleteFromService(parkingId: String, reservation: Reservation
+    private suspend fun deleteFromService(reservation: Reservation
     ): Result<Boolean> {
-        var result = deleteService.deleteReservation(parkingId, reservation.id)
+        var result = deleteService.deleteReservation(reservation.id)
         return when (result) {
             is Result.Success -> {
                 Result.Success(result.value as Boolean)
@@ -33,8 +33,5 @@ class DeleteRepositoryImp(
             }
         }
     }
-
-
-
 }
 

@@ -19,7 +19,6 @@ import com.example.my_first_app.viewModel.reservationsViewModelPackage.Reservati
 class ReservationFragment: Fragment(R.layout.layout_reservations), DeleteDialogCallBack {
 
     private lateinit var binding: LayoutReservationsBinding
-    private val parkingId: String = "-N0TUDrXZUxA_wbd391E"
 
     private lateinit var lotSelected: Lot
 
@@ -61,11 +60,10 @@ class ReservationFragment: Fragment(R.layout.layout_reservations), DeleteDialogC
     }
 
     override fun onDeleteClicked(authorizationCode: String, reservation: Reservation) {
-        viewModel.deleteReservation(parkingId,authorizationCode,reservation)
+        viewModel.deleteReservation(authorizationCode,reservation)
 
         viewModel.deletedSuccessfully.observe(viewLifecycleOwner) { deletedSuccessfully ->
             if (deletedSuccessfully) {
-                //viewModel.updatedeletedSuccessfullyVariable()
                 binding.root.findNavController()
                     .navigate(R.id.action_reservationsFragment_to_parkingLotsFragment)
                 Toast.makeText(

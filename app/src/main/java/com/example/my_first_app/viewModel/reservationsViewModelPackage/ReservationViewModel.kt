@@ -18,9 +18,8 @@ class ReservationViewModel (private val deleteReservationUseCase : DeleteReserva
         return mutableDeleteState
     }
 
-    fun deleteReservation(parkingId: String, authorizationCode: String, reservation: Reservation) = viewModelScope.launch { // Delete reservation in DataBase
-        val deleteReservation = deleteReservationUseCase(parkingId,reservation,authorizationCode) // Delete reservation in Service
-        when(deleteReservation){
+    fun deleteReservation(authorizationCode: String, reservation: Reservation) = viewModelScope.launch { // Delete reservation in DataBase
+        when(deleteReservationUseCase(reservation,authorizationCode)){ // Delete reservation in Service
             is Result.Success -> {mutableDeleteState.value = true}
             is Result.Failure -> {mutableDeleteState.value = false}
         }

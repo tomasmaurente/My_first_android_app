@@ -103,13 +103,16 @@ class AddReservationFragment: Fragment(R.layout.layout_add_reservation) {
                 }
                 AddPossibilities.Occupied -> {
                     Toast.makeText(activity, "The dates you have chosen are already taken", Toast.LENGTH_SHORT).show()
+                    viewModel!!.setWaitingState()
                 }
                 AddPossibilities.IncorrectParameters -> {
                     Toast.makeText(activity, "You have to complete all the fields", Toast.LENGTH_SHORT).show()
+                    viewModel!!.setWaitingState()
                 }
                 AddPossibilities.Waiting -> {}
                 else -> {
                     Toast.makeText(activity, "Unexpected error occurred", Toast.LENGTH_SHORT).show()
+                    viewModel!!.setWaitingState()
                 }
             }
         }
@@ -155,41 +158,5 @@ class AddReservationFragment: Fragment(R.layout.layout_add_reservation) {
             dateTime.get(Calendar.DAY_OF_MONTH)
         ).show()
     }
-
-    /*private fun pickEndDateTime( ) {
-        endDateTime = Calendar.getInstance()
-
-        val timeListener = TimePickerDialog.OnTimeSetListener { view,hours,minutes ->
-            endDateTime.set(Calendar.MINUTE, minutes)
-            endDateTime.set(Calendar.HOUR, hours)
-
-            val myFormat = " dd-MM-yyyy hh:mm "
-            val sdf = SimpleDateFormat(myFormat, Locale.UK)
-            (sdf.format(endDateTime.time))
-
-            binding.endDateTimeButton.hint = (sdf.format(endDateTime.time))
-        }
-        val dateListener = DatePickerDialog.OnDateSetListener { _,year,month,day ->
-            endDateTime.set(Calendar.YEAR, year)
-            endDateTime.set(Calendar.MONTH, month)
-            endDateTime.set(Calendar.DAY_OF_MONTH, day)
-        }
-
-        TimePickerDialog(
-            activity,
-            timeListener,
-            endDateTime.get(Calendar.HOUR_OF_DAY),
-            endDateTime.get(Calendar.MINUTE),
-            false
-        ).show()
-
-        DatePickerDialog(
-            requireContext(),
-            dateListener,
-            endDateTime.get(Calendar.YEAR),
-            endDateTime.get(Calendar.MONTH),
-            endDateTime.get(Calendar.DAY_OF_MONTH)
-        ).show()
-    }*/
 }
 

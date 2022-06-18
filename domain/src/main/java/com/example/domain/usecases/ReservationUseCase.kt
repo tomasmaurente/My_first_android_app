@@ -7,7 +7,7 @@ import com.example.domain.repositories.ReservationRepository
 class ReservationUseCase {
     lateinit var getReservationListRepository: ReservationRepository
 
-    suspend operator fun invoke(parkingId: String, localDataBase: Boolean): Result<ReservationListModel> {
-        return getReservationListRepository.getReservationList(parkingId, localDataBase)
+    suspend operator fun invoke(localDataBase: Boolean): Result<ReservationListModel> {
+        return getReservationListRepository.getReservationList(localDataBase)
     }
 }
