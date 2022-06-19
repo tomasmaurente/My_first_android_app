@@ -22,7 +22,8 @@ class LotViewModel (private val getLotListUseCase: LotUseCase,
         }
 
     fun createParkingState(localDataBase: Boolean) = viewModelScope.launch {
-        var lotList = createLotList(getLotList(localDataBase),getReservationList(localDataBase))
+        var res = getReservationList(localDataBase)
+        var lotList = createLotList(getLotList(localDataBase),res)
         mutableParkingState.postValue(lotList)
     }
 

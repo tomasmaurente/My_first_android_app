@@ -30,11 +30,27 @@ class ReservationRepositoryImp(
     private suspend fun updateDataBase(reservationList: Result<ReservationListModel>){
         when(reservationList){
             is Result.Success -> {
+
+                // Check if any reservation is missing
                 val reservationListFromService = reservationList.value?.reservationList
                 reservationListFromService?.forEach { reservation ->
                     parkingDataBase.reservationDataBaseDao().insertNewReservation(
                         ParkingMapper.reservationModelToReservationRoom(reservation)
                     )
+                }
+                // Check if any spare reservation
+                var reservationDoNotExistInService = true
+                val reservationListFromDataBase = parkingDataBase.reservationDataBaseDao().findReservationList()
+                reservationListFromDataBase.forEach { reservationFromDataBase ->
+                    reservationListFromService?.forEach { reservationFromService ->
+                        if (reservationFromDataBase.id == reservationFromService.id){
+                            reservationDoNotExistInService = false
+                        }
+                    }
+                    if(reservationDoNotExistInService){
+                        parkingDataBase.reservationDataBaseDao().deleteReservation(reservationFromDataBase.id)
+                        reservationDoNotExistInService = true
+                    }
                 }
             }
         }

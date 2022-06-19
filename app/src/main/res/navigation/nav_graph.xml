@@ -50,7 +50,7 @@
         tools:layout="@layout/layout_add_reservation"
         >
         <action
-            android:id="@+id/action_reservationsFragment_to_parkingLotsFragment"
+            android:id="@+id/action_addReservationsFragment_to_parkingLotsFragment"
             app:destination="@id/parkingLotsFragment" />
     </fragment>
     <fragment

@@ -98,7 +98,7 @@ class AddReservationFragment: Fragment(R.layout.layout_add_reservation) {
             when (successfulAddition) {
                 AddPossibilities.Successful -> {
                     Toast.makeText(activity, "Your reservation has been saved", Toast.LENGTH_SHORT).show()
-                    binding.root.findNavController().popBackStack()
+                    binding.root.findNavController().navigate(R.id.action_addReservationsFragment_to_parkingLotsFragment)
                     viewModel!!.setWaitingState()
                 }
                 AddPossibilities.Occupied -> {
