@@ -4,6 +4,8 @@ import android.content.Context
 import com.example.data.repositories.AddRepositoryImp
 import com.example.data.repositories.ReservationRepositoryImp
 import com.example.domain.entities.Reservation
+import com.example.domain.entities.ReservationListModel
+import com.example.domain.entities.ReservationModel
 import com.example.domain.entities.Result
 import com.example.domain.repositories.AddRepository
 import com.example.domain.repositories.ReservationRepository
@@ -28,20 +30,22 @@ class ExampleUnitTest {
     @MockK
     lateinit var addRepo: AddRepository
     lateinit var addUseCase: AddUseCase
-    lateinit var reservation: Reservation
+    private lateinit var reservation: Reservation
+    private lateinit var reservationList: ReservationListModel
     @Before
     fun setUp(){
         MockKAnnotations.init(this)
         addUseCase = AddUseCase()
         addUseCase.addReservationRepository = addRepo
         reservation =  Reservation()
+        reservationList = ReservationListModel(listOf())
     }
     @Test
     fun addReservationAddsToDataBase() {
-        coEvery{ addRepo.addReservation("lsdfjbvbls", reservation, true)} answers
-                {Result.Success(true)}
-        runBlocking { addUseCase("lsdfjbvbls", reservation, true) }
-        coVerify (exactly = 1){ addRepo.addReservation("lsdfjbvbls", reservation, true) } // CoVerify se fija si el repo es llamado
+        coEvery{ addRepo.addReservation(reservation)} answers
+                {Result.Success(false)}
+        runBlocking { addUseCase( reservation, reservationList) }
+        coVerify (exactly = 1){ addRepo.addReservation(reservation) } // CoVerify se fija si el repo es llamado
     }
 
 }

@@ -109,6 +109,10 @@ class AddReservationFragment: Fragment(R.layout.layout_add_reservation) {
                     Toast.makeText(activity, "You have to complete all the fields", Toast.LENGTH_SHORT).show()
                     viewModel!!.setWaitingState()
                 }
+                AddPossibilities.IncorrectDates -> {
+                    Toast.makeText(activity, "The end date must be after the start date", Toast.LENGTH_SHORT).show()
+                    viewModel!!.setWaitingState()
+                }
                 AddPossibilities.Waiting -> {}
                 else -> {
                     Toast.makeText(activity, "Unexpected error occurred", Toast.LENGTH_SHORT).show()
@@ -126,10 +130,8 @@ class AddReservationFragment: Fragment(R.layout.layout_add_reservation) {
             dateTime.set(Calendar.HOUR, hours)
 
             if(isStartDateTime){
-
                 startDateTime = dateTime
                 binding.startDateTimeButton.hint = AppDateFormat.completeFormat(startDateTime.timeInMillis)
-
             } else {
                 endDateTime = dateTime
                 binding.endDateTimeButton.hint = AppDateFormat.completeFormat(endDateTime.timeInMillis)
@@ -150,13 +152,15 @@ class AddReservationFragment: Fragment(R.layout.layout_add_reservation) {
             false
         ).show()
 
-        DatePickerDialog(
+        val datePicker = DatePickerDialog(
             requireContext(),
             dateListener,
             dateTime.get(Calendar.YEAR),
             dateTime.get(Calendar.MONTH),
             dateTime.get(Calendar.DAY_OF_MONTH)
-        ).show()
+        )
+        datePicker.datePicker.minDate = System.currentTimeMillis()
+        datePicker.show()
     }
 }
 

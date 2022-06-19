@@ -4,6 +4,7 @@ enum class AddPossibilities {
     Waiting,
     Fail,
     IncorrectParameters,
+    IncorrectDates,
     Occupied,
     Successful
 }

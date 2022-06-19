@@ -14,8 +14,6 @@ import kotlinx.coroutines.launch
 class AddViewModel(private val addReservationUseCase: AddUseCase,
                    private val parkingDataBase: ParkingDataBase) : ViewModel() {
 
-    private val parkingId: String = "-N0TUDrXZUxA_wbd391E"
-
     private var mutableAddReservationState: MutableLiveData<AddPossibilities> = MutableLiveData()
 
     val addReservationState: LiveData<AddPossibilities>
@@ -33,7 +31,6 @@ class AddViewModel(private val addReservationUseCase: AddUseCase,
             parkingDataBase.reservationDataBaseDao().findReservationList(reservation.parkingLot)
 
         reservationState = addReservationUseCase(
-            parkingId,
             reservation,
             ParkingMapper.reservationRoomListToReservationListModel(reservationListOfLot)
         )

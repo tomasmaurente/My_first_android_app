@@ -23,35 +23,31 @@ class ViewModelFactory(private val context: Context) : NewInstanceFactory() {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         return when (modelClass) {
             LotViewModel::class.java -> {
-                LotViewModel(LotUseCase().apply {
-                    lotRepository = LotRepositoryImp(
+                LotViewModel(LotUseCase(LotRepositoryImp(
+                    ParkingService(),
+                    ParkingDataBase.getInstance(context)
+                )).apply {
+                },
+                    ReservationUseCase(ReservationRepositoryImp(
                         ParkingService(),
                         ParkingDataBase.getInstance(context)
-                    )
-                },
-                    ReservationUseCase().apply {
-                        getReservationListRepository = ReservationRepositoryImp(
-                            ParkingService(),
-                            ParkingDataBase.getInstance(context)
-                        )
+                    )).apply {
                     }
                 ) as T
             }
             ReservationViewModel::class.java -> {
-                ReservationViewModel(DeleteReservationUseCase().apply {
-                    deleteReservationRepository = DeleteRepositoryImp(
-                        ParkingService(),
-                        ParkingDataBase.getInstance(context)
-                    )
+                ReservationViewModel(DeleteReservationUseCase(DeleteRepositoryImp(
+                    ParkingService(),
+                    ParkingDataBase.getInstance(context)
+                )).apply {
                 }) as T
             }
             AddViewModel::class.java -> {
-                AddViewModel(AddUseCase().apply {
-                    addReservationRepository = AddRepositoryImp(
-                        ParkingService(),
-                        ParkingDataBase.getInstance(context)
+                AddViewModel(AddUseCase(AddRepositoryImp(
+                    ParkingService(),
+                    ParkingDataBase.getInstance(context)
                     )
-                },
+                ).apply {},
                     ParkingDataBase.getInstance(context)
                 ) as T
             }

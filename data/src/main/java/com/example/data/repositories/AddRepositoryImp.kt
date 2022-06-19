@@ -11,10 +11,9 @@ import com.example.domain.repositories.AddRepository
 
 class AddRepositoryImp(
     private val parkingService: ParkingService,
-    private val parkingDataBase: ParkingDataBase)   : AddRepository {
+    private val parkingDataBase: ParkingDataBase) : AddRepository {
 
     override suspend fun addReservation(
-        parkingId: String,
         reservation: Reservation
     ): Result<Boolean> {
         // Add reservation to data base
@@ -44,12 +43,6 @@ class AddRepositoryImp(
                 Result.Failure(result.exception)
             }
         }
-    }
-
-    private suspend fun addLotToDataBase(
-        parkingId: Int
-    ){
-        parkingDataBase.lotDataBaseDao().insertNewLot(LotRoom(parkingId))
     }
 
     private suspend fun addReservationToDataBase(

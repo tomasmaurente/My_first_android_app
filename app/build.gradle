@@ -77,5 +77,6 @@ dependencies {
     androidTestImplementation "androidx.room:room-testing:2.4.2"
 
     // Test
+    testImplementation 'junit:junit:4.+'
     testImplementation "io.mockk:mockk:1.12.4"
 }
