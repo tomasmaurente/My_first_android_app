@@ -41,18 +41,16 @@ class LotViewModel (private val getLotListUseCase: LotUseCase,
     }
 
     private suspend fun getLotList(localDataBase: Boolean): List<ParkingLotModel>  {
-        val getLots = getLotListUseCase(localDataBase)
-        when (getLots){
-            is Result.Success -> return getLots.value?.lotList ?: listOf<ParkingLotModel>()
-            else -> return listOf<ParkingLotModel>()
+        return when (val getLots = getLotListUseCase(localDataBase)){
+            is Result.Success -> getLots.value?.lotList ?: listOf<ParkingLotModel>()
+            else -> listOf<ParkingLotModel>()
         }
     }
 
     private suspend fun getReservationList(localDataBase: Boolean): List<ReservationModel>{
-        val getReservations = getReservationListUseCase(localDataBase)
-        when(getReservations){
-            is Result.Success -> return getReservations.value?.reservationList ?: listOf<ReservationModel>()
-            else -> return listOf<ReservationModel>()
+        return when(val getReservations = getReservationListUseCase(localDataBase)){
+            is Result.Success -> getReservations.value?.reservationList ?: listOf<ReservationModel>()
+            else -> listOf<ReservationModel>()
         }
     }
 

@@ -14,9 +14,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="73c43db5-1f33-462a-837e-ffccbf7dbbf8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/test/java/com/example/my_first_app/DeleteUseCaseTest.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/test/java/com/example/my_first_app/LotUseCaseTest.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/test/java/com/example/my_first_app/ReservationUseCaseTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/checksums/md5-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/checksums/sha1-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/fileHashes/fileHashes.bin" afterDir="false" />
@@ -25,29 +26,44 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_activity_activity_1_2_3_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_activity_activity_ktx_1_1_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_appcompat_appcompat_1_3_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_appcompat_appcompat_resources_1_3_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_constraintlayout_constraintlayout_2_0_4_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_constraintlayout_constraintlayout_solver_2_0_4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_fragment_fragment_1_3_4_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_fragment_fragment_ktx_1_2_4_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_livedata_core_ktx_2_2_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_runtime_ktx_2_2_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_viewmodel_ktx_2_2_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_navigation_navigation_common_2_3_5_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_navigation_navigation_common_ktx_2_3_5_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_navigation_navigation_fragment_2_3_5_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_navigation_navigation_fragment_ktx_2_3_5_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_navigation_navigation_runtime_2_3_5_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_navigation_navigation_runtime_ktx_2_3_5_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_navigation_navigation_ui_2_3_5_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_navigation_navigation_ui_ktx_2_3_5_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_transition_transition_1_3_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/app/My_First_App.app.androidTest.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/My_First_App.app.androidTest.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/app/My_First_App.app.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/My_First_App.app.main.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/app/My_First_App.app.unitTest.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/My_First_App.app.unitTest.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/my_first_app/utils/Event.kt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/my_first_app/view/AddReservationFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/my_first_app/view/AddReservationFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/my_first_app/view/DeleteDialogFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/my_first_app/view/DeleteDialogFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/my_first_app/viewModel/ViewModelFactory.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/my_first_app/viewModel/ViewModelFactory.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/my_first_app/viewModel/lotViewModelPackage/LotViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/my_first_app/viewModel/lotViewModelPackage/LotViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/my_first_app/viewModel/reservationsViewModelPackage/ReservationViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/my_first_app/viewModel/reservationsViewModelPackage/ReservationViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/test/java/com/example/my_first_app/AddUseCaseTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/com/example/my_first_app/AddUseCaseTest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/test/java/com/example/my_first_app/ExampleUnitTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/src/main/java/com/example/data/local_data_base/dao/ReservationDao.kt" beforeDir="false" afterPath="$PROJECT_DIR$/data/src/main/java/com/example/data/local_data_base/dao/ReservationDao.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/src/main/java/com/example/data/repositories/AddRepositoryImp.kt" beforeDir="false" afterPath="$PROJECT_DIR$/data/src/main/java/com/example/data/repositories/AddRepositoryImp.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/src/main/java/com/example/data/repositories/LotRepositoryImp.kt" beforeDir="false" afterPath="$PROJECT_DIR$/data/src/main/java/com/example/data/repositories/LotRepositoryImp.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/src/main/java/com/example/data/repositories/ReservationRepositoryImp.kt" beforeDir="false" afterPath="$PROJECT_DIR$/data/src/main/java/com/example/data/repositories/ReservationRepositoryImp.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/src/main/java/com/example/data/responseObjects/AddReservationResponse.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/src/main/java/com/example/data/responseObjects/LotResponse.kt" beforeDir="false" afterPath="$PROJECT_DIR$/data/src/main/java/com/example/data/responseObjects/LotResponse.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/src/main/java/com/example/data/service/ParkingService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/data/src/main/java/com/example/data/service/ParkingService.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/src/main/java/com/example/data/utils/ParkingMapper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/data/src/main/java/com/example/data/utils/ParkingMapper.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/src/main/java/com/example/domain/entities/Parking.kt" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/com/example/domain/entities/Parking.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/src/main/java/com/example/domain/entities/ParkingLotListModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/com/example/domain/entities/ParkingLotListModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/src/main/java/com/example/domain/entities/ReservationListModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/com/example/domain/entities/ReservationListModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/src/main/java/com/example/domain/entities/ReservationModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/com/example/domain/entities/ReservationModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/src/main/java/com/example/domain/repositories/ReservationRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/com/example/domain/repositories/ReservationRepository.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/src/main/java/com/example/domain/usecases/AddUseCase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/com/example/domain/usecases/AddUseCase.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/src/main/java/com/example/domain/usecases/DeleteUseCase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/com/example/domain/usecases/DeleteUseCase.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/elipse_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/elipse_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/lot_picker.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/spinner_background.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/spinner_background.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/layout_add_reservation.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/layout_add_reservation.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/layout_delete_dialog.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/layout_delete_dialog.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/navigation/nav_graph.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/navigation/nav_graph.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,7 +181,7 @@
       <recent name="com.example.my_first_app.utils" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.ReservationUseCaseTest.getReservationListFromService">
+  <component name="RunManager" selected="Gradle.ReservationUseCaseTest">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
       <module name="My_First_App.app" />
       <option name="DEPLOY" value="true" />
@@ -223,12 +239,12 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DeleteUseCaseTest.incorrectDelete" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="AddUseCaseTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.example.my_first_app.DeleteUseCaseTest.incorrectDelete&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.example.my_first_app.AddUseCaseTest&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -244,12 +260,12 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="LotUseCaseTest.getLots" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="DeleteUseCaseTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.example.my_first_app.LotUseCaseTest.getLots&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.example.my_first_app.DeleteUseCaseTest&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -265,12 +281,12 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="LotUseCaseTest.getLotsFromService" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="LotUseCaseTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.example.my_first_app.LotUseCaseTest.getLotsFromService&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.example.my_first_app.LotUseCaseTest&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -286,12 +302,12 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="ReservationUseCaseTest.getReservationListFromDataBase" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ReservationUseCaseTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.example.my_first_app.ReservationUseCaseTest.getReservationListFromDataBase&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.example.my_first_app.ReservationUseCaseTest&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -330,11 +346,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.ReservationUseCaseTest" />
+        <item itemvalue="Gradle.LotUseCaseTest" />
+        <item itemvalue="Gradle.AddUseCaseTest" />
+        <item itemvalue="Gradle.DeleteUseCaseTest" />
         <item itemvalue="Gradle.ReservationUseCaseTest.getReservationListFromService" />
-        <item itemvalue="Gradle.ReservationUseCaseTest.getReservationListFromDataBase" />
-        <item itemvalue="Gradle.LotUseCaseTest.getLotsFromService" />
-        <item itemvalue="Gradle.LotUseCaseTest.getLots" />
-        <item itemvalue="Gradle.DeleteUseCaseTest.incorrectDelete" />
       </list>
     </recent_temporary>
   </component>
@@ -370,16 +386,6 @@
           <option name="timeStamp" value="47" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/my_first_app/viewModel/lotViewModelPackage/LotViewModel.kt</url>
-          <line>23</line>
-          <option name="timeStamp" value="85" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/my_first_app/view/LotFragment.kt</url>
-          <line>39</line>
-          <option name="timeStamp" value="86" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/test/java/com/example/my_first_app/AddUseCaseTest.kt</url>
           <line>177</line>
           <option name="timeStamp" value="94" />
@@ -391,6 +397,16 @@
             <option name="lambda-ordinal" value="-1" />
           </properties>
           <option name="timeStamp" value="101" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/my_first_app/view/AddReservationFragment.kt</url>
+          <line>89</line>
+          <option name="timeStamp" value="103" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/my_first_app/view/AddReservationFragment.kt</url>
+          <line>134</line>
+          <option name="timeStamp" value="111" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

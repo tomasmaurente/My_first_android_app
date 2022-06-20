@@ -14,7 +14,6 @@
         <action
             android:id="@+id/action_parkingLotsFragment_to_reservationsFragment"
             app:destination="@id/reservationsFragment"
-
             />
         <action
             android:id="@+id/action_parkingLotsFragment_to_addReservationFragment"
@@ -58,10 +57,8 @@
         android:name="com.example.my_first_app.view.DeleteDialogFragment"
         android:label="DeleteDialogFragment"
         tools:layout="@layout/layout_delete_dialog">
-
         <action
             android:id="@+id/action_deleteDialogFragment_to_reservationsFragment"
             app:destination="@id/reservationsFragment" />
-
     </fragment>
 </navigation>

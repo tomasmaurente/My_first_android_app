@@ -5,6 +5,7 @@ import android.app.TimePickerDialog
 import android.os.Bundle
 import android.view.View
 import android.widget.*
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.example.domain.utils.AddPossibilities
@@ -14,6 +15,9 @@ import com.example.my_first_app.databinding.LayoutAddReservationBinding
 import com.example.my_first_app.utils.AppDateFormat
 import com.example.my_first_app.viewModel.AppViewModelProvider
 import com.example.my_first_app.viewModel.addViewModelPackage.AddViewModel
+import java.time.DayOfWeek
+import java.time.Month
+import java.time.Year
 import java.util.*
 
 class AddReservationFragment: Fragment(R.layout.layout_add_reservation) {
@@ -125,7 +129,8 @@ class AddReservationFragment: Fragment(R.layout.layout_add_reservation) {
     private fun dateTimePicker(isStartDateTime: Boolean) {
         var dateTime = Calendar.getInstance()
 
-        val timeListener = TimePickerDialog.OnTimeSetListener { view,hours,minutes ->
+        val timeListener = TimePickerDialog.OnTimeSetListener { _, hours, minutes ->
+
             dateTime.set(Calendar.MINUTE, minutes)
             dateTime.set(Calendar.HOUR, hours)
 
@@ -141,16 +146,17 @@ class AddReservationFragment: Fragment(R.layout.layout_add_reservation) {
         val dateListener = DatePickerDialog.OnDateSetListener { _,year,month,day ->
             dateTime.set(Calendar.YEAR, year)
             dateTime.set(Calendar.MONTH, month)
-            dateTime.set(Calendar.DAY_OF_MONTH, day)
+            dateTime.set(Calendar.DAY_OF_MONTH, day - 1)
         }
 
-        TimePickerDialog(
+        var timePicker = TimePickerDialog(
             activity,
             timeListener,
             dateTime.get(Calendar.HOUR_OF_DAY),
             dateTime.get(Calendar.MINUTE),
             false
-        ).show()
+        )
+        timePicker.show()
 
         val datePicker = DatePickerDialog(
             requireContext(),
@@ -163,4 +169,3 @@ class AddReservationFragment: Fragment(R.layout.layout_add_reservation) {
         datePicker.show()
     }
 }
-
