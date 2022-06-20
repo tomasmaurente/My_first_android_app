@@ -42,7 +42,7 @@ class LotRepositoryImp(
     private suspend fun getServiceLotList(): Result<ParkingLotListModel> {
         return when (val result =  parkingService.getLotList()){
             is Result.Success -> {
-                Result.Success(ParkingMapper.toParkingListResponseToModel(result.value!!))
+                Result.Success(ParkingMapper.toParkingListResponseToModel(result.value))
             }
             is Result.Failure -> {
                 Result.Failure(result.exception)

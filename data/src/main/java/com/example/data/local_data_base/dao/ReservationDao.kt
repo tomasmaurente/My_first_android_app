@@ -1,7 +1,6 @@
 package com.example.data.local_data_base.dao
 
 import androidx.room.*
-import com.example.data.local_data_base.entities.LotRoom
 import com.example.data.local_data_base.entities.ReservationRoom
 
 @Dao

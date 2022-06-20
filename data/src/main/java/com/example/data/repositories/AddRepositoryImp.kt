@@ -1,7 +1,6 @@
 package com.example.data.repositories
 
 import com.example.data.local_data_base.ParkingDataBase
-import com.example.data.local_data_base.entities.LotRoom
 import com.example.data.local_data_base.entities.ReservationRoom
 import com.example.data.responseObjects.ReservationRequest
 import com.example.data.service.ParkingService

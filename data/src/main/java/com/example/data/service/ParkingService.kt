@@ -89,7 +89,4 @@ class ParkingService (private val dispatcher: CoroutineDispatcher = Dispatchers.
         }
         return result
     }
-
-
-
 }

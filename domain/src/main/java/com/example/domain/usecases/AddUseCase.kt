@@ -14,16 +14,16 @@ class AddUseCase(var addReservationRepository: AddRepository) {
         if(reservation.parkingLot > -1){
             if (reservation.startDateTimeInMillis < reservation.endDateTimeInMillis){
                 reservationList?.reservationList?.forEach { reservationFromDataBase ->
-                    if (   reservationFromDataBase.endDate > reservation.startDateTimeInMillis
-                        || reservationFromDataBase.startDate > reservation.endDateTimeInMillis){
+    /* case a */    if (   reservation.startDateTimeInMillis <= reservationFromDataBase.endDate && reservation.startDateTimeInMillis > reservationFromDataBase.startDate
+    /* case b */        || reservation.endDateTimeInMillis >= reservationFromDataBase.startDate && reservation.startDateTimeInMillis <= reservationFromDataBase.startDate
+    /* case c */        || reservation.endDateTimeInMillis >= reservationFromDataBase.startDate && reservation.endDateTimeInMillis < reservationFromDataBase.endDate){
                         return AddPossibilities.Occupied
                     }
                 }
                 // Add reservation to database and service
-                var newAddition = addReservationRepository.addReservation(reservation)
-                when (newAddition) {
-                    is Result.Success -> return AddPossibilities.Successful
-                    is Result.Failure -> return AddPossibilities.Fail
+                return when (addReservationRepository.addReservation(reservation)) {
+                    is Result.Success -> AddPossibilities.Successful
+                    is Result.Failure -> AddPossibilities.Fail
                 }
             } else {
                 return AddPossibilities.IncorrectDates

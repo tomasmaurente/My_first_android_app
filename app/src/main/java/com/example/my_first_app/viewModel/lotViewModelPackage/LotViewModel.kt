@@ -8,8 +8,6 @@ import com.example.domain.entities.*
 import com.example.domain.usecases.LotUseCase
 import com.example.domain.usecases.ReservationUseCase
 import kotlinx.coroutines.launch
-import java.util.*
-import kotlin.coroutines.Continuation
 
 class LotViewModel (private val getLotListUseCase: LotUseCase,
                     private val getReservationListUseCase: ReservationUseCase) : ViewModel() {
@@ -59,7 +57,7 @@ class LotViewModel (private val getLotListUseCase: LotUseCase,
     }
 
     fun getNumberOfFreeLots(lotList: List<Lot>): Int{
-        val dateTime = Calendar.getInstance()
+        val dateTime = System.currentTimeMillis()
         var parkingAvailability = lotList.size
         var currentReservation = -1
         lotList.forEach(){ lot ->
@@ -67,8 +65,8 @@ class LotViewModel (private val getLotListUseCase: LotUseCase,
             lot.freeAt = -1
             lot.reservations.forEach() { reservation ->
                 currentReservation ++
-                if (reservation.startDateTimeInMillis < dateTime.timeInMillis
-                    && reservation.endDateTimeInMillis > dateTime.timeInMillis
+                if (reservation.startDateTimeInMillis < dateTime
+                    && reservation.endDateTimeInMillis > dateTime
                     && lot.freeAt == -1) {
                     lot.freeAt = currentReservation
                     parkingAvailability--

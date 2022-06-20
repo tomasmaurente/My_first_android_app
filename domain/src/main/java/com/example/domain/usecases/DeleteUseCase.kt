@@ -5,7 +5,7 @@ import com.example.domain.entities.Result
 import com.example.domain.repositories.DeleteRepository
 import java.lang.RuntimeException
 
-class DeleteReservationUseCase(var deleteReservationRepository: DeleteRepository){
+class DeleteUseCase(var deleteReservationRepository: DeleteRepository){
 
     suspend operator fun invoke(reservation: Reservation,
                                 authorizationCode: String

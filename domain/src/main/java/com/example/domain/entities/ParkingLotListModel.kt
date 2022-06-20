@@ -1,5 +1,3 @@
 package com.example.domain.entities
 
-data class ParkingLotListModel(var lotList: List<ParkingLotModel>,){
-
-}
+data class ParkingLotListModel(var lotList: List<ParkingLotModel>)

@@ -114,8 +114,8 @@ class AddReservationFragment: Fragment(R.layout.layout_add_reservation) {
                     viewModel!!.setWaitingState()
                 }
                 AddPossibilities.Waiting -> {}
-                else -> {
-                    Toast.makeText(activity, "Unexpected error occurred", Toast.LENGTH_SHORT).show()
+                AddPossibilities.Fail -> {
+                    Toast.makeText(activity, "Connection error, please check your connection to internet", Toast.LENGTH_SHORT).show()
                     viewModel!!.setWaitingState()
                 }
             }

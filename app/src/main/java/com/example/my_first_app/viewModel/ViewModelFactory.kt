@@ -11,7 +11,7 @@ import com.example.data.repositories.LotRepositoryImp
 import com.example.data.repositories.ReservationRepositoryImp
 import com.example.data.service.ParkingService
 import com.example.domain.usecases.AddUseCase
-import com.example.domain.usecases.DeleteReservationUseCase
+import com.example.domain.usecases.DeleteUseCase
 import com.example.domain.usecases.LotUseCase
 import com.example.domain.usecases.ReservationUseCase
 import com.example.my_first_app.viewModel.addViewModelPackage.AddViewModel
@@ -36,7 +36,7 @@ class ViewModelFactory(private val context: Context) : NewInstanceFactory() {
                 ) as T
             }
             ReservationViewModel::class.java -> {
-                ReservationViewModel(DeleteReservationUseCase(DeleteRepositoryImp(
+                ReservationViewModel(DeleteUseCase(DeleteRepositoryImp(
                     ParkingService(),
                     ParkingDataBase.getInstance(context)
                 )).apply {

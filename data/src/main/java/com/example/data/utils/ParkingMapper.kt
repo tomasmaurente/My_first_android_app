@@ -11,19 +11,12 @@ import com.example.domain.entities.ParkingLotModel as ParkingLotModel
 
 object ParkingMapper {
 
-    fun toParkingListResponseToModel(listResponse: LotListResponse): ParkingLotListModel{
+    fun toParkingListResponseToModel(listResponse: LotListResponse?): ParkingLotListModel{
         var lotList = ArrayList<ParkingLotModel>()
-        listResponse.lotList.forEach{
+        listResponse?.lotList?.forEach{
             lotList.add(toParkingLotResponseToModel(it))
         }
         return ParkingLotListModel(lotList)
-    }
-
-    fun lotRoomToLotModel(lotRoom: LotRoom?): ParkingLotModel? {
-        if (lotRoom != null) {
-            return ParkingLotModel(lotRoom.parkingId)
-        }
-        return null
     }
 
     private fun toParkingLotResponseToModel(lotResponse: LotResponse): ParkingLotModel {
@@ -67,17 +60,6 @@ object ParkingMapper {
         return ReservationListModel(reservationListModel)
     }
 
-    fun reservationRoomToReservationModel(reservationRoom: ReservationRoom?): ReservationModel{
-        if (reservationRoom != null) {
-            return ReservationModel(reservationRoom.id,
-                                    reservationRoom.authorizationCode,
-                                    reservationRoom.start,
-                                    reservationRoom.end,
-                                    reservationRoom.parkingLot)
-        } else {
-            return ReservationModel("wrong implementation","",0,0,0)
-        }
-    }
     fun reservationModelToReservationRoom(reservationModel: ReservationModel): ReservationRoom{
         return ReservationRoom(reservationModel.id,
                                reservationModel.authorizationCode,

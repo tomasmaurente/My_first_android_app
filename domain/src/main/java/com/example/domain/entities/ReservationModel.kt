@@ -5,4 +5,4 @@ class ReservationModel (var id: String,
                         val startDate: Long,
                         val endDate: Long,
                         val parkingLot: Int,
-                        ) {}
+                        )
