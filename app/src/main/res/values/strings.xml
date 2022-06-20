@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">Parking App</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="title_ParkingApp">ParkingApp</string>
+    <string name="busyPlaces">Busy</string>
+    <string name="freePlaces">Free</string>
+    <string name="day">Martes 20</string>
+    <string name="month_and_year">Diciembre 1998</string>
+    <string name="hour_of_day">12:00 PM</string>
+    <string name="lot">Lot</string>
+    <string name="addReservation">Add Reservation</string>
+    <string name="save">Save</string>
+    <string name="startDateTimeEditText">Start date/time</string>
+    <string name="endDateTimeEditText">End date/time</string>
+    <string name="authorizationEditText">Authorization code</string>
+
+    <!-- Delete dialog -->
+    <string name="deleteDialogTitle">Delete Reservation</string>
+    <string name="deleteDialogText">Are you sure you want to delete this reservation? Please input the authorization code to confirm.</string>
+    <string name="deleteDialogHint">Authorization Code</string>
+    <string name="deleteDialogCancel">Cancel</string>
+    <string name="deleteDialogDeleteButton">Delete</string>
+    <string name="pickALot">Pick a lot</string>
+    <string name="spinner_content">Pick a lot</string>
+
+    <!-- lots spinner screen 3-->
+    <string-array name="lotsNumbers">
+        <item>Pick a Lot</item>
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+    </string-array>
+</resources>
