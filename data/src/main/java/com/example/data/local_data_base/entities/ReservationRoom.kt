@@ -5,6 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.example.domain.entities.Reservation
 
+// FIXME: Rename to ReservationEntity
 @Entity(tableName = "reservationList")
 data class ReservationRoom(
     @PrimaryKey

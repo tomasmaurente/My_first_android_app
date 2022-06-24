@@ -16,6 +16,7 @@ import com.example.my_first_app.viewModel.lotViewModelPackage.LotViewModel
 class LotFragment: Fragment(R.layout.layout_parking_lots) {
 
     private lateinit var binding: LayoutParkingLotsBinding
+    // FIXME move this to the view model
     private var lotList: List<Lot> = listOf()
 
     private val viewModel by lazy{
@@ -28,6 +29,7 @@ class LotFragment: Fragment(R.layout.layout_parking_lots) {
         binding.mainRecyclerView.layoutManager = LinearLayoutManager(activity)
 
         binding.floatingAddButton.setOnClickListener{
+            // FIXME binding.root can be removed
             binding.root.findNavController().navigate(R.id.action_parkingLotsFragment_to_addReservationFragment)  // switching screen to reservationsFragment
         }
 
@@ -56,8 +58,10 @@ class LotFragment: Fragment(R.layout.layout_parking_lots) {
     }
 
     private fun onParkingSpotSelected(parkingLot: Lot){
+        // FIXME binding.root can be removed
         val navController = binding.root.findNavController()
         val bundle = Bundle()
+        // FIXME define a constant for "lot"
         bundle.putSerializable("lot", parkingLot)
         navController.navigate(R.id.action_parkingLotsFragment_to_reservationsFragment,bundle)
     }

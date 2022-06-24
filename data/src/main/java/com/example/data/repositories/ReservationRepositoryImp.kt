@@ -6,13 +6,16 @@ import com.example.data.service.ParkingService
 import com.example.domain.entities.*
 import com.example.domain.repositories.ReservationRepository
 
+// FIXME: Rename to ReservationRepositoryImpl
 class ReservationRepositoryImp(
     private val parkingService : ParkingService,
+    // FIXME: Repository should access the database through a data source class
     private val parkingDataBase: ParkingDataBase
                                         ): ReservationRepository {
 
 
     override suspend fun getReservationList(localDataBase: Boolean): Result<ReservationListModel> {
+        // FIXME: Use IF instead of WHEN
         return when(localDataBase) {
             true -> {
                 getLocalReservationList()
@@ -26,6 +29,7 @@ class ReservationRepositoryImp(
     }
 
     private suspend fun updateDataBase(reservationList: Result<ReservationListModel>){
+        // FIXME: Use IF instead of WHEN
         when(reservationList){
             is Result.Success -> {
 
@@ -37,6 +41,9 @@ class ReservationRepositoryImp(
                     )
                 }
                 // Check if any spare reservation
+                // FIXME: This can be simplified to:
+                //  dbList.filter { it.id !in serviceList.map { item -> item.id } }
+                //  .forEach { /* DELETE RESERVATION */ }
                 var reservationDoNotExistInService = true
                 val reservationListFromDataBase = parkingDataBase.reservationDataBaseDao().findReservationList()
                 reservationListFromDataBase.forEach { reservationFromDataBase ->

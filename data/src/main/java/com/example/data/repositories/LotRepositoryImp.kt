@@ -9,12 +9,15 @@ import com.example.domain.entities.ParkingLotModel
 import com.example.domain.repositories.LotRepository
 import com.example.domain.entities.Result
 
+// FIXME: Rename to LotRepositoryImpl
 class LotRepositoryImp(
     private val parkingService: ParkingService,
+    // FIXME: Repository should access the database through a data source class
     private val parkingDataBase: ParkingDataBase
                                 ) : LotRepository{
 
     override suspend fun getLotList(localDataBase: Boolean): Result<ParkingLotListModel> {
+        // FIXME: Use IF instead of WHEN
         return when(localDataBase){
             true -> {
                 getLocalLotList()
@@ -50,6 +53,7 @@ class LotRepositoryImp(
         }
     }
 
+    // FIXME: This code belongs to the data source.
     private suspend fun getLocalLotList(): Result<ParkingLotListModel>{
         var lotList = parkingDataBase.lotDataBaseDao().findLotList()
         return Result.Success(ParkingMapper.lotRoomListToParkingLotListModel(lotList))

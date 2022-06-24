@@ -3,6 +3,7 @@ package com.example.data.local_data_base.entities
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
+// FIXME: Rename to LotEntity
 @Entity(tableName = "lotList")
 data class LotRoom(
     @PrimaryKey

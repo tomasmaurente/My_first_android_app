@@ -23,12 +23,14 @@ import java.util.*
 class AddReservationFragment: Fragment(R.layout.layout_add_reservation) {
 
     private lateinit var binding: LayoutAddReservationBinding
+    // FIXME These 4 variables should be moved to the view model
     private var lot: Int? = null
     private lateinit var startDateTime: Calendar
     private lateinit var endDateTime: Calendar
     private lateinit var authorizationCode: String
 
     private val viewModel by lazy{
+        // FIXME remove let so that the view model is not nullable
         activity?.let { AppViewModelProvider(it).get(AddViewModel::class.java) }
     }
 
@@ -74,6 +76,8 @@ class AddReservationFragment: Fragment(R.layout.layout_add_reservation) {
 
         // Authorization code picker
         binding.authorizationCodeButton.setOnClickListener{
+            // FIXME: This provokes a bug where you need to click the field to avoid "complete all
+            //  the fields" error. This code can be moved inside the saveButton's click listener
             authorizationCode = binding.authorizationCodeButton.text.toString()
         }
 
@@ -156,6 +160,8 @@ class AddReservationFragment: Fragment(R.layout.layout_add_reservation) {
             dateTime.get(Calendar.MINUTE),
             false
         )
+        // FIXME: This should be moved inside dateListener, so that time picker is not shown if
+        //  date picker is cancelled.
         timePicker.show()
 
         val datePicker = DatePickerDialog(

@@ -9,6 +9,7 @@ import com.example.data.responseObjects.ReservationResponse
 import com.example.domain.entities.*
 import com.example.domain.entities.ParkingLotModel as ParkingLotModel
 
+// FIXME multiple classes should be created in order to convert from/to one type to the other
 object ParkingMapper {
 
     fun toParkingListResponseToModel(listResponse: LotListResponse?): ParkingLotListModel{

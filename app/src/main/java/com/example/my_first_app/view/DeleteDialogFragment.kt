@@ -10,8 +10,10 @@ import com.example.domain.entities.Reservation
 import com.example.my_first_app.R
 import com.example.my_first_app.utils.DeleteDialogCallBack
 
+// FIXME rename to DeleteReservationConfirmationDialog
 class DeleteDialogFragment(dialogCallBack: DeleteDialogCallBack, reservation: Reservation) : DialogFragment() {
 
+    // FIXME move to constructor
     private val dialogCallBack = dialogCallBack
     private val reservation = reservation
 
@@ -20,6 +22,7 @@ class DeleteDialogFragment(dialogCallBack: DeleteDialogCallBack, reservation: Re
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        // FIXME: Use view binding
         val rootView: View = inflater.inflate(R.layout.layout_delete_dialog, container, false)
 
         rootView.findViewById<View>(R.id.cancelButton).setOnClickListener{

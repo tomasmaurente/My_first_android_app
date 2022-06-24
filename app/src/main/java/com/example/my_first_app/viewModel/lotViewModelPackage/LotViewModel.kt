@@ -54,6 +54,7 @@ class LotViewModel (private val getLotListUseCase: LotUseCase,
         }
     }
 
+    // FIXME This logic should be moved to the use case
     fun getNumberOfFreeLots(lotList: List<Lot>): Int{
         val dateTime = System.currentTimeMillis()
         var parkingAvailability = lotList.size

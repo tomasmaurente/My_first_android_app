@@ -20,6 +20,7 @@ class ReservationFragment: Fragment(R.layout.layout_reservations), DeleteDialogC
 
     private lateinit var binding: LayoutReservationsBinding
 
+    // FIXME move this to the view model
     private lateinit var lotSelected: Lot
 
     private val viewModel by lazy{
@@ -36,10 +37,12 @@ class ReservationFragment: Fragment(R.layout.layout_reservations), DeleteDialogC
         initRecyclerView(lotSelected.reservations)
 
         binding.imageButton.setOnClickListener {
+            // FIXME binding.root can be removed
             binding.root.findNavController().popBackStack()
         }
 
         binding.floatingAddButton.setOnClickListener{
+            // FIXME binding.root can be removed
             binding.root.findNavController().navigate(R.id.action_reservationsFragment_to_addReservationFragment)  // switching screen to reservationsFragment
 
         }
@@ -64,6 +67,7 @@ class ReservationFragment: Fragment(R.layout.layout_reservations), DeleteDialogC
 
         viewModel.deletedSuccessfully.observe(viewLifecycleOwner) { deletedSuccessfully ->
             if (deletedSuccessfully) {
+                // FIXME binding.root can be removed
                 binding.root.findNavController()
                     .navigate(R.id.action_reservationsFragment_to_parkingLotsFragment)
                 Toast.makeText(

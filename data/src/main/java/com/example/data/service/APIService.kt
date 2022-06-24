@@ -6,6 +6,7 @@ import com.example.data.responseObjects.ReservationRequest
 import retrofit2.Response
 import retrofit2.http.*
 
+// FIXME: Rename to ParkingApi
 interface APIService {
 
     @GET("{parkingId}/reservations.json")

@@ -17,6 +17,7 @@ object AppDateFormat {
         return simpleDateFormat.format(date)
     }
     fun completeFormat(date: Long): String {
+        // FIXME: AM/PM is missing
         val simpleDateFormat = SimpleDateFormat(" dd-MM-yyyy hh:mm ")
         return simpleDateFormat.format(date)
     }
